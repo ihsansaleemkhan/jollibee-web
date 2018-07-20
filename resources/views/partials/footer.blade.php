@@ -56,6 +56,8 @@
 
     </div><!-- .col-full -->
 </footer><!-- #colophon -->
+<!-- #colophon -->
+</div>
 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/tether.min.js"></script>
@@ -65,6 +67,5 @@
 <script type="text/javascript" src="assets/js/social.share.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="assets/js/scripts.min.js"></script>
-
 </body>
 </html>

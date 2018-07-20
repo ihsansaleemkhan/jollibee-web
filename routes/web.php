@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/home', 'NavigationController@index')->name('home');
+Route::get('/order-online', 'NavigationController@orderOnline')->name('order-online');
+Route::get('/single-product{id}', 'NavigationController@singleProduct')->name('single-product');
