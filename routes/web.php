@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/home', 'NavigationController@index')->name('home');
 Route::get('/order-online', 'NavigationController@orderOnline')->name('order-online');
 Route::get('/single-product{id}', 'NavigationController@singleProduct')->name('single-product');
+
+
+Route::post('shopping-cart', 'ShoppingController@toCart');
+Route::post('checkout', 'ShoppingController@toCheckout');

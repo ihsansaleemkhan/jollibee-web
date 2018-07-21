@@ -8,8 +8,8 @@
         <div class="pizzaro-breadcrumb">
             <nav class="woocommerce-breadcrumb" itemprop="breadcrumb">
                 <a href="index.html">Home</a><span class="delimiter"><i class="po po-arrow-right-slider"></i></span>
-                <a href="shop-grid-4-column.html">Pizza</a>
-                <span class="delimiter"><i class="po po-arrow-right-slider"></i></span>Hawaii Vegetarian Pizza
+                <a href="shop-grid-4-column.html">{{$product[0]->cat_name}}</a>
+                <span class="delimiter"><i class="po po-arrow-right-slider"></i></span>{{$product[0]->name}}
             </nav>
         </div>
         <!-- /.woocommerce-breadcrumb -->
@@ -20,7 +20,7 @@
                         <div class="product-images-wrapper">
                             <div class="images">
                                 <a href="assets/images/single-product/1.jpg" itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto[product-gallery]">
-                                    <img width="600" height="600" src="assets/images/single-product/1.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt=""/>
+                                    <img src="images/products/{{$product[0]->image}}" class="attachment-shop_single size-shop_single wp-post-image" style="width: 600px;height: 600px" alt=""/>
                                 </a>
                                 <div class="thumbnails columns-4">
                                     <a href="assets/images/single-product/1.jpg" class="zoom first" title="" data-rel="prettyPhoto[product-gallery]">
@@ -34,9 +34,9 @@
                         </div>
                         <!-- /.product-images-wrapper -->                        <!-- /.product-images-wrapper -->
                         <div class="summary entry-summary">
-                            <h1 itemprop="name" class="product_title entry-title">Hawaii Vegetarian Pizza<span class="food-type-icon"><i class="po po-veggie-icon"></i></span></h1>
+                            <h1 itemprop="name" class="product_title entry-title">{{$product[0]->name}}</h1>
                             <div itemprop="description">
-                                <p>Mouth watering pepperoni, cabanossi, mushroom, capsicum, black olives and stretchy mozzarella, seasoned with garlic and oregano.</p>
+                                <p>{{$product[0]->description}}</p>
                             </div>
                             <!-- AddToAny BEGIN -->
                             <div class="social-share-btn a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -47,7 +47,12 @@
                                 <a class="a2a_button_pinterest"></a>
                             </div>
                             <!-- AddToAny END -->
-                            <form class="cart"  enctype='multipart/form-data'>
+                            <form class="cart" method="POST" enctype="multipart/form-data" action="{{url('shopping-cart')}}">
+                                {{csrf_field()}}
+                                <input type="hidden" class="form-control" value="{{$product[0]->productID}}" id="productID" name="productID">
+                                <input type="hidden" class="form-control" value="{{$product[0]->name}}" id="name" name="name">
+                                <input type="hidden" class="form-control" value="{{$product[0]->sale_price}}" id="sale_price" name="sale_price">
+                                <input type="hidden" class="form-control" value="{{$product[0]->image}}" id="image" name="image">
                                 <div  class="yith_wapo_groups_container">
                                     <h2 class="group-name">Crust &amp; Size</h2>
                                     <div class="yith_wapo_groups_container_wrap">
@@ -74,30 +79,18 @@
                                         </div>
                                         <div id="ywapo_value_3" class="ywapo_group_container ywapo_group_container_radio form-row form-row-wide " data-requested="1" data-type="radio" data-id="3" data-condition="">
                                             <h3><span>Select Size</span></h3>
+
+                                            @foreach($sizes as $s)
                                             <div class="ywapo_input_container ywapo_input_container_radio">
                                                 <input data-typeid="3" data-price="19.9" data-pricetype="fixed" data-index="0" type="radio" name="ywapo_radio_3[]" value="0" required checked class="ywapo_input ywapo_input_radio ywapo_price_fixed"   />
                                                 <label class="ywapo_label_tag_position_after">
-                                                    <span class="ywapo_option_label ywapo_label_position_after">22  cm</span>
+                                                    <span class="ywapo_option_label ywapo_label_position_after">{{$s->sizeName}}</span>
 
                                                 </label>
-                                                <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>19.90</span></span>
+                                                <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>{{$s->priceAddSize + $product[0]->sale_price}}</span></span>
                                             </div>
-                                            <div class="ywapo_input_container ywapo_input_container_radio">
-                                                <input data-typeid="3" data-price="25.9" data-pricetype="fixed" data-index="1" type="radio" name="ywapo_radio_3[]" value="1" required  class="ywapo_input ywapo_input_radio ywapo_price_fixed"   />
-                                                <label class="ywapo_label_tag_position_after">
-                                                    <span class="ywapo_option_label ywapo_label_position_after">29  cm</span>
+                                            @endforeach
 
-                                                </label>
-                                                <span class="ywapo_label_price"> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>25.90</span></span>
-                                            </div>
-                                            <div class="ywapo_input_container ywapo_input_container_radio">
-                                                <input data-typeid="3" data-price="32.9" data-pricetype="fixed" data-index="2" type="radio" name="ywapo_radio_3[]" value="2" required  class="ywapo_input ywapo_input_radio ywapo_price_fixed"   />
-                                                <label class="ywapo_label_tag_position_after">
-                                                    <span class="ywapo_option_label ywapo_label_position_after">35  cm</span>
-
-                                                </label>
-                                                <span class="ywapo_label_price"> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>32.90</span></span>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="yith_wapo_group_total" data-product-price="0">

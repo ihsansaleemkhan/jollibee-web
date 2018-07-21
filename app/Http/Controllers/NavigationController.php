@@ -24,6 +24,9 @@ class NavigationController extends Controller
    {
        $ProductMaster = new \App\ProductMaster();
        $product = $ProductMaster->getProduct($id);
-       return view('single-product', ['products' => $product]);
+       $sizes = $ProductMaster->getSize($id);
+       //dd($sizes);
+       //dd($product);
+       return view('single-product', ['product' => $product,'sizes' => $sizes]);
    }
 }

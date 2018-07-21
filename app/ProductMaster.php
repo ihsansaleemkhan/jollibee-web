@@ -18,6 +18,16 @@ class ProductMaster extends Model
     }
     public function getProduct($id)
     {
-        return DB::table('product_master')->where('productID',$id)->get();
+        return DB::table('product_master')
+            ->join('category_master','product_master.categoryID','=','category_master.categoryID')
+            ->where('productID',$id)
+            ->get();
+    }
+    public function getSize($id)
+    {
+        return DB::table('product_master')
+            ->join('size_master','product_master.sizeID','=','size_master.sizeID')
+            ->where('productID',$id)
+            ->get();
     }
 }
