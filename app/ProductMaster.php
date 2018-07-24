@@ -14,7 +14,7 @@ class ProductMaster extends Model
 
     public function getProducts()
     {
-        return DB::table('product_master')->orderBy('productID', 'desc')->get();
+        return DB::table('product_master')->orderBy('productID', 'desc')->paginate(15);
     }
     public function getProduct($id)
     {

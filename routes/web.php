@@ -22,3 +22,7 @@ Route::get('/single-product{id}', 'NavigationController@singleProduct')->name('s
 
 Route::post('shopping-cart', 'ShoppingController@toCart');
 Route::post('checkout', 'ShoppingController@toCheckout');
+
+Route::get('paypal/express-checkout', 'PaypalController@expressCheckout')->name('paypal.express-checkout');
+Route::get('paypal/express-checkout-success', 'PaypalController@expressCheckoutSuccess');
+Route::post('paypal/notify', 'PaypalController@notify');

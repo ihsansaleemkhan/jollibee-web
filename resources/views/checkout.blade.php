@@ -1,4 +1,4 @@
-<title>single product | jollibee</title>
+<title>checkout | jollibee</title>
 @include('partials.app')
 <body class="woocommerce-checkout">
 <div id="page" class="hfeed site">
@@ -171,7 +171,7 @@
                                             <strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span> {{$data['sale_price']}}</span></strong>
                                         </td>
                                     </tr>
-                                    </tfoot>
+                                    </tfoot>F
                                 </table>
                                 <div id="payment" class="woocommerce-checkout-payment">
                                     <ul class="wc_payment_methods payment_methods methods">
@@ -214,7 +214,7 @@
                                             <label for="terms" class="checkbox">I&rsquo;ve read and accept the <a href="terms-and-conditions.html" target="_blank">terms &amp; conditions</a> <span class="required">*</span></label>
                                             <input type="hidden" name="terms-field" value="1" />
                                         </p>
-                                        <a class="button alt" href="order-received.html" style="text-align: center;">Place order</a>
+                                        <a class="button alt" href="{{ route('paypal.express-checkout') }}" style="text-align: center;">Place order</a>
                                     </div>
                                 </div>
                             </div>
@@ -230,5 +230,6 @@
     <!-- #primary -->
 </div>
 <!-- .col-full -->
+</div>
 </div>
 @include('partials.footer')

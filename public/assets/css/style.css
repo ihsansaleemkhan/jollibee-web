@@ -48,7 +48,7 @@ html {
  */
 body {
   margin: 0; }
-
+ywapo_label_price
 /* HTML5 display definitions
    ========================================================================== */
 /**
@@ -10487,7 +10487,6 @@ ul.products li.product, .products .owl-item > .product {
       border: 2px solid #ffcd00; }
   ul.products li.product .product-inner, .products .owl-item > .product .product-inner {
     padding: 0;
-    height: 100%;
     position: relative; }
   ul.products li.product .product-outer, .products .owl-item > .product .product-outer {
     position: relative; }

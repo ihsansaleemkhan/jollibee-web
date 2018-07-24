@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryMasterTable extends Migration
+class CreateInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCategoryMasterTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_master', function (Blueprint $table) {
-            $table->increments('categoryID');
-            $table->string('cat_name');
-            $table->string('cat_image');
-            $table->text('cat_description');
-            $table->integer('cat_status');
+        Schema::create('invoices', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->double('price', 2);
+            $table->string('payment_status')->nullable();
+            $table->string('recurring_id')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateCategoryMasterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_master');
+        Schema::dropIfExists('invoices');
     }
 }
