@@ -48,7 +48,7 @@ html {
  */
 body {
   margin: 0; }
-ywapo_label_price
+
 /* HTML5 display definitions
    ========================================================================== */
 /**
@@ -2867,7 +2867,6 @@ body {
   font-weight: bold;
   text-align: left;
   float: left;
-  font-size: 12px;
 }
 
 .site-footer a{
@@ -2878,7 +2877,6 @@ body {
   font-weight: bold;
   text-align: left;
   float: right;
-  font-size: 12px;
 }
 /**
  * Alignment
@@ -7017,6 +7015,73 @@ ul.products > li.product {
   margin-left: -16px;
 }
 
+.vmc-centered{ padding: 10px 0; }
+.vmc-centered img { transition: all 0.3s ease; }
+.vmc-centered .vmc_active img { transform: scale(1.2); }
+
+.bg-whte{
+  background-color: #ffffff;
+  -webkit-box-shadow: 1px 1px 2px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    1px 1px 2px 2px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         1px 1px 2px 2px #ccc;
+  padding: 50px 20px;
+}
+
+.fd_item{
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  box-shadow: 0px 0px 0px 1px #fff;
+  transition: box-shadow 0.6s linear;
+  
+}
+
+.fd_item .hover-area{
+  display: none;
+    border: none;
+    position: relative;
+    text-align: center;
+    height: 5.25em;
+    background-color: #FFF;
+    transition: all 0.1s ease-in-out 0s;
+}
+
+.fd_item:hover{
+   /*border: 3px solid #33920a;*/
+  border-radius: 14px;
+  box-shadow: 0px 0px 0px 4px #33920a
+}
+
+.fd_item:hover .hover-area{
+  display: block;
+  padding-top: 0.214em;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 30px;
+  transition: all 0.1s ease-in-out 0s;
+}
+
+.fd_item img{
+  margin: auto;
+}
+.fd_item p{
+  font-size: 20px;
+  line-height: 17px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.fd_item span{
+  color: #fdb813;
+  font-size: 2pc;
+  font-weight: bold;
+}
+
+.chaat{
+  position: absolute;
+  top: 1305px;
+  right: 0;
+  z-index: 9999;
+}
 .header-signup a{
   color: #ffffff;
 }
@@ -7836,6 +7901,13 @@ button.menu-toggle {
 .vertical-align > [class^="col-"], .vertical-align > [class*=" col-"] {
   display: flex;
   align-items: center; }
+
+  .home_v1_bar{
+    padding: 50px 100px;
+    background-size: cover;
+    background-position: center center;
+    height: 468px;
+  }
 
 /*
  *  Owl Carousel - Core
@@ -14218,6 +14290,76 @@ a.remove {
   margin-top: 17px;
 }
 
+.modal_img{
+  margin: auto;
+  height: 100px;
+}
+
+.modal-body input[type="text"], .modal-body input[type="email"], .modal-body input[type="url"], .modal-body input[type="password"], .modal-body input[type="search"], .modal-body textarea, .input-text {
+    padding: 0.473em 1.2em;
+    color: #666666;
+    outline: none;
+    border: 1px solid #cccccc;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    font-weight: normal;
+    border-radius: 0px;
+    background: #e71b2324;
+}
+
+.btn-outline-light{
+  background: none;
+  color: #333;
+}
+
+.modal-body select{
+  background: #e71b2324;
+  color: #666666;
+  width: 40%
+}
+
+.cartpopimg{
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.cartpophh5{
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: #ffae00;
+    border-color: #ffae00;
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.popqty{
+  padding: .326em .8em;
+  width: 6.945em;
+  height: 2.334em;
+  font-weight: normal;
+  border-radius: 50px;
+  border: 1px solid #dddddd;
+  margin-bottom: 15px;
+}
+
+.vmcarousel-centered-infitine h5{
+  text-align: center;
+}
+
+.vmcarousel-centered-infitine .vmc_active h5{
+  margin-top: 15px;
+}
+
 .header-mrg{
   margin-top: -45px;
 }
@@ -15828,6 +15970,25 @@ p.order-again .button:after {
       margin-top: 20px;
       margin-left: 15px;
     }
+
+    .features-list {
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    .home_v1_bar {
+      padding: 50px 39px;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .add_to_cart_button, .product_type_variable {
+      padding: 0.500em 2.411em;
+    }
+
+    .chaat {
+      display: none;
+    }
 }
 
 @media (min-width: 501px) and (max-width: 770px){
@@ -15867,6 +16028,17 @@ p.order-again .button:after {
       margin-right: 4px;
       border-radius: 50%;
       font-size: 13px;
+    }
+
+    .home_v1_bar {
+        padding: 50px 19px;
+        background-size: cover;
+        background-position: center center;
+        height: 468px;
+    }
+
+    .add_to_cart_button, .product_type_variable {
+      padding: 0.507em 1.411em;
     }
 }
 

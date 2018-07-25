@@ -6,18 +6,7 @@
 <div id="content" class="site-content" tabindex="-1">
 <div class="col-full">
     <div class="pizzaro-sorting">
-        <div class="food-type-filter">
-            <div class="clear-food-type-filter chosen"><a href="#">Show All</a>
-            </div>
-            <div class="widget woocommerce widget_layered_nav">
-                <ul>
-                    <li class="wc-layered-nav-term "><a href="#">Meat</a> <span class="food-type-icon"><i class="fa fa-cutlery"></i></span></li>
-                    <li class="wc-layered-nav-term "><a href="#">Spicy</a> <span class="food-type-icon"><i class="fa fa-fire"></i></span></li>
-                    <li class="wc-layered-nav-term "><a href="#">Veg</a> <span class="food-type-icon"><i class="po po-veggie-icon"></i></span></li>
-                </ul>
-            </div>
-            <div class="create-your-own"><a href="single-product-v3.html">Create your own</a></div>
-        </div>
+        @include('homepage.home-ads-block')
     </div>
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
@@ -58,7 +47,7 @@
                                             </div>--}}
                                         </a>
                                         <div class="hover-area" style="margin-top: 40px">
-                                            <a rel="nofollow" href="{{ route('single-product',$p->productID) }}" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart" style="background-color: #2ab27b;">Add to cart</a>
+                                            <a rel="nofollow" data-toggle="modal" data-target="#exampleModalCenter" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart" style="background-color: #2ab27b;">Add to cart</a>
                                         </div>
                                     </div>
                                 </div>

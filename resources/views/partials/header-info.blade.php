@@ -6,9 +6,9 @@
     </div>
 
     <ul class="site-header-cart-v2 menu">
-        <li class="header-signup"><a href="">Sign in / Sign Up</a></li>
+        <li class="header-signup"><a href="" data-toggle="modal" data-target=".bd-example-modal-sm">Sign in / Sign Up</a></li>
         <li class="cart-content ">
-            <a href="index.php?page=cart" title="View your shopping cart">
+            <a href="#" title="View your shopping cart">
                 <i class="po po-scooter"></i>
                 <span>Your Bag</span>
             </a>
@@ -22,3 +22,4 @@
         </li>
     </ul>
 </div>
+

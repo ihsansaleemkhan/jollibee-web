@@ -12,5 +12,5 @@
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.min.css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CYanone+Kaffeesatz:200,300,400,700" rel="stylesheet">
     <link rel="shortcut icon" href="assets/images/fav-icon.png">
-
+    <link href="assets/css/jquery.vm-carousel.css" rel="stylesheet">
 </head>
