@@ -26,3 +26,20 @@ Route::post('checkout', 'ShoppingController@toCheckout');
 Route::get('paypal/express-checkout', 'PaypalController@expressCheckout')->name('paypal.express-checkout');
 Route::get('paypal/express-checkout-success', 'PaypalController@expressCheckoutSuccess');
 Route::post('paypal/notify', 'PaypalController@notify');
+
+
+
+
+
+
+Auth::routes();
+
+
+Route::get('google', function () {
+    return view('googleAuth');
+});
+
+//redirect and callback URLs
+
+Route::get('auth/google', 'Auth\AuthController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\AuthController@handleGoogleCallback');

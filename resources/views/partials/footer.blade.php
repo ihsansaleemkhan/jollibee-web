@@ -31,7 +31,7 @@
                 <button type="button" class="btn btn-danger btn-block">Sign Up</button>
                 <br/>
                 <button type="button" class="btn btn-info  btn-block">Sign in with facebook</button>
-                <button type="button" class="btn btn-primary  btn-block">Sign in with google</button>
+                <a href="{{ url('auth/google') }}" type="button" class="btn btn-primary  btn-block">Sign in with google</a>
 
 
             </div>
@@ -69,7 +69,7 @@
 
                 <br/>
                 <button type="button" class="btn btn-info  btn-block">Sign in with facebook</button>
-                <button type="button" class="btn btn-primary  btn-block">Sign in with google</button>
+                <a href="{{ url('auth/google') }}" type="button" class="btn btn-primary  btn-block">Sign in with google</a>
 
 
             </div>
