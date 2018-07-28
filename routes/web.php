@@ -34,12 +34,6 @@ Route::post('paypal/notify', 'PaypalController@notify');
 
 Auth::routes();
 
+Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','facebook|google');
 
-Route::get('google', function () {
-    return view('googleAuth');
-});
-
-//redirect and callback URLs
-
-Route::get('auth/google', 'Auth\AuthController@redirectToGoogle');
-Route::get('auth/google/callback', 'Auth\AuthController@handleGoogleCallback');
+Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','facebook|google');
