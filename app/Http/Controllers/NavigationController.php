@@ -20,11 +20,13 @@ class NavigationController extends Controller
         $ProductMaster = new \App\ProductMaster();
         $products = $ProductMaster->getProducts();
 
-        $client = new Client();
-        $res = $client->get('http://eportal.mycomsys.com/posapi_json/api/group?cid=70288&lcode=001&from=2000-01-01T00:00:00&to=2100-01-01T00:00:00');
+
+
+       // $client = new Client();
+      //  $res = $client->get('http://eportal.mycomsys.com/posapi_json/api/group?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
         //echo $res->getStatusCode(); // 200
-        echo $res->getBody();
-        //return view('order-online', ['products' => $products]);
+       //  echo $res->getBody();
+        return view('order-online', ['products' => $products]);
     }
 
    public function singleProduct($id)

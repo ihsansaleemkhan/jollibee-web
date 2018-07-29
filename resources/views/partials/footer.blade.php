@@ -10,29 +10,28 @@
                 <img src="assets/images/jollibee.png" class="modal_img">
             </div>
             <div class="modal-body">
-                <form>
+                <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    {{ csrf_field() }}
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Full Name" id="recipient-name">
+                        <input type="text" class="form-control" placeholder="Full Name" id="full_name" name="full_name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email Address" id="recipient-name">
+                        <input type="text" class="form-control" placeholder="Email Address" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Mobile Number" id="recipient-name">
+                        <input type="text" class="form-control" placeholder="Mobile Number" id="mobile" name="mobile" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password" id="recipient-name">
+                        <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Confirm Password" id="recipient-name">
+                        <input type="password" class="form-control" placeholder="Confirm Password" id="password-confirm"  name="password_confirmation" required>
                     </div>
-                </form>
-
                 <button type="button" class="btn btn-danger btn-block">Sign Up</button>
                 <br/>
+                </form>
                 <a href="{{ url('login/facebook') }}" type="button" class="btn btn-info  btn-block">Sign in with facebook</a>
                 <a href="{{ url('login/google') }}" type="button" class="btn btn-primary  btn-block">Sign in with google</a>
-
 
             </div>
             <div class="modal-footer">

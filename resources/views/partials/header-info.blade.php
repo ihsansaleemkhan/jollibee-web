@@ -14,7 +14,7 @@
             </a>
             <ul class="sub-menu">
                 <li>
-                    <a href="index.php?page=cart" title="View your shopping cart">
+                    <a href="" title="View your shopping cart">
                         <span class="count">2 items</span> <span class="amount">$50.00</span>
                     </a>
                 </li>

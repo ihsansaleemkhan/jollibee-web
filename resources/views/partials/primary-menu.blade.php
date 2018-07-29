@@ -6,17 +6,17 @@
             <li class="yamm-fw menu-item"><a href="">Deals</a></li>
             <li class="menu-item"><a href="">Kids Party</a></li>
             <li class="menu-item"><a href="">Rewards</a></li>
-            <li class="menu-item"><a href="index.php?page=store-locator">Store Locator</a></li>
+            <li class="menu-item"><a href="">Store Locator</a></li>
         </ul>
     </div>
     <div class="handheld-navigation">
         <span class="phm-close">Close</span>
         <ul  class="menu">
             <li class="menu-item "><a href="{{route('order-online')}}">Order Online</a></li>
-            <li class="menu-item "><a href="index.php?page=shop-grid-3-column">Deals</a></li>
-            <li class="menu-item "><a href="index.php?page=shop-grid-3-column">Kids Party</a></li>
-            <li class="menu-item "><a href="index.php?page=shop-grid-3-column">Rewards</a></li>
-            <li class="menu-item "><a href="index.php?page=shop-grid-3-column">Store Locator</a></li>
+            <li class="menu-item "><a href="">Deals</a></li>
+            <li class="menu-item "><a href="">Kids Party</a></li>
+            <li class="menu-item "><a href="">Rewards</a></li>
+            <li class="menu-item "><a href="">Store Locator</a></li>
 
         </ul>
     </div>

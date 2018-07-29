@@ -8,9 +8,9 @@
 					<div class="pre-title-value">LIMITED TIME OFFER</div>
 					<div class="border back"></div>
 				</div>
-				<div class="title">SUPREME BBQ</div>
-				<div class="sub-title">CHICKEN</div>
-				<div class="bottom-caption">Bacon  -  Grilled Onions  -  Potatos  -  Mozarella  -  BBQ Sauce</div>
+				<div class="title">CHICKEN</div>
+				<div class="sub-title">ENJOY</div>
+				<div class="bottom-caption">Chicken  -  Grilled Onions  -  Potatos  -  Mozarella  -  BBQ Sauce</div>
 			</div>
 		</div>
 
@@ -23,8 +23,8 @@
 		            </div>
 		            <div class="border back"> </div>
 		        </div>
-		        <div class="title">ORYGINAL ITALY</div>
-		        <div class="sub-title">PIZZA LOVERS SET</div>
+		        <div class="title">ORIGINAL JOLLIBEE</div>
+		        <div class="sub-title">COMBO MEAL</div>
 		    </div>
 		</div>
 

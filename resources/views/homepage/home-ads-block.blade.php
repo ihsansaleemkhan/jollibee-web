@@ -3,40 +3,36 @@
 		<div class="col-xs-12 col-sm-12">
 			<ul class="vmcarousel-centered-infitine vmc-centered">
 		      <li>
-		      	<img src="https://unsplash.it/500/281?image=579" alt="" width="200">
-		      	<h5>Checken </h5>
+		      	<img src="assets/images/categories/cat7.png" alt="" width="200">
+		      	<h5>Chicken </h5>
 		      </li>
 		      <li>
-		      	<img src="https://unsplash.it/500/281?image=577" alt="" width="200">
-		      	<h5>Checken </h5>
+		      	<img src="assets/images/categories/cat6.png" alt="" width="200">
+		      	<h5>Burgers & Sandwiches </h5>
 		      </li>
 		      <li>
-		      	<img src="https://unsplash.it/500/281?image=604" alt="" width="200">
-		      	<h5>Checken </h5>
+		      	<img src="assets/images/categories/cat4.png" alt="" width="200">
+		      	<h5>Rice & Noodles </h5>
 		      </li>
 		      <li>
-		      	<img src="https://unsplash.it/500/281?image=611" alt="" width="200">
-		      	<h5>Checken </h5>
+		      	<img src="assets/images/categories/cat3.png" alt="" width="200">
+		      	<h5>Drinks & Sides </h5>
 		      </li>
 		      <li>
-		      	<img src="https://unsplash.it/500/281?image=628" alt="" width="200">
-		      	<h5>Checken </h5>
+		      	<img src="assets/images/categories/cat5.png" alt="" width="200">
+		      	<h5>Breakfast Joy </h5>
 		      </li>
 		      <li>
-		      	<img src="https://unsplash.it/500/281?image=643" alt="" width="200">
-		      	<h5>Checken </h5>
+		      	<img src="assets/images/categories/cat1.png" alt="" width="200">
+		      	<h5>New Products </h5>
 		      </li>
 		      <li>
-		      	<img src="https://unsplash.it/500/281?image=643" alt="" width="200">
-		      	<h5>Checken </h5>
+		      	<img src="assets/images/categories/cat2.png" alt="" width="200">
+		      	<h5>Extras </h5>
 		      </li>
 		      <li>
-		      	<img src="https://unsplash.it/500/281?image=643" alt="" width="200">
-		      	<h5>Checken </h5>
-		      </li>
-		      <li>
-		      	<img src="https://unsplash.it/500/281?image=643" alt="" width="200">
-		      	<h5>Checken </h5>
+		      	<img src="assets/images/categories/cat6.png" alt="" width="200">
+		      	<h5>Deals </h5>
 		      </li>
 		   </ul>
 		</div>
