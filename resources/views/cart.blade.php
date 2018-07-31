@@ -110,7 +110,7 @@
                                         <div class="qty-btn">
                                             <label>Quantity</label>
                                             <div class="quantity">
-                                                <input type="number" value="1" title="Qty" class="input-text qty text"/>
+                                                <input type="number" value="{{ $item->model->qty }}" title="Qty" class="input-text qty text"/>
                                             </div>
                                         </div>
                                     </td>
@@ -190,7 +190,7 @@
                                         </td>
                                     </tr>
                                     <tr class="cart-subtotal">
-                                        <th>Tax</th>
+                                        <th>Tax(5%)</th>
                                         <td data-title="tax">
                                             <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ Cart::tax() }}</span>
                                         </td>

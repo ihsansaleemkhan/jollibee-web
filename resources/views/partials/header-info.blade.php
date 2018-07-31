@@ -1,8 +1,9 @@
 <div class="header-info-wrapper header-mrg">
     <div class="header-phone-numbers">
-        <span class="intro-text">Call and Order in</span>
-
-        <span id="city-phone-number-label" class="phone-number">600 587000</span>
+        <div class="v1_inputbar">
+            <input type="text" id="search_bar" placeholder="Search for.." class="form-control" style="display: none">
+        </div>
+        <span class="v1_search"><i class="fa fa-search"></i></span>
     </div>
 
     <ul class="site-header-cart-v2 menu">
@@ -14,13 +15,12 @@
             </a>
             <ul class="sub-menu">
                 <li>
-                        @if (Cart::count() > 0)
+                    @if (Cart::count() > 0)
                         <a href="{{route('cart')}}" title="View your shopping cart">    </a>
                         <span class="count">{{Cart::instance('default')->count()}} item(s)</span> <span class="amount"></span>
-                        @else
+                    @else
                         <span class="count">No item(s)</span>
-                        @endif
-
+                    @endif
                 </li>
             </ul>
         </li>

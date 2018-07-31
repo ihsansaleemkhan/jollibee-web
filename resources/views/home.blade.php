@@ -10,11 +10,10 @@
                     @include('homepage.home-slider')
                     @include('homepage.home-ads-block')
                     @include('homepage.home-featurelist')
-                    @include('homepage.home-stretch-full')
+                 {{--   @include('homepage.home-stretch-full')--}}
                 </main><!-- #main -->
             </div><!-- #primary -->
         </div><!-- .col-full -->
     </div><!-- #content -->
 </div>
-
 @include('partials.footer')

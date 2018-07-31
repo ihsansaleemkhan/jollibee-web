@@ -3,10 +3,16 @@
     <div class="primary-navigation">
         <ul id="menu-main-menu" class="menu nav-menu" aria-expanded="false">
             <li class="menu-item"><a href="{{route('order-online')}}">Order Online</a></li>
-            <li class="yamm-fw menu-item"><a href="">Deals</a></li>
-            <li class="menu-item"><a href="">Kids Party</a></li>
-            <li class="menu-item"><a href="">Rewards</a></li>
-            <li class="menu-item"><a href="">Store Locator</a></li>
+            <li class="yamm-fw menu-item menu-item-has-children">
+                <a href="">More</a>
+                <ul class="sub-menu">
+                    <li class="menu-item"><a href="">Kids Party</a></li>
+                    <li class="menu-item"><a href="">Rewards</a></li>
+                    <li class="menu-item"><a href="">Store Locator</a></li>
+                </ul>
+            </li>
+
+
         </ul>
     </div>
     <div class="handheld-navigation">
@@ -17,7 +23,6 @@
             <li class="menu-item "><a href="">Kids Party</a></li>
             <li class="menu-item "><a href="">Rewards</a></li>
             <li class="menu-item "><a href="">Store Locator</a></li>
-
         </ul>
     </div>
 </nav>

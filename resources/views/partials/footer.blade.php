@@ -1,4 +1,3 @@
-
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -10,28 +9,29 @@
                 <img src="assets/images/jollibee.png" class="modal_img">
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                    {{ csrf_field() }}
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Full Name" id="full_name" name="full_name" required>
+                        <input type="text" class="form-control" placeholder="Full Name" id="recipient-name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email Address" id="email" name="email" required>
+                        <input type="text" class="form-control" placeholder="Email Address" id="recipient-name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Mobile Number" id="mobile" name="mobile" required>
+                        <input type="text" class="form-control" placeholder="Mobile Number" id="recipient-name">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                        <input type="password" class="form-control" placeholder="Password" id="recipient-name">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Confirm Password" id="password-confirm"  name="password_confirmation" required>
+                        <input type="password" class="form-control" placeholder="Confirm Password" id="recipient-name">
                     </div>
+                </form>
+
                 <button type="button" class="btn btn-danger btn-block">Sign Up</button>
                 <br/>
-                </form>
-                <a href="{{ url('login/facebook') }}" type="button" class="btn btn-info  btn-block">Sign in with facebook</a>
-                <a href="{{ url('login/google') }}" type="button" class="btn btn-primary  btn-block">Sign in with google</a>
+                <button type="button" class="btn btn-info  btn-block">Sign in with facebook</button>
+                <button type="button" class="btn btn-primary  btn-block">Sign in with google</button>
+
 
             </div>
             <div class="modal-footer">
@@ -67,8 +67,8 @@
                 <button type="button" class="btn btn-danger btn-block">Sign In</button>
 
                 <br/>
-                <a href="{{ url('login/facebook') }}" type="button" class="btn btn-info  btn-block">Sign in with facebook</a>
-                <a href="{{ url('login/google') }}" type="button" class="btn btn-primary  btn-block">Sign in with google</a>
+                <button type="button" class="btn btn-info  btn-block">Sign in with facebook</button>
+                <button type="button" class="btn btn-primary  btn-block">Sign in with google</button>
 
 
             </div>
@@ -267,6 +267,20 @@
 
 
 
+<div class="bg_yellow">
+    <div class="container">
+        <div class="col-sm-4 col-xs-12">
+            <h3>Subscribe to our Newsletter</h3>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <input type="text" placeholder="Enter Email Address" class="form-control">
+        </div>
+        <div class="col-sm-2 col-xs-12">
+            <button class="button_signup">Sign up</button>
+        </div>
+
+    </div>
+</div>
 <div id="top_footer" class="top-footer">
     <div class="container">
         <div class="row">
@@ -284,8 +298,9 @@
                 <div class="col-sm-3 col-xs-12">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="">Careers</a></li>
                         <li><a href="">Contact Us</a></li>
+                        <li><a href="">Careers</a></li>
+                        <li><a href="">Complaints & Feedback</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-12">
@@ -300,6 +315,7 @@
                         <li><a href=""><i class="fa fa-instagram"></i></a></li>
                         <li><a href=""><i class="fa fa-facebook"></i></a></li>
                         <li><a href=""><i class="fa fa-play"></i></a></li>
+                        <li><a href=""><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -324,8 +340,7 @@
 
     </div><!-- .col-full -->
 </footer><!-- #colophon -->
-<!-- #colophon -->
-</div>
+
 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/tether.min.js"></script>
@@ -425,6 +440,10 @@
             $('#btn1').hide();
             $('#btn2').hide();
             $('#btn4').hide();
+        });
+
+        $(".v1_search").click(function(){
+            $('#search_bar').toggle(500);
         });
     });
 </script>

@@ -9,6 +9,7 @@ class ShoppingController extends Controller
 {
    public function index()
    {
+       //dd(Cart::content());
        return view('cart');
    }
 
@@ -28,20 +29,6 @@ class ShoppingController extends Controller
 
     }
 
-   public function toCart(Request $request)
-   {
-       $productID = $request->input('productID');
-       $name = $request->input('name');
-       $sale_price = $request->input('sale_price');
-       $image = $request->input('image');
-
-       $data['productID'] = $productID;
-       $data['name'] = $name;
-       $data['sale_price'] = $sale_price;
-       $data['image'] = $image;
-
-       return view('cart', compact('data'));
-   }
 
    public function toCheckout(Request $request)
    {
