@@ -30,4 +30,9 @@ class ProductMaster extends Model
             ->where('productID',$id)
             ->get();
     }
+
+    public function presentPrice()
+    {
+      return money_format('AED%i', $this->price/100);
+    }
 }

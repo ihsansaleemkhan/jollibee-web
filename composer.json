@@ -8,6 +8,7 @@
         "php": ">=7.0.0",
         "cloudcreativity/laravel-json-api": "1.0.0-alpha.3",
         "fideloper/proxy": "~3.3",
+        "gloudemans/shoppingcart": "^2.5",
         "guzzlehttp/guzzle": "~6.0",
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",

@@ -8,15 +8,19 @@
     <ul class="site-header-cart-v2 menu">
         <li class="header-signup"><a href="" data-toggle="modal" data-target=".bd-example-modal-sm">Sign in / Sign Up</a></li>
         <li class="cart-content ">
-            <a href="#" title="View your shopping cart">
+            <a href="{{route('cart')}}" title="View your shopping cart">
                 <i class="po po-scooter"></i>
                 <span>Your Bag</span>
             </a>
             <ul class="sub-menu">
                 <li>
-                    <a href="" title="View your shopping cart">
-                        <span class="count">2 items</span> <span class="amount">$50.00</span>
-                    </a>
+                        @if (Cart::count() > 0)
+                        <a href="{{route('cart')}}" title="View your shopping cart">    </a>
+                        <span class="count">{{Cart::instance('default')->count()}} item(s)</span> <span class="amount"></span>
+                        @else
+                        <span class="count">No item(s)</span>
+                        @endif
+
                 </li>
             </ul>
         </li>

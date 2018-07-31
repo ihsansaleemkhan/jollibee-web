@@ -1,4 +1,4 @@
-<title>single product | jollibee</title>
+<title>{{$product[0]->name}} | jollibee</title>
 @include('partials.app')
 <body class="single-product style-1 woocommerce">
 <div id="page" class="hfeed site">
@@ -7,11 +7,43 @@
     <div class="col-full">
         <div class="pizzaro-breadcrumb">
             <nav class="woocommerce-breadcrumb" itemprop="breadcrumb">
-                <a href="index.html">Home</a><span class="delimiter"><i class="po po-arrow-right-slider"></i></span>
-                <a href="shop-grid-4-column.html">{{$product[0]->cat_name}}</a>
+                <a href="home">Home</a><span class="delimiter"><i class="po po-arrow-right-slider"></i></span>
+                <a href="">{{$product[0]->cat_name}}</a>
                 <span class="delimiter"><i class="po po-arrow-right-slider"></i></span>{{$product[0]->name}}
             </nav>
         </div>
+
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
+
+
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
+
+
+        @if ($message = Session::get('warning'))
+            <div class="alert alert-warning alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
+
+
+        @if ($message = Session::get('info'))
+            <div class="alert alert-info alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+    @endif
+
         <!-- /.woocommerce-breadcrumb -->
         <div id="primary" class="content-area">
             <main id="main" class="site-main" >
@@ -47,7 +79,7 @@
                                 <a class="a2a_button_pinterest"></a>
                             </div>
                             <!-- AddToAny END -->
-                            <form class="cart" method="POST" enctype="multipart/form-data" action="{{url('shopping-cart')}}">
+                            <form class="cart" method="POST" enctype="multipart/form-data" action="{{route('cart.store')}}">
                                 {{csrf_field()}}
                                 <input type="hidden" class="form-control" value="{{$product[0]->productID}}" id="productID" name="productID">
                                 <input type="hidden" class="form-control" value="{{$product[0]->name}}" id="name" name="name">

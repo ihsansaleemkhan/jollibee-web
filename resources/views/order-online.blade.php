@@ -74,14 +74,11 @@
             <div id="nav_menu-2" class="widget widget_nav_menu">
                 <div class="menu-food-menu-container">
                     <ul id="menu-food-menu-2" class="menu">
-                        <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-pizza"></i>Pizza</a></li>
-                        <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-burger"></i>Burgers</a></li>
-                        <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-salads"></i>Salads</a></li>
-                        <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-tacos"></i>Tacos</a></li>
-                        <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-wraps"></i>Wraps</a></li>
-                        <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-fries"></i>Fries</a></li>
-                        <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-salads"></i>Salads</a></li>
-                        <li class="menu-item"><a href="shop-grid-3-column.html"><i class="po po-drinks"></i>Drinks</a></li>
+                        <li class="menu-item"><a href="">Best Sellers</a></li>
+                        <li class="menu-item"><a href="">Deals & Promotions</a></li>
+                        <li class="menu-item"><a href="">Value Meals</a></li>
+                        <li class="menu-item"><a href="">Bucket Meals</a></li>
+                        <li class="menu-item"><a href="">Combos</a></li>
                     </ul>
                 </div>
             </div>
@@ -89,7 +86,7 @@
                 <form role="search" method="get" class="search-form" action="blog-single.html">
                     <label>
                         <span class="screen-reader-text">Search for:</span>
-                        <input type="search" class="search-field" placeholder="Search …" value="" name="s">
+                        <input type="search" class="search-field" placeholder="Search Product" value="" name="s">
                     </label>
                     <input type="submit" class="search-submit" value="Search">
                 </form>
@@ -107,7 +104,7 @@
 
                             <button type="submit" class="button">Filter</button>
                             <div class="price_label" style="">
-                                Price: <span class="from">$1</span> — <span class="to">$59</span>
+                                Price: <span class="from">AED 4</span> to <span class="to">AED 70</span>
                             </div>
                             <div class="clear"></div>
                         </div>

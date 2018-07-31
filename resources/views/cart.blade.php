@@ -27,14 +27,45 @@
                     </li>
                 </ul>
             </div>
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+
+
+            @if ($message = Session::get('error'))
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+
+
+            @if ($message = Session::get('warning'))
+                <div class="alert alert-warning alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+
+
+            @if ($message = Session::get('info'))
+                <div class="alert alert-info alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+            @if (Cart::count() > 0)
             <div id="post-8" class="post-8 page type-page status-publish hentry">
                 <div class="entry-content">
                     <div class="woocommerce">
                         <form class="cart" method="POST" enctype="multipart/form-data" action="{{url('checkout')}}">
                             {{csrf_field()}}
-                            <input type="hidden" class="form-control" value="{{$data['productID']}}" id="productID" name="productID">
-                            <input type="hidden" class="form-control" value="{{$data['name']}}" id="name" name="name">
-                            <input type="hidden" class="form-control" value="{{$data['sale_price']}}" id="sale_price" name="sale_price">
+                            <input type="hidden" class="form-control" value="id" id="productID" name="productID">
+                            <input type="hidden" class="form-control" value="name" id="name" name="name">
+                            <input type="hidden" class="form-control" value="price" id="sale_price" name="sale_price">
                             <table class="shop_table shop_table_responsive cart" >
                                 <thead>
                                 <tr>
@@ -47,31 +78,38 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach(Cart::content() as $item)
                                 <tr class="cart_item">
                                     <td class="product-remove">
-                                        <a href="#" class="remove" >&times;</a>
+                                        <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                        {{csrf_field() }}
+                                        {{ method_field('DELETE') }}
+
+                                            <button type="submit" class="remove" style="background-color: white;color:black" >&times;</button>
+                             {{--               <a href="#" class="remove" >&times;</a>--}}
+                                        </form>.
                                     </td>
                                     <td class="product-thumbnail">
-                                        <a href="single-product-v1.html">
-                                            <img width="180" height="180" src="images/products/{{$data['image']}}" alt=""/>
+                                        <a href="{{ route('single-product',$item->model->productID) }}">
+                                            <img width="180" height="180" src="images/products/{{ $item->model->image }}" alt=""/>
                                         </a>
                                     </td>
                                     <td class="product-name" data-title="Product">
-                                        <a href="single-product-v1.html">{{$data['name']}}</a>
+                                        <a href="{{ route('single-product',$item->model->productID) }}">{{ $item->model->name }}</a>
                                         <dl class="variation">
                                             <dt class="variation-Baseprice">Base price:</dt>
                                             <dd class="variation-Baseprice">
-                                                <p><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>{{$data['sale_price']}}</span></p>
+                                                <p><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item->model->sale_price }}</span></p>
                                             </dd>
-                                            <dt class="variation-PickSizespanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span2590span">Pick Size ( <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>25.90</span> ):
+                                         {{--   <dt class="variation-PickSizespanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span2590span">Pick Size ( <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>25.90</span> ):
                                             </dt>
                                             <dd class="variation-PickSizespanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span2590span">
                                                 <p>29  cm</p>
-                                            </dd>
+                                            </dd>--}}
                                         </dl>
                                     </td>
                                     <td class="product-price" data-title="Price">
-                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>{{$data['sale_price']}}</span>
+                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item->model->sale_price }}</span>
                                     </td>
                                     <td class="product-quantity" data-title="Quantity">
                                         <div class="qty-btn">
@@ -82,9 +120,10 @@
                                         </div>
                                     </td>
                                     <td class="product-subtotal" data-title="Total">
-                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>{{$data['sale_price']}}</span>
+                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item->model->sale_price }}</span>
                                     </td>
                                 </tr>
+                                @endforeach
                           {{--      <tr class="cart_item">
                                     <td class="product-remove">
                                         <a href="#" class="remove">&times;</a>
@@ -147,24 +186,34 @@
                                     <tr class="cart-subtotal">
                                         <th>Subtotal</th>
                                         <td data-title="Subtotal">
-                                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>{{$data['sale_price']}}</span>
+                                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ Cart::subtotal() }}</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart-subtotal">
+                                        <th>Tax</th>
+                                        <td data-title="tax">
+                                            <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ Cart::tax() }}</span>
                                         </td>
                                     </tr>
                                     <tr class="order-total">
                                         <th>Total</th>
                                         <td data-title="Total">
-                                            <strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>{{$data['sale_price']}}</span></strong>
+                                            <strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span></span>{{ Cart::total() }}</strong>
                                         </td>
                                     </tr>
                                 </table>
                                 <div class="wc-proceed-to-checkout">
-                                    <a href="checkout.html" class="checkout-button button alt wc-forward">Proceed to Checkout</a>
+                                    <a href="" class="checkout-button button alt wc-forward">Proceed to Checkout</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @else
+                <h1>No Item(s) In your Shopping Cart</h1>
+                <a href="{{route('order-online')}}" class="button">Continue Shopping</a>
+            @endif
             <!-- .entry-content -->
         </main><!-- #main -->
     </div>
