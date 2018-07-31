@@ -134,7 +134,7 @@
                                 <div class="qty-btn">
                                     <label>Quantity</label>
                                     <div class="quantity">
-                                        <input type="number" name="quantity" value="1" title="Qty" class="input-text qty text"/>
+                                        <input type="number" name="quantity" id="quantity" value="1" title="Qty" class="input-text qty text"/>
                                     </div>
                                 </div>
                                 <input type="hidden" name="add-to-cart" value="50" />

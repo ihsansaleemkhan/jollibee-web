@@ -61,11 +61,6 @@
             <div id="post-8" class="post-8 page type-page status-publish hentry">
                 <div class="entry-content">
                     <div class="woocommerce">
-                        <form class="cart" method="POST" enctype="multipart/form-data" action="{{url('checkout')}}">
-                            {{csrf_field()}}
-                            <input type="hidden" class="form-control" value="id" id="productID" name="productID">
-                            <input type="hidden" class="form-control" value="name" id="name" name="name">
-                            <input type="hidden" class="form-control" value="price" id="sale_price" name="sale_price">
                             <table class="shop_table shop_table_responsive cart" >
                                 <thead>
                                 <tr>
@@ -162,6 +157,11 @@
                                         <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>25.90</span>
                                     </td>
                                 </tr>--}}
+                                <form class="cart" method="POST" enctype="multipart/form-data" action="{{url('checkout')}}">
+                                    {{csrf_field()}}
+                                    <input type="hidden" class="form-control" value="id" id="productID" name="productID">
+                                    <input type="hidden" class="form-control" value="name" id="name" name="name">
+                                    <input type="hidden" class="form-control" value="price" id="sale_price" name="sale_price">
                                 <tr>
                                     <td colspan="6" class="actions">
                                         <div class="coupon">
@@ -176,9 +176,9 @@
                                         <input type="hidden" id="_wpnonce" name="_wpnonce" value="21ca9d92f8" /><input type="hidden" name="_wp_http_referer" value="/pizzaro/cart/" />
                                     </td>
                                 </tr>
+                                </form>
                                 </tbody>
                             </table>
-                        </form>
                         <div class="cart-collaterals">
                             <div class="cart_totals ">
                                 <h2>Cart Totals</h2>
