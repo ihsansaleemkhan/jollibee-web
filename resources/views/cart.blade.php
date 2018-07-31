@@ -110,12 +110,12 @@
                                         <div class="qty-btn">
                                             <label>Quantity</label>
                                             <div class="quantity">
-                                                <input type="number" value="{{ $item->model->qty }}" title="Qty" class="input-text qty text"/>
+                                                <input type="number" value="{{ $item->qty }}" title="Qty" class="input-text qty text"/>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="product-subtotal" data-title="Total">
-                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item->model->sale_price }}</span>
+                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item->model->sale_price * $item->qty  }}</span>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -166,12 +166,12 @@
                                     <td colspan="6" class="actions">
                                         <div class="coupon">
                                             <label for="coupon_code">Coupon:</label>
-                                            <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code" />
-                                            <input type="submit" class="button" name="apply_coupon" value="Apply Coupon" />
+                                            <input type="text" name="promo_code" class="input-text" id="promo_code" value="" placeholder="Promo code" />
+                                            <input type="submit" class="button" name="apply_promo" value="Apply Promo" />
                                         </div>
                                         <input type="submit" class="button" name="update_cart" value="Update Cart" />
                                         <div class="wc-proceed-to-checkout">
-                                            <button type="submit" class="checkout-button button alt wc-forward">Proceed to Checkout</button>
+                                            <a href="{{ route('checkout.index') }}" type="submit" class="checkout-button button alt wc-forward">Proceed to Checkout</a>
                                         </div>
                                         <input type="hidden" id="_wpnonce" name="_wpnonce" value="21ca9d92f8" /><input type="hidden" name="_wp_http_referer" value="/pizzaro/cart/" />
                                     </td>

@@ -22,9 +22,10 @@ Route::get('/cart', 'ShoppingController@index')->name('cart');
 
 
 Route::post('shopping-cart', 'ShoppingController@toCart');
-Route::post('checkout', 'ShoppingController@toCheckout');
 Route::post('/cart', 'ShoppingController@store')->name('cart.store');
 Route::delete('cart{product}' , 'ShoppingController@destroy')->name('cart.destroy');
+
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
 
 Route::get('paypal/express-checkout', 'PaypalController@expressCheckout')->name('paypal.express-checkout');
 Route::get('paypal/express-checkout-success', 'PaypalController@expressCheckoutSuccess');

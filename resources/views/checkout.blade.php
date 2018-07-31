@@ -43,10 +43,10 @@
                                             <input type="text" class="input-text " name="billing_last_name" id="billing_last_name" placeholder=""  autocomplete="family-name" value=""  />
                                         </p>
                                         <div class="clear"></div>
-                                        <p class="form-row form-row form-row-wide" id="billing_company_field">
+                                       {{-- <p class="form-row form-row form-row-wide" id="billing_company_field">
                                             <label for="billing_company" class="">Company Name</label>
                                             <input type="text" class="input-text " name="billing_company" id="billing_company" placeholder=""  autocomplete="organization" value=""  />
-                                        </p>
+                                        </p>--}}
                                         <p class="form-row form-row form-row-first validate-required validate-email" id="billing_email_field">
                                             <label for="billing_email" class="">Email Address </label>
                                             <input type="email" class="input-text " name="billing_email" id="billing_email" placeholder=""  autocomplete="email" value=""  />
@@ -72,14 +72,14 @@
                                             <label for="billing_city" class="">Town / City </label>
                                             <input type="text" class="input-text " name="billing_city" id="billing_city" placeholder=""  autocomplete="address-level2" value=""  />
                                         </p>
-                                        <p class="form-row form-row form-row-first address-field validate-required validate-state" id="billing_state_field">
+                                    {{--    <p class="form-row form-row form-row-first address-field validate-required validate-state" id="billing_state_field">
                                             <label for="billing_state" class="">State / County </label>
                                             <input type="text" value="" placeholder="" id="billing_state" name="billing_phone" class="input-text ">
                                         </p>
                                         <p class="form-row form-row form-row-last address-field validate-required validate-postcode" id="billing_postcode_field">
                                             <label for="billing_postcode" class="">Postcode / ZIP </label>
                                             <input type="text" class="input-text " name="billing_postcode" id="billing_postcode" placeholder=""  autocomplete="postal-code" value="DFSAF@GMAIL.COM"  />
-                                        </p>
+                                        </p>--}}
                                         <div class="clear"></div>
                                         <p class="form-row form-row-wide create-account">
                                             <input class="input-checkbox" id="createaccount"  type="checkbox" name="createaccount" value="1" />
@@ -115,27 +115,29 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
+                                   @foreach(Cart::content() as $item)
                                     <tr class="cart_item">
                                         <td class="product-name">
-                                            {{$data['name']}}&nbsp;<strong class="product-quantity">&times; 1</strong>
+                                            {{ $item->model->name }}&nbsp;<strong class="product-quantity">&times; {{ $item->qty }}</strong>
                                             <dl class="variation">
                                                 <dt class="variation-Baseprice">Base price:</dt>
                                                 <dd class="variation-Baseprice">
-                                                    <p><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span> {{$data['sale_price']}}</span></p>
+                                                    <p><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED</span> {{ $item->model->sale_price }}</span></p>
                                                 </dd>
-                                                <dt class="variation-PickSizespanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span2590span">Pick Size ( <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>25.90</span> ):
+                                            {{--    <dt class="variation-PickSizespanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span2590span">Pick Size ( <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>25.90</span> ):
                                                 </dt>
                                                 <dd class="variation-PickSizespanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span2590span">
                                                     <p>29  cm</p>
-                                                </dd>
+                                                </dd>--}}
                                             </dl>
                                         </td>
                                         <td class="product-total">
                                                 <span class="woocommerce-Price-amount amount">
-                                                <span class="woocommerce-Price-currencySymbol">&#36;</span> {{$data['sale_price']}}</span>
+                                                <span class="woocommerce-Price-currencySymbol">AED</span> {{ $item->model->sale_price * $item->qty}}</span>
                                         </td>
                                     </tr>
-
+                                    @endforeach
                                {{--     <tr class="cart_item">
                                         <td class="product-name">
                                             Pepperoni Pizza&nbsp;<strong class="product-quantity">&times; 1</strong>
@@ -162,16 +164,23 @@
                                         <th>Subtotal</th>
                                         <td>
                                                 <span class="woocommerce-Price-amount amount">
-                                                <span class="woocommerce-Price-currencySymbol">&#36;</span> {{$data['sale_price']}}</span>
+                                                <span class="woocommerce-Price-currencySymbol">AED</span> {{ Cart::subtotal() }}</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart-subtotal">
+                                        <th>Tax(5%)</th>
+                                        <td>
+                                                <span class="woocommerce-Price-amount amount">
+                                                <span class="woocommerce-Price-currencySymbol">AED</span> {{ Cart::tax() }}</span>
                                         </td>
                                     </tr>
                                     <tr class="order-total">
                                         <th>Total</th>
                                         <td>
-                                            <strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span> {{$data['sale_price']}}</span></strong>
+                                            <strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED</span> {{ Cart::total() }}</span></strong>
                                         </td>
                                     </tr>
-                                    </tfoot>F
+                                    </tfoot>
                                 </table>
                                 <div id="payment" class="woocommerce-checkout-payment">
                                     <ul class="wc_payment_methods payment_methods methods">
