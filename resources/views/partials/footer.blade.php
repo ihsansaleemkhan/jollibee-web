@@ -83,8 +83,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="example1">SELECT LOCATION</h5>
-                <h5 class="modal-title" id="example2" style="display:none;">SELECT SIDES</h5>
+                <h5 class="modal-title" id="example2" >SELECT SIDES</h5>
                 <h5 class="modal-title" id="example3" style="display:none;">SELECT BEVERAGE</h5>
                 <h5 class="modal-title" id="example4" style="display:none;">SELECT DESSERTS</h5>
 
@@ -94,19 +93,7 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="row" id="bd1">
-                        <div class="form-group col-sm-6">
-                            <label class="col-sm-7">Select Location</label>
-                            <select class="col-sm-5 form-control">
-                                <option>City</option>
-
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Area">
-                        </div>
-                    </div>
-                    <div class="col-sm-12" id="bd2" style="display: none;">
+                    <div class="col-sm-12" id="bd2">
                         <div class="col-sm-4">
                             <div class="col-sm-12 cartpopimg">
                                 <img src="assets/images/sauce.jpg">
@@ -216,16 +203,12 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <div class="row" id="btn1">
-                    <button type="button" id="nxt1" class="btn btn-secondary">Next</button>
-                </div>
-                <div class="row" id="btn2" style="display: none;">
+                <div class="row" id="btn2">
                     <div class="col-sm-12">
                         <div class="col-sm-4">
-                            <button type="button" data-dismiss="modal" class="btn btn-dark btn-block">Skip</button>
                         </div>
                         <div class="col-sm-4">
-                            <button type="button" id="bk1" class="btn btn-dark btn-block">Back</button>
+                            <button type="button" data-dismiss="modal" class="btn btn-dark btn-block">Skip</button>
                         </div>
                         <div class="col-sm-4">
                             <button type="button" id="nxt2" class="btn btn-secondary btn-block">Next</button>
