@@ -6,8 +6,8 @@
 
         <div class="header-wrap">
             @include('partials.logo')
-            @include('partials.primary-menu')
             @include('partials.header-info')
+            @include('partials.primary-menu')
         </div>
     </div>
 </header>
