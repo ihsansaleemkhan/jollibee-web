@@ -10032,7 +10032,7 @@ article.post {
   background-repeat: repeat; }
 
 .site-content .home-v1-slider {
-  margin-top: 50px;
+/*  margin-top: 50px;*/
   width: 100vw;
   position: relative;
   margin-left: -50vw;
