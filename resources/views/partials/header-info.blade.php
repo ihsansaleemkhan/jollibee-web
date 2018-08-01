@@ -49,7 +49,6 @@
                 <li>
                     <a href="{{route('cart')}}" title="View your shopping cart">
                         @if (Cart::count() > 0)
-                            <a href="{{route('cart')}}" title="View your shopping cart"></a>
                             <span class="count">{{Cart::instance('default')->count()}} item(s)</span> <span class="amount"></span>
                         @else
                             <span class="count">No item(s)</span>
