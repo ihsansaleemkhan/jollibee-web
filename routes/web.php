@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    $CategoryMaster = new \App\CategoryMaster();
+    $categories = $CategoryMaster->getCategories();
+    return view('home', ['categories' => $categories]);
 });
 
 Route::get('/home', 'NavigationController@index')->name('home');

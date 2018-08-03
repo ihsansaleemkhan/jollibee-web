@@ -16,6 +16,7 @@ class ProductMaster extends Model
     {
         return DB::table('product_master')->orderBy('productID', 'desc')->paginate(15);
     }
+
     public function getProduct($id)
     {
         return DB::table('product_master')
@@ -23,6 +24,7 @@ class ProductMaster extends Model
             ->where('productID',$id)
             ->get();
     }
+
     public function getSize($id)
     {
         return DB::table('product_master')
@@ -34,5 +36,13 @@ class ProductMaster extends Model
     public function presentPrice()
     {
       return money_format('AED%i', $this->price/100);
+    }
+
+    public function getDeals()
+    {
+        return DB::table('product_master')
+            ->where('categoryID',10)->limit(4)
+            ->orderBy('categoryID', 'desc')
+            ->get();
     }
 }

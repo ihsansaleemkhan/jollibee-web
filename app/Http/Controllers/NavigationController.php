@@ -12,19 +12,26 @@ class NavigationController extends Controller
 
     public function index()
    {
-       return view('home');
+       $CategoryMaster = new \App\CategoryMaster();
+       $categories = $CategoryMaster->getCategories();
+
+       return view('home', ['categories' => $categories]);
    }
 
     public function orderOnline()
     {
         $ProductMaster = new \App\ProductMaster();
         $products = $ProductMaster->getProducts();
+        $deals = $ProductMaster->getDeals();
 
+        $CategoryMaster = new \App\CategoryMaster();
+        $categories = $CategoryMaster->getCategories();
+       //dd($categories);
        // $client = new Client();
       //  $res = $client->get('http://eportal.mycomsys.com/posapi_json/api/group?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
         //echo $res->getStatusCode(); // 200
        //  echo $res->getBody();
-        return view('order-online', ['products' => $products]);
+        return view('order-online', ['products' => $products, 'categories' => $categories, 'deals' => $deals]);
     }
 
    public function singleProduct($id)
