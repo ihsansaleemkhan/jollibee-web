@@ -324,7 +324,7 @@
     </div><!-- .col-full -->
 </footer><!-- #colophon -->
 
-
+<script src="js/ajax.js"> </script>
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/tether.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
