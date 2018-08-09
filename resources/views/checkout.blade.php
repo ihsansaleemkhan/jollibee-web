@@ -223,7 +223,7 @@
                                             <label for="terms" class="checkbox">I&rsquo;ve read and accept the <a href="terms-and-conditions.html" target="_blank">terms &amp; conditions</a> <span class="required">*</span></label>
                                             <input type="hidden" name="terms-field" value="1" />
                                         </p>
-                                        <a class="button alt" href="{{ route('paypal.express-checkout') }}" style="text-align: center;">Place order</a>
+                                        <a class="button alt" href="" style="text-align: center;">Place order</a>
                                     </div>
                                 </div>
                             </div>

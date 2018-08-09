@@ -1,8 +1,9 @@
 <title>order-online | jollibee</title>
 @include('partials.app')
-<body class="columns-3 archive woocommerce-page left-sidebar lite">
-<div id="page" class="hfeed site">
     @include('partials.header')
+
+ {{--
+
 <div id="content" class="site-content" tabindex="-1">
 <div class="col-full">
     <div class="pizzaro-sorting">
@@ -27,7 +28,7 @@
                                             <div >
                                                 <span class="" style="margin: 30px;color: #ffae00;font-size: larger;font-family: Arial;">AED {{$p->sale_price}}</span>
                                             </div>
-                                     {{--       <div itemprop="description">
+                                     --}}{{--       <div itemprop="description">
                                                 <p style="max-height: none;">Extra-virgin olive oil, garlic, mozzarella, mushrooms and olives.</p>
                                             </div>
                                             <div class="yith_wapo_groups_container">
@@ -44,7 +45,7 @@
                                                         <span class="ywapo_label_price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25</span></span>
                                                     </div>
                                                 </div>
-                                            </div>--}}
+                                            </div>--}}{{--
                                         </a>
                                         <div class="hover-area" style="margin-top: 40px">
                                             <a rel="nofollow" data-toggle="modal" data-target="#exampleModalCenter" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart" style="background-color: #2ab27b;">Add to cart</a>
@@ -60,10 +61,10 @@
                 <nav class="woocommerce-pagination">
                     <ul class="page-numbers">
                         {{$products->links()}}
-{{--                        <li><span class="page-numbers current">1</span></li>
+--}}{{--                        <li><span class="page-numbers current">1</span></li>
                         <li><a class="page-numbers" href="#">2</a></li>
                         <li><a class="page-numbers" href="#">3</a></li>
-                        <li><a class="next page-numbers" href="#">Next Page &nbsp;&nbsp;&nbsp;→</a></li>--}}
+                        <li><a class="next page-numbers" href="#">Next Page &nbsp;&nbsp;&nbsp;→</a></li>--}}{{--
                     </ul>
                 </nav>
             </main>
@@ -133,6 +134,39 @@
     <!-- #primary -->
 </div>
 <!-- .col-full -->
+
+
+--}}
+
+
+<div id="content" class="site-content" tabindex="-1">
+    <div class="col-full" style="margin-top:150px;">
+        @include('components.pizzaro-sorting')
+        <div id="secondary" class="widget-area col-md-3 col-sm-12" role="complementary">
+            @include('layouts.search-widget')
+            @include('layouts.widget-nav-menu')
+
+        </div><!-- #secondary -->
+        <div id="primary" class="content-area col-md-7 col-sm-12">
+            <main id="main" class="site-main" >
+                @include('components.products')
+              {{--  @include('components.pagination')--}}
+            </main><!-- #main -->
+        </div><!-- #primary -->
+        <div class="col-md-2 col-sm-12">
+            <div class="row cart-head">Your Cart</div>
+            <div class="row cart-bx">
+                <i class="fa fa-shopping-cart"></i><br/>
+                @if (Cart::count() > 0)
+                    <span class="count">{{Cart::instance('default')->count()}} item(s)</span> <span class="amount">{{ Cart::subtotal() }}</span>
+                @else
+                    There are no item in your cart
+                @endif
+            </div>
+        </div><!-- #secondary -->
+        <a href=""><img src="assets/images/chat.png" class="chat"></a>
+    </div><!-- .col-full -->
 </div>
-</div>
+
+
 @include('partials.footer')

@@ -79,189 +79,35 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="example2" >SELECT SIDES</h5>
-                <h5 class="modal-title" id="example3" style="display:none;">SELECT BEVERAGE</h5>
-                <h5 class="modal-title" id="example4" style="display:none;">SELECT DESSERTS</h5>
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="col-sm-12" id="bd2">
-                        <div class="col-sm-4">
-                            <div class="col-sm-12 cartpopimg">
-                                <img src="assets/images/sauce.jpg">
-                            </div>
-                            <div class="col-sm-12 cartpophh5">
-                                <h5>Mushroom Sauce</h5>
-                                <input type="number" value="1" title="Qty" class="input-text qty text popqty">
-                                <br/>
-                                <button type="button" class="btn btn-warning btn-block">Select</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="col-sm-12 cartpopimg">
-                                <img src="assets/images/sauce.jpg">
-                            </div>
-                            <div class="col-sm-12 cartpophh5">
-                                <h5>Mushroom Sauce</h5>
-                                <input type="number" value="1" title="Qty" class="input-text qty text popqty">
-                                <br/>
-                                <button type="button" class="btn btn-warning btn-block">Select</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="col-sm-12 cartpopimg">
-                                <img src="assets/images/sauce.jpg">
-                            </div>
-                            <div class="col-sm-12 cartpophh5">
-                                <h5>Mushroom Sauce</h5>
-                                <input type="number" value="1" title="Qty" class="input-text qty text popqty">
-                                <br/>
-                                <button type="button" class="btn btn-warning btn-block">Select</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12" id="bd3" style="display: none;">
-                        <div class="col-sm-4">
-                            <div class="col-sm-12 cartpopimg">
-                                <img src="assets/images/coke.png">
-                            </div>
-                            <div class="col-sm-12 cartpophh5">
-                                <h5>Coke</h5>
-                                <input type="number" value="1" title="Qty" class="input-text qty text popqty">
-                                <br/>
-                                <button type="button" class="btn btn-warning btn-block">Select</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="col-sm-12 cartpopimg">
-                                <img src="assets/images/coke.png">
-                            </div>
-                            <div class="col-sm-12 cartpophh5">
-                                <h5>Coke</h5>
-                                <input type="number" value="1" title="Qty" class="input-text qty text popqty">
-                                <br/>
-                                <button type="button" class="btn btn-warning btn-block">Select</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="col-sm-12 cartpopimg">
-                                <img src="assets/images/coke.png">
-                            </div>
-                            <div class="col-sm-12 cartpophh5">
-                                <h5>Coke</h5>
-                                <input type="number" value="1" title="Qty" class="input-text qty text popqty">
-                                <br/>
-                                <button type="button" class="btn btn-warning btn-block">Select</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12" id="bd4" style="display: none;">
-                        <div class="col-sm-4">
-                            <div class="col-sm-12 cartpopimg">
-                                <img src="assets/images/ice.jpg">
-                            </div>
-                            <div class="col-sm-12 cartpophh5">
-                                <h5>Ice Cream</h5>
-                                <input type="number" value="1" title="Qty" class="input-text qty text popqty">
-                                <br/>
-                                <button type="button" class="btn btn-warning btn-block">Select</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="col-sm-12 cartpopimg">
-                                <img src="assets/images/ice.jpg">
-                            </div>
-                            <div class="col-sm-12 cartpophh5">
-                                <h5>Ice Cream</h5>
-                                <input type="number" value="1" title="Qty" class="input-text qty text popqty">
-                                <br/>
-                                <button type="button" class="btn btn-warning btn-block">Select</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="col-sm-12 cartpopimg">
-                                <img src="assets/images/ice.jpg">
-                            </div>
-                            <div class="col-sm-12 cartpophh5">
-                                <h5>Ice Cream</h5>
-                                <input type="number" value="1" title="Qty" class="input-text qty text popqty">
-                                <br/>
-                                <button type="button" class="btn btn-warning btn-block">Select</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <div class="row" id="btn2">
-                    <div class="col-sm-12">
-                        <div class="col-sm-4">
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" data-dismiss="modal" class="btn btn-dark btn-block">Skip</button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" id="nxt2" class="btn btn-secondary btn-block">Next</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" id="btn3" style="display: none;">
-                    <div class="col-sm-12">
-                        <div class="col-sm-4">
-                            <button type="button" data-dismiss="modal" class="btn btn-dark btn-block">Skip</button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" id="bk2" class="btn btn-dark btn-block">Back</button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" id="nxt3" class="btn btn-secondary btn-block">Next</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" id="btn4" style="display: none;">
-                    <div class="col-sm-12">
-                        <div class="col-sm-4">
-                            <button type="button" data-dismiss="modal" class="btn btn-dark btn-block">Skip</button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" id="bk3" class="btn btn-dark btn-block">Back</button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" id="nxt4" class="btn btn-secondary btn-block">Next</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 
 <div class="bg_yellow">
     <div class="container">
         <div class="col-sm-4 col-xs-12">
-            <h3>Subscribe to our Newsletter</h3>
+            <h3>Subscribe for latest updates and new promotions </h3>
         </div>
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-3 col-xs-8">
+            <input type="text" placeholder="Enter Mobile Number" class="form-control">
+        </div>
+        <!-- <div class="col-sm-6 col-xs-12">
+          <div class="col-sm-6 col-xs-12">
             <input type="text" placeholder="Enter Email Address" class="form-control">
-        </div>
-        <div class="col-sm-2 col-xs-12">
+          </div>
+          <div class="col-sm-6 col-xs-12">
+            <input type="text" placeholder="Enter Mobile Number" class="form-control">
+          </div>
+          <div class="col-sm-12 col-xs-12">
+            <br/>
+            <span class="footer-order">Call and Order in</span> &nbsp;&nbsp;&nbsp;
+            <span class="footer-num">600 587000</span>
+          </div>
+        </div> -->
+        <div class="col-sm-2 col-xs-4">
             <button class="button_signup">Sign up</button>
         </div>
-
+        <div class="col-sm-3 col-xs-12">
+            <span class="footer-num"><i class="fa fa-phone"></i> 600 587000</span>
+        </div>
     </div>
 </div>
 <div id="top_footer" class="top-footer">
@@ -275,13 +121,13 @@
                     <h4>About</h4>
                     <ul>
                         <li><a href="">Our Story</a></li>
-                        <li><a href="">Store Locator</a></li>
+                        <li><a href="{{route('store-locator')}}">Store Locator</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-12">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="">Contact Us</a></li>
+                        <li><a href="{{route('contact-us')}}">Contact Us</a></li>
                         <li><a href="">Careers</a></li>
                         <li><a href="">Complaints & Feedback</a></li>
                     </ul>

@@ -43,4 +43,15 @@ class NavigationController extends Controller
        //dd($product);
        return view('single-product', ['product' => $product,'sizes' => $sizes]);
    }
+
+   public function toStoreLocator()
+   {
+       return view('store-locator');
+   }
+
+   public function toContact()
+   {
+       return view('contact');
+   }
+
 }
