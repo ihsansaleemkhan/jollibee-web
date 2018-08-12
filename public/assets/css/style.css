@@ -7187,7 +7187,7 @@ ul.products > li.product.last:after {
     color: #ffffff;
 }
 .header-v1 {
-    padding-bottom: 0; height: 113px;font-family: 'Roboto'; }
+    padding-bottom: 0; font-family: 'Roboto';height: 83px; }
 .phonep1{
     float: right;
     margin-right: 50px;
@@ -9557,7 +9557,7 @@ article.post.format-status .entry-content p {
     margin-bottom: 2.813em; }
 
 .pizzaro-breadcrumb {
-    margin-top: -1.786em;
+  /*  margin-top: -1.786em;*/
     margin-bottom: 3em;
     border-bottom: 1px solid #e9e9e9; }
 .main-navigation ul li.yamm-fw ul.sub-menu li a {
@@ -10751,7 +10751,7 @@ ul.products li.product:hover .ywapo_input_container_radio input:checked + label:
     border: 2px solid #ffcd00; }
 ul.products li.product .product-inner, .products .owl-item > .product .product-inner {
     padding: 0;
-    height: 100%;
+ /*   height: 100%;*/
     position: relative; }
 ul.products li.product .product-outer, .products .owl-item > .product .product-outer {
     position: relative; }
@@ -13213,7 +13213,7 @@ ul.products li.product .ywapo_input_container_radio.ywapo_input_container:nth-ch
     padding-left: 15px;
     padding-right: 15px; }
 .single-product div.product .single-product-wrapper {
-    display: inline-block; }
+    display: inline-block;margin-top: 60px; }
 .single-product div.product .product-images-wrapper {
     width: 100%;
     margin-bottom: 3.706325903em;

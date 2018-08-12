@@ -29,7 +29,8 @@
             <div id="post-9" class="post-9 page type-page status-publish hentry">
                 <div class="entry-content">
                     <div class="woocommerce">
-                        <form name="checkout"  class="checkout woocommerce-checkout" action="#" enctype="multipart/form-data">
+                            <form name="checkout" id="checkout" class="checkout woocommerce-checkout" method="POST" enctype="multipart/form-data" action="{{route('order-received')}}">
+                                {{csrf_field()}}
                             <div class="col2-set" id="customer_details">
                                 <div class="col-1">
                                     <div class="woocommerce-billing-fields">
@@ -85,7 +86,7 @@
                                             <input class="input-checkbox" id="createaccount"  type="checkbox" name="createaccount" value="1" />
                                             <label for="createaccount" class="checkbox">Create an account?</label>
                                         </p>
-                                        <div class="create-account">
+                                        <div id="create_account" class="create-account" hidden="true">
                                             <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
                                             <p class="form-row form-row validate-required" id="account_password_field">
                                                 <label for="account_password" class="">Account password </label>
@@ -223,7 +224,7 @@
                                             <label for="terms" class="checkbox">I&rsquo;ve read and accept the <a href="terms-and-conditions.html" target="_blank">terms &amp; conditions</a> <span class="required">*</span></label>
                                             <input type="hidden" name="terms-field" value="1" />
                                         </p>
-                                        <a class="button alt" href="" style="text-align: center;">Place order</a>
+                                        <button type="submit" class="button alt" style="text-align: center;">Place order</button>
                                     </div>
                                 </div>
                             </div>
@@ -242,3 +243,21 @@
 </div>
 </div>
 @include('partials.footer')
+
+<script>
+    $(document).ready(function(){
+        $('#createaccount').change(function(){
+            if(this.checked)
+                $('#create_account').fadeIn('slow');
+            else
+                $('#create_account').fadeOut('slow');
+
+        });
+    });
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<!-- Laravel Javascript Validation -->
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js', '#checkout')}}"></script>

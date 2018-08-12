@@ -43,8 +43,9 @@ Cart::destroy();
 Auth::routes();
 
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','facebook|google');
-
 Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','facebook|google');
 
 Route::get('/store-locator', 'NavigationController@toStoreLocator')->name('store-locator');
 Route::get('/contact-us', 'NavigationController@toContact')->name('contact-us');
+
+Route::post('/order-received', 'CheckoutController@store')->name('order-received');

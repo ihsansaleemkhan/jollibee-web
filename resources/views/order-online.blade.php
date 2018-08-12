@@ -140,7 +140,7 @@
 
 
 <div id="content" class="site-content" tabindex="-1">
-    <div class="col-full" style="margin-top:150px;">
+    <div class="col-full">
         @include('components.pizzaro-sorting')
         <div id="secondary" class="widget-area col-md-3 col-sm-12" role="complementary">
             @include('layouts.search-widget')
@@ -150,7 +150,7 @@
         <div id="primary" class="content-area col-md-7 col-sm-12">
             <main id="main" class="site-main" >
                 @include('components.products')
-              {{--  @include('components.pagination')--}}
+                @include('components.pagination')
             </main><!-- #main -->
         </div><!-- #primary -->
         <div class="col-md-2 col-sm-12">

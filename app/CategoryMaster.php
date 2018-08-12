@@ -15,7 +15,7 @@ class CategoryMaster extends Model
 
     public function getCategories()
     {
-        return DB::table('category_master')->orderBy('categoryID', 'desc')->get();
+        return DB::table('category_master')->get();
     }
 
 }

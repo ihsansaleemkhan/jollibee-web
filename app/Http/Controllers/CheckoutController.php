@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use JsValidator;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
+    protected $validationRules = [
+        'billing_first_name' => 'required',
+        'billing_last_name' => 'required',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +40,16 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validation = Validator::make($request->all(), $this->validationRules);
+        dd($validation);
+        if ($validation->fails()) {
+            return redirect()->back()->withErrors($validation->errors());
+        }
+        else {
+
+            return view('order-received');
+        }
     }
 
     /**
