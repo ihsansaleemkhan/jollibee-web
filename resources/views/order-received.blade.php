@@ -37,10 +37,10 @@
                     <div class="woocommerce">
                         <p class="woocommerce-thankyou-order-received">Thank you. Your order has been received.</p>
                         <ul class="woocommerce-thankyou-order-details order_details">
-                            <li class="order">Order Number:<strong>645</strong></li>
-                            <li class="date">Date:<strong>February 2, 2017</strong></li>
-                            <li class="total">Total:<strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25.90</span></strong></li>
-                            <li class="method">Payment Method:<strong>Direct Bank Transfer</strong></li>
+                            <li class="order">Order ID:<strong>{{$data['order_ref']}}</strong></li>
+                            <li class="date">Date:<strong>{{$data['date']}}</strong></li>
+                            <li class="total">Total:<strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ Cart::total() }}</span></strong></li>
+                            <li class="method">Payment Method:<strong>Cash</strong></li>
                         </ul>
                         <div class="clear"></div>
                         <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
@@ -53,31 +53,37 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach(Cart::content() as $item)
                             <tr class="order_item">
                                 <td class="product-name">
-                                    <a href="single-product-v1.html">Country Burger</a> <strong class="product-quantity">× 1</strong>
-                                    <dl class="variation">
+                                    <a href="single-product-v1.html">{{ $item->model->name }}</a> <strong class="product-quantity">× {{ $item->qty }}</strong>
+                                  {{--  <dl class="variation">
                                         <dt class="variation-PickSize362590"><span id="1">Pick Size</span> (<span class="woocommerce Price amount amount"><span class="woocommerce Price currencySymbol">$</span>25.90</span>):</dt>
                                         <dd class="variation-PickSize362590">
                                             <p>29  cm</p>
                                         </dd>
-                                    </dl>
+                                    </dl>--}}
                                 </td>
-                                <td class="product-total"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25.90</span>  </td>
+                                <td class="product-total"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item->model->sale_price * $item->qty}}</span>  </td>
                             </tr>
+                            @endforeach
                             </tbody>
                             <tfoot>
                             <tr>
                                 <th scope="row">Subtotal:</th>
-                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25.90</span></td>
+                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span> {{ Cart::subtotal() }}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">TAX(5%):</th>
+                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span> {{ Cart::tax() }}</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">Payment Method:</th>
-                                <td>Direct Bank Transfer</td>
+                                <td>Cash</td>
                             </tr>
                             <tr>
                                 <th scope="row">Total:</th>
-                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>25.90</span></td>
+                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ Cart::total() }}</span></td>
                             </tr>
                             </tfoot>
                         </table>
@@ -88,18 +94,18 @@
                             <tbody>
                             <tr>
                                 <th>Email:</th>
-                                <td>anas@transvelo.com</td>
+                                <td>{{$data['email']}}</td>
                             </tr>
                             <tr>
                                 <th>Telephone:</th>
-                                <td>9547399295</td>
+                                <td>{{$data['phone']}}</td>
                             </tr>
                             </tbody>
                         </table>
                         <header class="title">
                             <h3>Billing Address</h3>
                         </header>
-                        <address>Transvelo<br>Mohamed Anas<br>Transvelo<br>No 27 Maraicoir Street, Mannady<br>chennai - 600001<br>Tamil Nadu, India</address>
+                        <address>{{$data['first_name'].' '.$data['last_name']}}<br>{{$data['address_1'].' '. $data['address_2']}}<br>{{$data['city']}}<br>{{$data['country']}}</address>
                     </div>
                 </div>
                 <!-- .entry-content -->

@@ -37,49 +37,84 @@
                                         <h3>Billing Details</h3>
                                         <p class="form-row form-row form-row-first validate-required" id="billing_first_name_field">
                                             <label for="billing_first_name" class="">First Name </label>
-                                            <input type="text" class="input-text " name="billing_first_name" id="billing_first_name" placeholder=""  autocomplete="given-name" value=""  />
+                                            <input type="text" class="input-text " name="first_name" id="first_name"   autocomplete="given-name" value=""  />
+                                            @if ($errors->has('first_name'))
+                                                <span class="help-block">
+                                                <strong>{{ $errors->first('first_name') }}</strong>
+                                                 </span>
+                                            @endif
                                         </p>
                                         <p class="form-row form-row form-row-last validate-required" id="billing_last_name_field">
                                             <label for="billing_last_name" class="">Last Name </label>
-                                            <input type="text" class="input-text " name="billing_last_name" id="billing_last_name" placeholder=""  autocomplete="family-name" value=""  />
+                                            <input type="text" class="input-text " name="last_name" id="last_name"   autocomplete="family-name" value=""  />
+                                            @if ($errors->has('last_name'))
+                                                <span class="help-block">
+                                                <strong>{{ $errors->first('last_name') }}</strong>
+                                                 </span>
+                                            @endif
                                         </p>
                                         <div class="clear"></div>
                                        {{-- <p class="form-row form-row form-row-wide" id="billing_company_field">
                                             <label for="billing_company" class="">Company Name</label>
-                                            <input type="text" class="input-text " name="billing_company" id="billing_company" placeholder=""  autocomplete="organization" value=""  />
+                                            <input type="text" class="input-text " name="billing_company" id="billing_company"   autocomplete="organization" value=""  />
                                         </p>--}}
                                         <p class="form-row form-row form-row-first validate-required validate-email" id="billing_email_field">
                                             <label for="billing_email" class="">Email Address </label>
-                                            <input type="email" class="input-text " name="billing_email" id="billing_email" placeholder=""  autocomplete="email" value=""  />
+                                            <input class="input-text " name="email" id="email"   autocomplete="email" value="" />
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                                 </span>
+                                            @endif
                                         </p>
                                         <p class="form-row form-row form-row-last validate-required validate-phone" id="billing_phone_field">
                                             <label for="billing_phone" class="">Phone </label>
-                                            <input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder=""  autocomplete="tel" value=""  />
+                                            <input type="tel" class="input-text " name="phone" id="phone"   autocomplete="tel" value=""  />
+                                            @if ($errors->has('phone'))
+                                                <span class="help-block">
+                                                <strong>{{ $errors->first('phone') }}</strong>
+                                                 </span>
+                                            @endif
                                         </p>
                                         <div class="clear"></div>
                                         <p class="form-row form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field">
                                             <label for="billing_country" class="">Country </label>
-                                            <input type="text" value="" placeholder="" id="billing_country" name="billing_phone" class="input-text ">
+                                            <input type="text" value=""  id="country" name="country" class="input-text ">
+                                            @if ($errors->has('country'))
+                                                <span class="help-block">
+                                                <strong>{{ $errors->first('country') }}</strong>
+                                                 </span>
+                                            @endif
                                         </p>
                                         <div class="clear"></div>
                                         <p class="form-row form-row form-row-wide address-field validate-required" id="billing_address_1_field">
                                             <label for="billing_address_1" class="">Address </label>
-                                            <input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="Street address"  autocomplete="address-line1" value=""  />
+                                            <input type="text" class="input-text " name="address_1" id="address_1" placeholder="Street address"  autocomplete="address-line1" value=""  />
+                                            @if ($errors->has('address_1'))
+                                                <span class="help-block">
+                                                <strong>{{ $errors->first('address_1') }}</strong>
+                                                 </span>
+                                            @endif
                                         </p>
                                         <p class="form-row form-row form-row-wide address-field" id="billing_address_2_field">
-                                            <input type="text" class="input-text " name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)"  autocomplete="address-line2" value=""  />
+                                            <input type="text" class="input-text " name="address_2" id="address_2" placeholder="Apartment, suite, unit etc. (optional)"  autocomplete="address-line2" value=""  />
                                         </p>
                                         <p class="form-row form-row form-row-wide address-field validate-required" id="billing_city_field">
                                             <label for="billing_city" class="">Town / City </label>
-                                            <input type="text" class="input-text " name="billing_city" id="billing_city" placeholder=""  autocomplete="address-level2" value=""  />
+                                            <input type="text" class="input-text " name="city" id="city"   autocomplete="address-level2" value=""  />
+                                            @if ($errors->has('city'))
+                                                <span class="help-block">
+                                                <strong>{{ $errors->first('city') }}</strong>
+                                                 </span>
+                                            @endif
                                         </p>
                                     {{--    <p class="form-row form-row form-row-first address-field validate-required validate-state" id="billing_state_field">
                                             <label for="billing_state" class="">State / County </label>
-                                            <input type="text" value="" placeholder="" id="billing_state" name="billing_phone" class="input-text ">
+                                            <input type="text" value=""  id="billing_state" name="billing_phone" class="input-text ">
                                         </p>
                                         <p class="form-row form-row form-row-last address-field validate-required validate-postcode" id="billing_postcode_field">
                                             <label for="billing_postcode" class="">Postcode / ZIP </label>
-                                            <input type="text" class="input-text " name="billing_postcode" id="billing_postcode" placeholder=""  autocomplete="postal-code" value="DFSAF@GMAIL.COM"  />
+                                            <input type="text" class="input-text " name="billing_postcode" id="billing_postcode"   autocomplete="postal-code" value="DFSAF@GMAIL.COM"  />
                                         </p>--}}
                                         <div class="clear"></div>
                                         <p class="form-row form-row-wide create-account">
