@@ -73,7 +73,12 @@
     </div>
 
     <ul class="site-header-cart-v2 menu">
-        <li class="header-signup"><a href="" data-toggle="modal" data-target=".bd-example-modal-sm">Sign in / Sign Up</a></li>
+        @guest()
+            <li class="header-signup"><a href="" data-toggle="modal" data-target=".bd-example-modal-sm">Sign in / Sign Up</a></li>
+        @else
+            <li class="header-signup"><a href="">{{Auth::User()->full_name}}</a>
+            </li>
+        @endguest
         <li class="cart-content ">
             <a href="{{route('cart')}}" title="View your shopping cart">
                 <i class="fa fa-shopping-cart"></i>

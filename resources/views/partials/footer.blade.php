@@ -9,30 +9,28 @@
                 <img src="assets/images/jollibee.png" class="modal_img">
             </div>
             <div class="modal-body">
-                <form>
+                <form method="POST" action="{{ route('register') }}">
+                    {{ csrf_field() }}
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Full Name" id="recipient-name">
+                        <input type="text" class="form-control" placeholder="Full Name" id="full_name" name="full_name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email Address" id="recipient-name">
+                        <input type="text" class="form-control" placeholder="Email Address" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Mobile Number" id="recipient-name">
+                        <input type="text" class="form-control" placeholder="Mobile Number" id="mobile" name="mobile" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password" id="recipient-name">
+                        <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Confirm Password" id="recipient-name">
+                        <input type="password" class="form-control" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" required>
                     </div>
+                    <button type="submit" class="btn btn-danger btn-block">Sign Up</button>
                 </form>
-
-                <button type="button" class="btn btn-danger btn-block">Sign Up</button>
                 <br/>
                 <button type="button" class="btn btn-info  btn-block">Sign in with facebook</button>
                 <button type="button" class="btn btn-primary  btn-block">Sign in with google</button>
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-light btn-signin" data-toggle="modal" data-target=".bd-ex-modal-sm">Sign In</button>
@@ -56,15 +54,13 @@
                 <form>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email Address" id="recipient-name">
+                        <input type="text" class="form-control" placeholder="Email Address" id="recipient-name" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password" id="recipient-name">
+                        <input type="password" class="form-control" placeholder="Password" id="recipient-name" required>
                     </div>
-
+                    <button type="submit" class="btn btn-danger btn-block">Sign In</button>
                 </form>
-
-                <button type="button" class="btn btn-danger btn-block">Sign In</button>
 
                 <br/>
                 <button type="button" class="btn btn-info  btn-block">Sign in with facebook</button>

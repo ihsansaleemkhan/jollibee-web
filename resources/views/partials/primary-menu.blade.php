@@ -40,8 +40,6 @@
                     <li class="menu-item"><a href="{{route('store-locator')}}">Store Locator</a></li>
                 </ul>
             </li>
-
-
         </ul>
     </div>
     <div class="handheld-navigation">
