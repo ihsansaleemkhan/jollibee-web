@@ -51,13 +51,14 @@
                 <img src="assets/images/jollibee.png" class="modal_img">
             </div>
             <div class="modal-body">
-                <form>
+                <form method="POST" action="{{ route('login') }}">
+                    {{ csrf_field() }}
 
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email Address" id="recipient-name" required>
+                        <input type="text" class="form-control" placeholder="Email Address" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password" id="recipient-name" required>
+                        <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
                     </div>
                     <button type="submit" class="btn btn-danger btn-block">Sign In</button>
                 </form>

@@ -105,7 +105,13 @@
                         <header class="title">
                             <h3>Customer Address</h3>
                         </header>
+                        @guest
                         <address>{{$data['first_name'].' '.$data['last_name']}}<br>{{$data['address_1'].' '. $data['address_2']}}<br>{{$data['city']}}</address>
+                        @else
+                            <address>{{$data['full_name']}}<br>{{$data['address_1']}}</address>
+                        @endguest
+
+
                     </div>
                 </div>
                 <!-- .entry-content -->

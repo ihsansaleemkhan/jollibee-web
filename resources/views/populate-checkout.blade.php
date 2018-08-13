@@ -35,24 +35,24 @@
                                 <div class="col-1">
                                     <div class="woocommerce-billing-fields">
                                         <h3>Customer Details</h3>
-                                        <p class="form-row form-row form-row-first validate-required" id="billing_first_name_field">
-                                            <label for="billing_first_name" class="">First Name </label>
-                                            <input type="text" class="input-text " name="first_name" id="first_name"   autocomplete="given-name" value=""  />
+                                        <p class="form-row form-row form-row-wide address-field validate-required" id="billing_first_name_field">
+                                            <label for="billing_first_name" class="">Full Name </label>
+                                            <input type="text" class="input-text " name="full_name" id="full_name"   autocomplete="given-name" value="{{$user[0]->full_name}}"  />
                                             @if ($errors->has('first_name'))
                                                 <span class="help-block">
                                                 <strong>{{ $errors->first('first_name') }}</strong>
                                                  </span>
                                             @endif
                                         </p>
-                                        <p class="form-row form-row form-row-last validate-required" id="billing_last_name_field">
+                                     {{--   <p class="form-row form-row form-row-last validate-required" id="billing_last_name_field">
                                             <label for="billing_last_name" class="">Last Name </label>
-                                            <input type="text" class="input-text " name="last_name" id="last_name"   autocomplete="family-name" value=""  />
+                                            <input type="text" class="input-text " name="last_name" id="last_name"   autocomplete="family-name" value="{{$user[0]->full_name}}"  />
                                             @if ($errors->has('last_name'))
                                                 <span class="help-block">
                                                 <strong>{{ $errors->first('last_name') }}</strong>
                                                  </span>
                                             @endif
-                                        </p>
+                                        </p>--}}
                                         <div class="clear"></div>
                                        {{-- <p class="form-row form-row form-row-wide" id="billing_company_field">
                                             <label for="billing_company" class="">Company Name</label>
@@ -60,7 +60,7 @@
                                         </p>--}}
                                         <p class="form-row form-row form-row-first validate-required validate-email" id="billing_email_field">
                                             <label for="billing_email" class="">Email Address </label>
-                                            <input type="text" class="input-text " name="email" id="email"   autocomplete="email" value="" />
+                                            <input type="text" class="input-text " name="email" id="email"   autocomplete="email" value="{{$user[0]->email}}" />
                                             @if ($errors->has('email'))
                                                 <span class="help-block">
                                                 <strong>{{ $errors->first('email') }}</strong>
@@ -69,7 +69,7 @@
                                         </p>
                                         <p class="form-row form-row form-row-last validate-required validate-phone" id="billing_phone_field">
                                             <label for="billing_phone" class="">Phone </label>
-                                            <input type="text" class="input-text " name="phone" id="phone"   autocomplete="tel" value=""  />
+                                            <input type="text" class="input-text " name="phone" id="phone"   autocomplete="tel" value="{{$user[0]->mobile}}"  />
                                             @if ($errors->has('phone'))
                                                 <span class="help-block">
                                                 <strong>{{ $errors->first('phone') }}</strong>
@@ -89,14 +89,14 @@
                                         <div class="clear"></div>
                                         <p class="form-row form-row form-row-wide address-field validate-required" id="billing_address_1_field">
                                             <label for="billing_address_1" class="">Address </label>
-                                            <input type="text" class="input-text " name="address_1" id="address_1" placeholder="Street address"  autocomplete="address-line1" value=""  />
+                                            <input type="text" class="input-text " name="address_1" id="address_1" placeholder="Street address"  autocomplete="address-line1" value="{{$user[0]->default_address}}"  />
                                             @if ($errors->has('address_1'))
                                                 <span class="help-block">
                                                 <strong>{{ $errors->first('address_1') }}</strong>
                                                  </span>
                                             @endif
                                         </p>
-                                        <p class="form-row form-row form-row-wide address-field" id="billing_address_2_field">
+                                     {{--   <p class="form-row form-row form-row-wide address-field" id="billing_address_2_field">
                                             <input type="text" class="input-text " name="villa_no" id="villa_no" placeholder="Villa No (Building)"  autocomplete="" value=""  />
                                         </p>
                                         <p class="form-row form-row form-row-wide address-field" id="billing_address_2_field">
@@ -110,7 +110,7 @@
                                                 <strong>{{ $errors->first('city') }}</strong>
                                                  </span>
                                             @endif
-                                        </p>
+                                        </p>--}}
                                     {{--    <p class="form-row form-row form-row-first address-field validate-required validate-state" id="billing_state_field">
                                             <label for="billing_state" class="">State / County </label>
                                             <input type="text" value=""  id="billing_state" name="billing_phone" class="input-text ">
@@ -120,7 +120,7 @@
                                             <input type="text" class="input-text " name="billing_postcode" id="billing_postcode"   autocomplete="postal-code" value="DFSAF@GMAIL.COM"  />
                                         </p>--}}
                                         <div class="clear"></div>
-                                        <p class="form-row form-row-wide create-account">
+                                     {{--   <p class="form-row form-row-wide create-account">
                                             <input class="input-checkbox" id="createaccount"  type="checkbox" name="createaccount" value="1" />
                                             <label for="createaccount" class="checkbox">Create an account?</label>
                                         </p>
@@ -131,7 +131,7 @@
                                                 <input type="password" class="input-text " name="account_password" id="account_password" placeholder="Password"   value=""  />
                                             </p>
                                             <div class="clear"></div>
-                                        </div>
+                                        </div>--}}
                                     </div>
                                 </div>
                                 <div class="col-2">

@@ -76,7 +76,24 @@
         @guest()
             <li class="header-signup"><a href="" data-toggle="modal" data-target=".bd-example-modal-sm">Sign in / Sign Up</a></li>
         @else
-            <li class="header-signup"><a href="">{{Auth::User()->full_name}}</a>
+            <li class="dropdown header-signup">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                    {{ Auth::user()->full_name }} <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
             </li>
         @endguest
         <li class="cart-content ">

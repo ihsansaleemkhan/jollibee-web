@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
@@ -26,8 +27,19 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        $validator = JsValidator::make($this->validationRules);
-        return view('checkout',['validator' => $validator]);
+        if (Auth::user()) {
+            $userInfo = DB::table('users') ->where('id', Auth::user()->id)->get();
+            $validator = JsValidator::make($this->validationRules);
+            return view('populate-checkout', ['validator' => $validator, 'user' => $userInfo]);
+        }
+        else
+        {
+
+            $validator = JsValidator::make($this->validationRules);
+            return view('checkout', ['validator' => $validator]);
+
+        }
+
     }
 
     /**
@@ -48,6 +60,7 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
         $email = $request->input('email');
@@ -55,9 +68,10 @@ class CheckoutController extends Controller
         $address_1 = $request->input('address_1');
         $address_2 = $request->input('address_2');
         $city = $request->input('city');
-        $account_password = $request->input('account_password');
+        $account_password = bcrypt($request->input('account_password'));
         $order_comments = $request->input('order_comments');
         $payment_method = $request->input('payment_method');
+        $full_name= $request->input('full_name');
 
         $mytime = Carbon\Carbon::now();
         $date = $mytime->toDateString();
@@ -67,28 +81,46 @@ class CheckoutController extends Controller
              $account_password = str_random(8)->make_bcrypt;
          }*/
 
-        $validation = Validator::make($request->all(), $this->validationRules);
-        if ($validation->fails()) {
-            return redirect()->back()->withErrors($validation->errors());
-        }
-        else {
+            if (Auth::user())
+            {
+                $data['full_name'] = $full_name;
+         /*       $data['last_name'] = $last_name;*/
+                $data['email'] = $email;
+                $data['phone'] = $phone;
+                $data['address_1'] = $address_1;
+         /*       $data['address_2'] = $address_2;
+                $data['city'] = $city;*/
+                $data['order_ref'] = $order_ref;
+                $data['date'] = $date;
+                $data['payment_method'] = $payment_method;
 
-            DB::insert('insert into users 
-            (full_name,email,mobile,status,password,default_address,remember_token,avatar,is_active) 
-            values(?,?,?,?,?,?,?,?,?)',[$first_name.' '.$last_name,$email,$phone,'1',$account_password,$address_1.' '.$address_2.' '.$city,'1','avatar',0]);
+                return view('order-received',['data' => $data]);
+            }
+            else
+            {
+                $validation = Validator::make($request->all(), $this->validationRules);
+                if ($validation->fails()) {
+                    return redirect()->back()->withErrors($validation->errors());
+                }
+                else {
+                DB::insert('insert into users 
+                (full_name,email,mobile,status,password,default_address,remember_token,avatar,is_active) 
+                  values(?,?,?,?,?,?,?,?,?)',[$first_name.' '.$last_name,$email,$phone,'1',$account_password,$address_1.' '.$address_2.' '.$city,'1','avatar',0]);
 
-            $data['first_name'] = $first_name;
-            $data['last_name'] = $last_name;
-            $data['email'] = $email;
-            $data['phone'] = $phone;
-            $data['address_1'] = $address_1;
-            $data['address_2'] = $address_2;
-            $data['city'] = $city;
-            $data['order_ref'] = $order_ref;
-            $data['date'] = $date;
-            $data['payment_method'] = $payment_method;
+                $data['first_name'] = $first_name;
+                $data['last_name'] = $last_name;
+                $data['email'] = $email;
+                $data['phone'] = $phone;
+                $data['address_1'] = $address_1;
+                $data['address_2'] = $address_2;
+                $data['city'] = $city;
+                $data['order_ref'] = $order_ref;
+                $data['date'] = $date;
+                $data['payment_method'] = $payment_method;
 
-            return view('order-received',['data' => $data]);
+                return view('order-received',['data' => $data]);
+            }
+
         }
     }
 
