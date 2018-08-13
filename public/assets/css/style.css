@@ -12269,7 +12269,8 @@ ul.products li.product .ywapo_input_container_radio.ywapo_input_container:nth-ch
     overflow: hidden;
     min-height: 52px;
     left: 50%;
-    transform: translate(-50%, -50%);font-size: 14px; }
+/*    transform: translate(-50%, -50%);*/
+    font-size: 14px; }
 .header-v1 .site-header-cart-v2 .cart-content .sub-menu li {
     background-color: #fff;
     height: 45px;

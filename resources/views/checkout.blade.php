@@ -264,11 +264,11 @@
                                         <noscript>Since your browser does not support JavaScript, or it is disabled, please ensure you click the <em>Update Totals</em> button before placing your order. You may be charged more than the amount stated above if you fail to do so.<br/>
                                             <input type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="Update totals" />
                                         </noscript>
-                                        <p class="form-row terms wc-terms-and-conditions">
+                                     {{--   <p class="form-row terms wc-terms-and-conditions">
                                             <input type="checkbox" class="input-checkbox" name="terms"  id="terms" />
                                             <label for="terms" class="checkbox">I&rsquo;ve read and accept the <a href="terms-and-conditions.html" target="_blank">terms &amp; conditions</a> <span class="required">*</span></label>
                                             <input type="hidden" name="terms-field" value="1" />
-                                        </p>
+                                        </p>--}}
                                         <button type="submit" class="button alt" style="text-align: center;">Place order</button>
                                     </div>
                                 </div>
