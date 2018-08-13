@@ -7,7 +7,7 @@
 <div class="col-full">
     <div class="pizzaro-breadcrumb">
         <nav class="woocommerce-breadcrumb">
-            <a href="index.html">Home</a>
+            <a href="home">Home</a>
             <span class="delimiter"><i class="po po-arrow-right-slider"></i></span>
             <a href="checkout.html">Checkout</a>
             <span class="delimiter"><i class="po po-arrow-right-slider"></i></span>Order Received
@@ -40,10 +40,10 @@
                             <li class="order">Order ID:<strong>{{$data['order_ref']}}</strong></li>
                             <li class="date">Date:<strong>{{$data['date']}}</strong></li>
                             <li class="total">Total:<strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ Cart::total() }}</span></strong></li>
-                            <li class="method">Payment Method:<strong>Cash</strong></li>
+                            <li class="method">Payment Method:<strong>{{ $data['payment_method'] }}</strong></li>
                         </ul>
                         <div class="clear"></div>
-                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+               {{--         <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>--}}
                         <h2>Order Details</h2>
                         <table class="shop_table order_details">
                             <thead>
@@ -56,7 +56,7 @@
                             @foreach(Cart::content() as $item)
                             <tr class="order_item">
                                 <td class="product-name">
-                                    <a href="single-product-v1.html">{{ $item->model->name }}</a> <strong class="product-quantity">× {{ $item->qty }}</strong>
+                                    <a href="">{{ $item->model->name }}</a> <strong class="product-quantity">× {{ $item->qty }}</strong>
                                   {{--  <dl class="variation">
                                         <dt class="variation-PickSize362590"><span id="1">Pick Size</span> (<span class="woocommerce Price amount amount"><span class="woocommerce Price currencySymbol">$</span>25.90</span>):</dt>
                                         <dd class="variation-PickSize362590">
@@ -103,9 +103,9 @@
                             </tbody>
                         </table>
                         <header class="title">
-                            <h3>Billing Address</h3>
+                            <h3>Customer Address</h3>
                         </header>
-                        <address>{{$data['first_name'].' '.$data['last_name']}}<br>{{$data['address_1'].' '. $data['address_2']}}<br>{{$data['city']}}<br>{{$data['country']}}</address>
+                        <address>{{$data['first_name'].' '.$data['last_name']}}<br>{{$data['address_1'].' '. $data['address_2']}}<br>{{$data['city']}}</address>
                     </div>
                 </div>
                 <!-- .entry-content -->

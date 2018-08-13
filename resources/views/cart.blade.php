@@ -7,7 +7,7 @@
 <div class="col-full">
     <div class="pizzaro-breadcrumb">
         <nav class="woocommerce-breadcrumb" >
-            <a href="index.html">Home</a>
+            <a href="home">Home</a>
             <span class="delimiter"><i class="po po-arrow-right-slider"></i></span>Cart
         </nav>
     </div>

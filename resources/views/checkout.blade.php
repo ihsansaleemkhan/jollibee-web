@@ -6,7 +6,7 @@
 <div id="content" class="site-content" tabindex="-1" >
 <div class="col-full">
     <div class="pizzaro-breadcrumb">
-        <nav class="woocommerce-breadcrumb" ><a href="index.html">Home</a>
+        <nav class="woocommerce-breadcrumb" ><a href="home">Home</a>
             <span class="delimiter"><i class="po po-arrow-right-slider"></i></span>Checkout
         </nav>
     </div>
@@ -34,7 +34,7 @@
                             <div class="col2-set" id="customer_details">
                                 <div class="col-1">
                                     <div class="woocommerce-billing-fields">
-                                        <h3>Billing Details</h3>
+                                        <h3>Customer Details</h3>
                                         <p class="form-row form-row form-row-first validate-required" id="billing_first_name_field">
                                             <label for="billing_first_name" class="">First Name </label>
                                             <input type="text" class="input-text " name="first_name" id="first_name"   autocomplete="given-name" value=""  />
@@ -76,7 +76,7 @@
                                                  </span>
                                             @endif
                                         </p>
-                                        <div class="clear"></div>
+                                       {{-- <div class="clear"></div>
                                         <p class="form-row form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field">
                                             <label for="billing_country" class="">Country </label>
                                             <input type="text" value=""  id="country" name="country" class="input-text ">
@@ -85,7 +85,7 @@
                                                 <strong>{{ $errors->first('country') }}</strong>
                                                  </span>
                                             @endif
-                                        </p>
+                                        </p>--}}
                                         <div class="clear"></div>
                                         <p class="form-row form-row form-row-wide address-field validate-required" id="billing_address_1_field">
                                             <label for="billing_address_1" class="">Address </label>
@@ -95,6 +95,9 @@
                                                 <strong>{{ $errors->first('address_1') }}</strong>
                                                  </span>
                                             @endif
+                                        </p>
+                                        <p class="form-row form-row form-row-wide address-field" id="billing_address_2_field">
+                                            <input type="text" class="input-text " name="villa_no" id="villa_no" placeholder="Villa No (Building)"  autocomplete="" value=""  />
                                         </p>
                                         <p class="form-row form-row form-row-wide address-field" id="billing_address_2_field">
                                             <input type="text" class="input-text " name="address_2" id="address_2" placeholder="Apartment, suite, unit etc. (optional)"  autocomplete="address-line2" value=""  />
@@ -220,7 +223,7 @@
                                 </table>
                                 <div id="payment" class="woocommerce-checkout-payment">
                                     <ul class="wc_payment_methods payment_methods methods">
-                                        <li class="wc_payment_method payment_method_bacs">
+                                        {{--<li class="wc_payment_method payment_method_bacs">
                                             <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs"  checked='checked' data-order_button_text="" />
                                             <label for="payment_method_bacs">Direct Bank Transfer</label>
                                             <div class="payment_box payment_method_bacs" >
@@ -233,22 +236,29 @@
                                             <div class="payment_box payment_method_cheque" style="display:none;">
                                                 <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
                                             </div>
-                                        </li>
+                                        </li>--}}
                                         <li class="wc_payment_method payment_method_cod">
-                                            <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod"  data-order_button_text="" />
+                                            <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="Cash on delivery"  data-order_button_text="" />
                                             <label for="payment_method_cod">Cash on Delivery   </label>
                                             <div class="payment_box payment_method_cod" style="display:none;">
                                                 <p>Pay with cash upon delivery.</p>
                                             </div>
                                         </li>
-                                        <li class="wc_payment_method payment_method_paypal">
+                                        <li class="wc_payment_method payment_method_cheque">
+                                            <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="Card on delivery"  data-order_button_text="" />
+                                            <label for="payment_method_cheque">Card on Delivery  </label>
+                                            <div class="payment_box payment_method_cheque" style="display:none;">
+                                                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                                            </div>
+                                        </li>
+                                       {{-- <li class="wc_payment_method payment_method_paypal">
                                             <input id="payment_method_paypal" type="radio" class="input-radio" name="payment_method" value="paypal"  data-order_button_text="Proceed to PayPal" />
                                             <label for="payment_method_paypal">PayPal <img alt="PayPal Acceptance Mark" src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg"/>
                                                 <a title="What is PayPal?" onclick="javascript:window.open('https://www.paypal.com/us/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;" class="about_paypal" href="https://www.paypal.com/us/webapps/mpp/paypal-popup"   >What is PayPal?</a>  </label>
                                             <div class="payment_box payment_method_paypal" style="display:none;">
                                                 <p>Pay via PayPal; you can pay with your credit card if you don&#8217;t have a PayPal account.</p>
                                             </div>
-                                        </li>
+                                        </li>--}}
                                     </ul>
                                     <div class="form-row place-order">
                                         <noscript>Since your browser does not support JavaScript, or it is disabled, please ensure you click the <em>Update Totals</em> button before placing your order. You may be charged more than the amount stated above if you fail to do so.<br/>

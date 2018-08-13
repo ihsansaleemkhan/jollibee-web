@@ -141,7 +141,7 @@
 
 <div id="content" class="site-content" tabindex="-1">
     <div class="col-full">
-        @include('components.pizzaro-sorting')
+       {{-- @include('components.pizzaro-sorting')--}}
         <div id="secondary" class="widget-area col-md-3 col-sm-12" role="complementary">
             @include('layouts.search-widget')
             @include('layouts.widget-nav-menu')

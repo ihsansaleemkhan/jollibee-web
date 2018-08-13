@@ -15,7 +15,6 @@ class CheckoutController extends Controller
         'last_name' => 'required',
         'email' => 'required|email',
         'phone' => 'required|numeric',
-        'country' => 'required',
         'address_1' => 'required',
         'city' => 'required',
     ];
@@ -53,12 +52,12 @@ class CheckoutController extends Controller
         $last_name = $request->input('last_name');
         $email = $request->input('email');
         $phone = $request->input('phone');
-        $country = $request->input('country');
         $address_1 = $request->input('address_1');
         $address_2 = $request->input('address_2');
         $city = $request->input('city');
         $account_password = $request->input('account_password');
         $order_comments = $request->input('order_comments');
+        $payment_method = $request->input('payment_method');
 
         $mytime = Carbon\Carbon::now();
         $date = $mytime->toDateString();
@@ -76,18 +75,18 @@ class CheckoutController extends Controller
 
             DB::insert('insert into users 
             (full_name,email,mobile,status,password,default_address,remember_token,avatar,is_active) 
-            values(?,?,?,?,?,?,?,?,?)',[$first_name.' '.$last_name,$email,$phone,'1',$account_password,$address_1.' '.$address_2.' '.$city.' '.$country,'1','avatar',0]);
+            values(?,?,?,?,?,?,?,?,?)',[$first_name.' '.$last_name,$email,$phone,'1',$account_password,$address_1.' '.$address_2.' '.$city,'1','avatar',0]);
 
             $data['first_name'] = $first_name;
             $data['last_name'] = $last_name;
             $data['email'] = $email;
             $data['phone'] = $phone;
-            $data['country'] = $country;
             $data['address_1'] = $address_1;
             $data['address_2'] = $address_2;
             $data['city'] = $city;
             $data['order_ref'] = $order_ref;
             $data['date'] = $date;
+            $data['payment_method'] = $payment_method;
 
             return view('order-received',['data' => $data]);
         }

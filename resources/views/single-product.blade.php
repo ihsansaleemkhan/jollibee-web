@@ -54,14 +54,14 @@
                                 <a href="assets/images/single-product/1.jpg" itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto[product-gallery]">
                                     <img src="images/products/{{$product[0]->image}}" class="attachment-shop_single size-shop_single wp-post-image" style="width: 600px;height: 600px" alt=""/>
                                 </a>
-                                <div class="thumbnails columns-4">
+                             {{--   <div class="thumbnails columns-4">
                                     <a href="assets/images/single-product/1.jpg" class="zoom first" title="" data-rel="prettyPhoto[product-gallery]">
                                         <img width="180" height="180" src="assets/images/single-product/1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt=""/>
                                     </a>
                                     <a href="assets/images/single-product/2.jpg" class="zoom" title="" data-rel="prettyPhoto[product-gallery]">
                                         <img width="180" height="180" src="assets/images/single-product/2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail" alt=""/>
                                     </a>
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
                         <!-- /.product-images-wrapper -->                        <!-- /.product-images-wrapper -->
@@ -144,7 +144,7 @@
                         <!-- .summary -->
                     </div>
                     <!-- /.single-product-wrapper -->
-                    <div class="woocommerce-tabs wc-tabs-wrapper">
+           {{--         <div class="woocommerce-tabs wc-tabs-wrapper">
                         <ul class="nav nav-tabs pizzaro-nav-tabs tabs wc-tabs" >
                             <li class="nav-item description_tab active">
                                 <a href="#tab-description" class="active" data-toggle="tab">Description</a>
@@ -571,7 +571,7 @@
                                 <!-- /.products -->
                             </ul>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
             </main>
             <!-- #main -->
