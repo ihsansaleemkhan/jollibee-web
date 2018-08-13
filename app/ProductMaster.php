@@ -45,4 +45,9 @@ class ProductMaster extends Model
             ->orderBy('categoryID', 'desc')
             ->get();
     }
+
+    public function getProductByCat($id)
+    {
+        return DB::table('product_master')->where('categoryID',$id)->orderBy('productID', 'desc')->paginate(15);
+    }
 }

@@ -4,8 +4,8 @@
 			<ul class="vmcarousel-centered-infitine vmc-centered">
 				@foreach($categories as $cat)
 				<li>
-					<img src="assets/images/categories/{{$cat->cat_image}}" alt="" >
-					<h5>{{$cat->cat_name}} </h5>
+					<a href="{{ route('cat',$cat->categoryID) }}"><img src="assets/images/categories/{{$cat->cat_image}}" alt="" ></a>
+					<h5><a href="{{ route('cat',$cat->categoryID) }}">{{$cat->cat_name}}</a> </h5>
 				</li>
 				@endforeach
 			</ul>

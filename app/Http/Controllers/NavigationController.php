@@ -53,4 +53,16 @@ class NavigationController extends Controller
    {
        return view('contact');
    }
+
+    public function cat($id)
+    {
+        $ProductMaster = new \App\ProductMaster();
+        $products = $ProductMaster->getProductByCat($id);
+        $deals = $ProductMaster->getDeals();
+
+        $CategoryMaster = new \App\CategoryMaster();
+        $categories = $CategoryMaster->getCategories();
+
+        return view('order-online', ['products' => $products, 'categories' => $categories, 'deals' => $deals]);
+    }
 }

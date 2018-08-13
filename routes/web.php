@@ -49,3 +49,5 @@ Route::get('/store-locator', 'NavigationController@toStoreLocator')->name('store
 Route::get('/contact-us', 'NavigationController@toContact')->name('contact-us');
 
 Route::post('/order-received', 'CheckoutController@store')->name('order-received');
+
+Route::get('/cat{id}', 'NavigationController@cat')->name('cat');
