@@ -36,7 +36,7 @@
                 <a href="">More</a>
                 <ul class="sub-menu">
                     <li class="menu-item"><a href="">Kids Party</a></li>
-                    <li class="menu-item"><a href="">Rewards</a></li>
+                    <li class="menu-item"><a href="{{route('reward')}}">Rewards</a></li>
                     <li class="menu-item"><a href="{{route('store-locator')}}">Store Locator</a></li>
                 </ul>
             </li>
@@ -48,7 +48,7 @@
             <li class="menu-item "><a href="{{route('order-online')}}">Order Online</a></li>
             <li class="menu-item "><a href="">Deals</a></li>
             <li class="menu-item "><a href="">Kids Party</a></li>
-            <li class="menu-item "><a href="">Rewards</a></li>
+            <li class="menu-item "><a href="{{route('reward')}}">Rewards</a></li>
             <li class="menu-item "><a href="{{route('store-locator')}}">Store Locator</a></li>
         </ul>
     </div>

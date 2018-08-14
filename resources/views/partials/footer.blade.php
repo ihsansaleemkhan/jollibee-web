@@ -78,7 +78,104 @@
 
 
 
+
 <div class="bg_yellow">
+    <div class="container">
+        <div class="col-sm-4 col-xs-12">
+            <h3>Subscribe for latest Updates </h3>
+        </div>
+        <div class="col-sm-3 col-xs-8">
+            <input type="text" placeholder="Enter Mobile Number" class="form-control">
+        </div>
+        <!-- <div class="col-sm-6 col-xs-12">
+          <div class="col-sm-6 col-xs-12">
+            <input type="text" placeholder="Enter Email Address" class="form-control">
+          </div>
+          <div class="col-sm-6 col-xs-12">
+            <input type="text" placeholder="Enter Mobile Number" class="form-control">
+          </div>
+          <div class="col-sm-12 col-xs-12">
+            <br/>
+            <span class="footer-order">Call and Order in</span> &nbsp;&nbsp;&nbsp;
+            <span class="footer-num">600 587000</span>
+          </div>
+        </div> -->
+        <div class="col-sm-2 col-xs-4">
+            <button class="button_signup">Sign up</button>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+            <span class="footer-num"><i class="fa fa-phone"></i> 600 587000</span>
+        </div>
+    </div>
+</div>
+<div id="top_footer" class="top-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2 col-xs-12">
+                <img src="assets/images/jollibee.png" class="jollimg">
+            </div>
+            <div class="col-sm-7 col-xs-12">
+                <div class="col-sm-3 col-xs-12">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="{{route('story')}}">Our Story</a></li>
+                        <li><a href="{{route('store-locator')}}">Store Locator</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="{{route('contact-us')}}">Contact Us</a></li>
+                        <li><a href="">Careers</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <h4>Media</h4>
+                    <ul>
+                        <li><a href="{{route('news')}}">News & Events</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <h4>Social</h4>
+                    <ul class="sociallin">
+                        <li><a href="https://www.instagram.com/jollibeeuae/"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/JollibeeUAE/"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCRHmoE7PyZ3VtUStiW9V3sg"><i class="fa fa-play"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/jollibee-uae/"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <h4 class="down">Download Our App</h4>
+                <div class="col-sm-6">
+                    <a href="#"><img src="assets/images/p1.png"></a>
+                </div>
+                <div class="col-sm-6">
+                    <a href="#"><img src="assets/images/p2.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="colophon" class="site-footer footer-v1" >
+    <div class="col-full">
+
+        <p class="p">Jollibee Middle East</p>
+        <p class="fl-rght">Designed by <a href="http://bezingo.com">Bezingo Media</a></p>
+        @include('partials.handheld-footer-bar')
+
+    </div><!-- .col-full -->
+</footer><!-- #colophon -->
+
+
+
+
+
+
+
+
+{{--<div class="bg_yellow">
     <div class="container">
         <div class="col-sm-4 col-xs-12">
             <h3>Subscribe for latest updates and new promotions </h3>
@@ -132,7 +229,7 @@
                 <div class="col-sm-3 col-xs-12">
                     <h4>Media</h4>
                     <ul>
-                        <li><a href="">News & Events</a></li>
+                        <li><a href="{{route('news')}}">News & Events</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-12">
@@ -165,7 +262,7 @@
         @include('partials.handheld-footer-bar')
 
     </div><!-- .col-full -->
-</footer><!-- #colophon -->
+</footer><!-- #colophon -->--}}
 
 <script src="js/ajax.js"> </script>
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>

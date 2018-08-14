@@ -51,3 +51,7 @@ Route::get('/contact-us', 'NavigationController@toContact')->name('contact-us');
 Route::post('/order-received', 'CheckoutController@store')->name('order-received');
 
 Route::get('/cat{id}', 'NavigationController@cat')->name('cat');
+Route::get('/store-detail', 'NavigationController@storeDetail')->name('store-detail');
+Route::get('/news', 'NavigationController@toNews')->name('news');
+Route::get('/story', 'NavigationController@toStroy')->name('story');
+Route::get('/reward', 'NavigationController@toReward')->name('reward');

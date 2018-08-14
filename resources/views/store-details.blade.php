@@ -1,3 +1,8 @@
+<title>Store Details | jollibee</title>
+@include('partials.app')
+<body class="store-locator-page">
+<div id="page" class="hfeed site">
+	@include('partials.header')
 <div id="content" class="site-content" tabindex="-1" >
 	<div class="col-full">
 		
@@ -7,7 +12,7 @@
 			<main id="main" class="site-main" >
 				<div id="post-537" class="post-537 page type-page status-publish hentry">
 					<header class="entry-header">
-						<h1 class="entry-title">Store Locator</h1>
+						<a  href="{{route('store-locator')}}"><h1 class="entry-title">Store Locator</h1></a>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
@@ -34,7 +39,7 @@
 									        </button>
 									      </div>
 									      <div class="modal-body">
-									        <?php require_once 'inc/components/contact-map.php'; ?>
+											  @include('layouts.contact-map')
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -119,3 +124,5 @@
 		</div><!-- #primary -->
 	</div><!-- .col-full -->
 </div><!-- #content -->
+</div>
+@include('partials.footer')

@@ -65,4 +65,24 @@ class NavigationController extends Controller
 
         return view('order-online', ['products' => $products, 'categories' => $categories, 'deals' => $deals]);
     }
+
+    public function storeDetail()
+    {
+        return view('store-details');
+    }
+
+    public function toNews()
+    {
+        return view('news');
+    }
+
+    public function toStroy()
+    {
+        return view('story');
+    }
+
+    public function toReward()
+    {
+        return view('reward');
+    }
 }
