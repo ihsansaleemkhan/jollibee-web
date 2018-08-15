@@ -14,7 +14,10 @@
 Route::get('/', function () {
     $CategoryMaster = new \App\CategoryMaster();
     $categories = $CategoryMaster->getCategories();
-    return view('home', ['categories' => $categories]);
+
+    $locations = DB::table('store_locator_master')->get();
+
+    return view('home', ['categories' => $categories,'location' => $locations]);
 });
 
 Route::get('/home', 'NavigationController@index')->name('home');
@@ -55,3 +58,5 @@ Route::get('/store-detail', 'NavigationController@storeDetail')->name('store-det
 Route::get('/news', 'NavigationController@toNews')->name('news');
 Route::get('/story', 'NavigationController@toStroy')->name('story');
 Route::get('/reward', 'NavigationController@toReward')->name('reward');
+
+Route::get('/get-area{id}', 'NavigationController@getArea')->name('get-area');
