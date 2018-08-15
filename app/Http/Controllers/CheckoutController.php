@@ -30,13 +30,16 @@ class CheckoutController extends Controller
         if (Auth::user()) {
             $userInfo = DB::table('users') ->where('id', Auth::user()->id)->get();
             $validator = JsValidator::make($this->validationRules);
-            return view('populate-checkout', ['validator' => $validator, 'user' => $userInfo]);
+
+            $locations = DB::table('store_locator_master')->get();
+            return view('populate-checkout', ['validator' => $validator, 'user' => $userInfo,'location' => $locations]);
         }
         else
         {
 
             $validator = JsValidator::make($this->validationRules);
-            return view('checkout', ['validator' => $validator]);
+            $locations = DB::table('store_locator_master')->get();
+            return view('checkout', ['validator' => $validator,'location' => $locations,]);
 
         }
 
@@ -81,6 +84,8 @@ class CheckoutController extends Controller
              $account_password = str_random(8)->make_bcrypt;
          }*/
 
+        $locations = DB::table('store_locator_master')->get();
+
             if (Auth::user())
             {
                 $data['full_name'] = $full_name;
@@ -94,7 +99,7 @@ class CheckoutController extends Controller
                 $data['date'] = $date;
                 $data['payment_method'] = $payment_method;
 
-                return view('order-received',['data' => $data]);
+                return view('order-received',['data' => $data,'location' => $locations,]);
             }
             else
             {
@@ -118,7 +123,9 @@ class CheckoutController extends Controller
                 $data['date'] = $date;
                 $data['payment_method'] = $payment_method;
 
-                return view('order-received',['data' => $data]);
+
+
+                return view('order-received',['data' => $data,'location' => $locations]);
             }
 
         }

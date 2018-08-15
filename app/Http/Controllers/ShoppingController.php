@@ -9,8 +9,9 @@ class ShoppingController extends Controller
 {
    public function index()
    {
+       $locations = DB::table('store_locator_master')->get();
        //dd(Cart::content());
-       return view('cart');
+       return view('cart',['location' => $locations]);
    }
 
    public function store(Request $request)
@@ -41,7 +42,8 @@ class ShoppingController extends Controller
        $data['name'] = $name;
        $data['sale_price'] = $sale_price;
        $data['image'] = $image;
+       $locations = DB::table('store_locator_master')->get();
 
-       return view('checkout', compact('data'));
+       return view('checkout',['location' => $locations,'data'=>$data]);
    }
 }
