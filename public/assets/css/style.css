@@ -37,12 +37,12 @@ Images License: GNU General Public License v2 or later
  */
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/roboto/Roboto-Bold.ttf'); /* IE9 Compat Modes */
+    font-family:'nunito';
+    src: url('../fonts/nunito/Nunito-Bold.ttf'); /* IE9 Compat Modes */
 }
 
 html {
-    font-family: 'Roboto';
+    font-family:'nunito';
     /* 1 */
     -ms-text-size-adjust: 100%;
     /* 2 */
@@ -2908,7 +2908,7 @@ body {
     background-color: #460c0c;
     padding: 35px 0px 15px;
     color: #ffffff;
-    font-family: 'Roboto';
+    font-family:'nunito';
 }
 
 .top-footer h4{
@@ -3253,7 +3253,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
     color: #fff;
     cursor: pointer;
     /* Improves usability and consistency of cursor style between image-type 'input' and others */
-    padding: 0.8999em 3.6em;
+    padding: 0.8999em 2.6em;
     text-decoration: none;
     font-weight: bold;
     text-shadow: none;
@@ -3264,7 +3264,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
     border-radius: 50px;
     box-shadow: none;
     transition: all 0.2s ease-in-out 0s;
-    font-family: 'Roboto';}
+    font-family:'nunito';}
 button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .button:hover, .added_to_cart:hover {
     color: #fff; }
 button.added:after, input[type="button"].added:after, input[type="reset"].added:after, input[type="submit"].added:after, .button.added:after, .added_to_cart.added:after {
@@ -6888,11 +6888,11 @@ dl.variation dd {
 }
 
 .bg_yellow{
-    background: #fdb813;
+    background: #fff1e5;
     padding: 35px;
     color: #fff;
     font-weight: bold;
-    font-family: 'Roboto';
+    font-family:'nunito';
 }
 
 .bg_yellow h3{
@@ -7127,7 +7127,9 @@ ul.products > li.product.last:after {
 
 .vmc-centered{ padding: 10px 0; }
 .vmc-centered img { transition: all 0.3s ease; }
-.vmc-centered .vmc_active img { transform: scale(1.2); }
+.vmc-centered .vmc_active img {
+    transform: scale(1.2);
+}
 
 .bg-whte{
     background-color: #ffffff;
@@ -7281,7 +7283,7 @@ ul.products > li.product.last:after {
     color: #ffffff;
 }
 .header-v1 {
-    padding-bottom: 0; font-family: 'Roboto';height: 83px; }
+    padding-bottom: 0; font-family:'nunito';height: 83px; }
 .phonep1{
     float: right;
     margin-right: 50px;
@@ -10251,7 +10253,24 @@ article.post.format-status .entry-content p {
     left: 50%;
     text-transform: uppercase;
     color: #fff;
-    font-family: 'Yanone Kaffeesatz', sans-serif; }
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+
+}
+button-red {
+    border-radius: 0px;
+    background: rgba(223, 26, 34, 1);
+    position: absolute;
+    z-index: 11;
+    bottom: 0px;
+    right: 0;
+    font-size: 12px;
+    padding: 3px 16px;
+}
+
+.footer-num {
+    font-size: 1.2pc;
+    color: #eb0000;
+}
 .site-content .home-v1-slider .caption {
     position: absolute;
     top: 50%;
@@ -14643,7 +14662,7 @@ a.remove:before {
 
 .vmcarousel-centered-infitine h5{
     text-align: center;
-    font-family: 'Roboto';
+    font-family:'nunito';
 }
 
 .vmcarousel-centered-infitine .vmc_active h5{
@@ -16230,7 +16249,7 @@ p.order-again .button:after {
 
 @media (max-width: 500px){
     .site-header .site-logo-anchor img, .site-header .site-logo-link img, .site-header .custom-logo-link img {
-        max-width: 107px; }
+      max-width: 107px; }
     .site-content .home-v1-slider .owl-carousel .slider-2 .title {
         font-size: 0.6em;
         line-height: 1;
@@ -16253,35 +16272,35 @@ p.order-again .button:after {
     }
 
     .jollimg{
-        height: 150px;
+      height: 150px;
     }
 
     .site-footer .p,.fl-rght{
-        float: none;
+      float: none;
     }
 
     .down{
-        margin-top: 20px;
-        margin-left: 15px;
+      margin-top: 20px;
+      margin-left: 15px;
     }
 
     .features-list {
-        text-align: center;
-        padding: 50px 0;
+      text-align: center;
+      padding: 50px 0;
     }
 
     .home_v1_bar {
-        padding: 50px 39px;
-        background-size: cover;
-        background-position: center center;
+      padding: 50px 39px;
+      background-size: cover;
+      background-position: center center;
     }
 
     .add_to_cart_button, .product_type_variable {
-        padding: 0.500em 2.411em;
+      padding: 0.500em 2.411em;
     }
 
     .chaat {
-        display: none;
+      display: none;
     }
 
     .mrg-img {
@@ -16290,9 +16309,19 @@ p.order-again .button:after {
     }
 
     .button_signup {
-        background: #eb0000;
-        padding: 0.3em 0.6em;
-        font-size: 9px;
+      background: #eb0000;
+      padding: 0.3em 0.6em;
+      font-size: 12px;
+      margin-top: 5px;
+   }
+
+   .img-lg{
+     height: 45px;
+     float: left;
+    }
+
+    .form-control{
+      font-size: 9px;
     }
 }
 

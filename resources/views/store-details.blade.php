@@ -26,7 +26,7 @@
 									<table class="table">
 										<tr>
 											<th>ADDRESS</th>
-											<td>Chennai Tamil Nadu 600001 <br/><br/><a class="loc-view" href="" data-toggle="modal" data-target="#exampleModal">Show store on map</a></td>
+											<td>{{$store_loc}}<br/><br/><a class="loc-view" href="" data-toggle="modal" data-target="#exampleModal">Show store on map</a></td>
 										</tr>
 									</table>
 									<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

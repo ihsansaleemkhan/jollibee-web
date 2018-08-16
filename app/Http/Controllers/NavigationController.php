@@ -166,10 +166,11 @@ $products = $menuBody['operations'];
         return view('order-online', ['products' => $selectedMenu, 'categories' => $categories, 'deals' => $deals, 'location' => $locations]);
     }
 
-    public function storeDetail()
+    public function storeDetail($id)
     {
         $locations = DB::table('store_locator_master')->get();
-        return view('store-details',['location' => $locations]);
+        $store_loc = DB::table('store_locator_master')->where('storeID',$id)->value('address');
+        return view('store-details',['location' => $locations,'store_loc'=>$store_loc]);
     }
 
     public function toNews()

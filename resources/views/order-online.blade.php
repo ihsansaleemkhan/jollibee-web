@@ -34,7 +34,19 @@
                             </td>
                             <td>{{ $item->model->name }}</td>
                             <td>{{ $item->model->sale_price * $item->qty  }}</td>
-                            <td><a href=""><i class="fa fa-minus-circle mins"></i></a></td>
+                            <td>
+                                <a data-method="delete" style="cursor:pointer;" onclick="$(this).find('form').submit();"><i class="fa fa-minus-circle mins"></i>
+                                    <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST" name="delete_item" style="display:none">
+                                    {{ method_field('DELETE') }}
+                                   {{ csrf_field() }}
+                                    </form>
+                                </a>
+                             {{--   <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                    {{csrf_field() }}
+                                    {{ method_field('DELETE') }}--}}
+                            {{--    <a href="{{ route('cart.destroy', $item->rowId) }}" data-method="delete" name="delete_item"><i class="fa fa-minus-circle mins"></i></a>--}}
+                           {{--     </form>--}}
+                            </td>
                         </tr>
                        @endforeach
                     </table>
@@ -63,5 +75,4 @@
         <a href=""><img src="assets/images/chat.png" class="chat"></a>
     </div><!-- .col-full -->
 </div>
-
 @include('partials.footer')
