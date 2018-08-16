@@ -48,7 +48,41 @@
     </div>
 </div>
 
+<div class="modal fade bd-ex-modal-sm" tabindex="-1" role="dialog" aria-labelledby="SmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <img src="assets/images/jollibee.png" class="modal_img">
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ route('login') }}">
+                    {{ csrf_field() }}
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email Address" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-block">Sign In</button>
+                </form>
+
+                <br/>
+                <button type="button" class="btn btn-info  btn-block">Sign in with facebook</button>
+                <button type="button" class="btn btn-primary  btn-block">Sign in with google</button>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-light btn-signin" data-toggle="modal" data-target=".bd-example-modal-sm">Create Account</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
@@ -92,41 +126,7 @@
 </div>
 
 
-<div class="modal fade bd-ex-modal-sm" tabindex="-1" role="dialog" aria-labelledby="SmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <img src="assets/images/jollibee.png" class="modal_img">
-            </div>
-            <div class="modal-body">
-                <form method="POST" action="{{ route('login') }}">
-                    {{ csrf_field() }}
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email Address" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-danger btn-block">Sign In</button>
-                </form>
-
-                <br/>
-                <button type="button" class="btn btn-info  btn-block">Sign in with facebook</button>
-                <button type="button" class="btn btn-primary  btn-block">Sign in with google</button>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-light">Create Account</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script type="text/javascript">
     $('#city').change(function(){
