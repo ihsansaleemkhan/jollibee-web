@@ -75,7 +75,6 @@
                 <button type="button" class="btn btn-info  btn-block">Sign in with facebook</button>
                 <button type="button" class="btn btn-primary  btn-block">Sign in with google</button>
 
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-light btn-signin" data-toggle="modal" data-target=".bd-example-modal-sm">Create Account</button>
@@ -124,8 +123,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <script type="text/javascript">

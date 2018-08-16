@@ -16,7 +16,7 @@ class ShoppingController extends Controller
 
    public function store(Request $request)
    {
-       Cart::add($request->productID, $request->name, $request->quantity, $request->sale_price)
+       Cart::add($request->productID, $request->name,1, $request->sale_price)
            ->associate('App\ProductMaster');
 
        return back()->with('success', ''.$request->name.' was added to your cart');

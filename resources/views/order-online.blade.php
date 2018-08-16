@@ -34,7 +34,19 @@
                             </td>
                             <td>{{ $item->model->name }}</td>
                             <td>{{ $item->model->sale_price * $item->qty  }}</td>
-                            <td><a href=""><i class="fa fa-minus-circle mins"></i></a></td>
+                            <td>
+                                <a data-method="delete" style="cursor:pointer;" onclick="$(this).find('form').submit();"><i class="fa fa-minus-circle mins"></i>
+                                    <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST" name="delete_item" style="display:none">
+                                    {{ method_field('DELETE') }}
+                                   {{ csrf_field() }}
+                                    </form>
+                                </a>
+                             {{--   <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                    {{csrf_field() }}
+                                    {{ method_field('DELETE') }}--}}
+                            {{--    <a href="{{ route('cart.destroy', $item->rowId) }}" data-method="delete" name="delete_item"><i class="fa fa-minus-circle mins"></i></a>--}}
+                           {{--     </form>--}}
+                            </td>
                         </tr>
                        @endforeach
                     </table>
@@ -64,4 +76,23 @@
     </div><!-- .col-full -->
 </div>
 
+<script>
+$('[data-method]').append(function(){
+return "\n"+
+"<form action='"+$(this).attr('href')+"' method='POST' name='delete_item' style='display:none'>\n"+
+"   <input type='hidden' name='_method' value='"+$(this).attr('data-method')+"'>\n"+
+"   <input type='hidden' name='_token' value='"+$('meta[name="_token"]').attr('content')+"'>\n"+
+"</form>\n"
+})
+.removeAttr('href')
+.attr('style','cursor:pointer;')
+.attr('onclick','$(this).find("form").submit();');
+
+/*
+Generic are you sure dialog
+*/
+$('form[name=delete_item]').submit(function(){
+return confirm("Are you sure you want to delete this item?");
+});
+</script>
 @include('partials.footer')
