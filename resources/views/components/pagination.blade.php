@@ -10,7 +10,7 @@
 
 <nav class="woocommerce-pagination">
     <ul class="page-numbers">
-        {{$products->links()}}
+	{{-- {{$products->links()}} --}}
         {{--                        <li><span class="page-numbers current">1</span></li>
                                 <li><a class="page-numbers" href="#">2</a></li>
                                 <li><a class="page-numbers" href="#">3</a></li>
