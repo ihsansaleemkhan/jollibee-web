@@ -16232,7 +16232,7 @@ p.order-again .button:after {
 
 @media (max-width: 500px){
     .site-header .site-logo-anchor img, .site-header .site-logo-link img, .site-header .custom-logo-link img {
-        max-width: 107px; }
+      max-width: 107px; }
     .site-content .home-v1-slider .owl-carousel .slider-2 .title {
         font-size: 0.6em;
         line-height: 1;
@@ -16255,35 +16255,35 @@ p.order-again .button:after {
     }
 
     .jollimg{
-        height: 150px;
+      height: 150px;
     }
 
     .site-footer .p,.fl-rght{
-        float: none;
+      float: none;
     }
 
     .down{
-        margin-top: 20px;
-        margin-left: 15px;
+      margin-top: 20px;
+      margin-left: 15px;
     }
 
     .features-list {
-        text-align: center;
-        padding: 50px 0;
+      text-align: center;
+      padding: 50px 0;
     }
 
     .home_v1_bar {
-        padding: 50px 39px;
-        background-size: cover;
-        background-position: center center;
+      padding: 50px 39px;
+      background-size: cover;
+      background-position: center center;
     }
 
     .add_to_cart_button, .product_type_variable {
-        padding: 0.500em 2.411em;
+      padding: 0.500em 2.411em;
     }
 
     .chaat {
-        display: none;
+      display: none;
     }
 
     .mrg-img {
@@ -16292,9 +16292,19 @@ p.order-again .button:after {
     }
 
     .button_signup {
-        background: #eb0000;
-        padding: 0.3em 0.6em;
-        font-size: 9px;
+      background: #eb0000;
+      padding: 0.3em 0.6em;
+      font-size: 12px;
+      margin-top: 5px;
+   }
+
+   .img-lg{
+     height: 45px;
+     float: left;
+    }
+
+    .form-control{
+      font-size: 9px;
     }
 }
 
