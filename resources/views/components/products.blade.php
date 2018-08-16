@@ -27,7 +27,7 @@
 								</div>
 							</div>
 
-					<div class="col-sm-4 fd_item">
+					<div class="col-sm-4 fd_item" style="height: 300px;">
 						<div class="row">
                             <a {{--href="{{ route('single-product',$p->productID) }}"--}}><img src="images/products/{{$p->image}}" class="img-responsive"></a>
 						</div>
