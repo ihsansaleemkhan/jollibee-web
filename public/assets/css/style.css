@@ -7127,7 +7127,9 @@ ul.products > li.product.last:after {
 
 .vmc-centered{ padding: 10px 0; }
 .vmc-centered img { transition: all 0.3s ease; }
-.vmc-centered .vmc_active img { transform: scale(1.2); }
+.vmc-centered .vmc_active img {
+/*    transform: scale(1.2); */
+}
 
 .bg-whte{
     background-color: #ffffff;
