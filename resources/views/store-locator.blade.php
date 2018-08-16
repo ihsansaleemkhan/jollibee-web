@@ -81,7 +81,7 @@
 													<strong>Weekdays </strong>{{$s->weekday_time}}<br/>
 													<strong>Weekends </strong>{{$s->weekend_time}}
 												</td>
-												<td><a href="{{route('store-detail')}}" class="loc-view">View</a></td>
+												<td><a href="{{route('store-detail',$s->storeID)}}" class="loc-view">View</a></td>
 											</tr>
 											@endforeach
 										</table>
