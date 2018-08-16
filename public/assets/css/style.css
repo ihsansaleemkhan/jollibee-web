@@ -37,12 +37,12 @@ Images License: GNU General Public License v2 or later
  */
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/roboto/Roboto-Bold.ttf'); /* IE9 Compat Modes */
+    font-family:'nunito';
+    src: url('../fonts/nunito/Nunito-Bold.ttf'); /* IE9 Compat Modes */
 }
 
 html {
-    font-family: 'Roboto';
+    font-family:'nunito';
     /* 1 */
     -ms-text-size-adjust: 100%;
     /* 2 */
@@ -2908,7 +2908,7 @@ body {
     background-color: #460c0c;
     padding: 35px 0px 15px;
     color: #ffffff;
-    font-family: 'Roboto';
+    font-family:'nunito';
 }
 
 .top-footer h4{
@@ -3264,7 +3264,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
     border-radius: 50px;
     box-shadow: none;
     transition: all 0.2s ease-in-out 0s;
-    font-family: 'Roboto';}
+    font-family:'nunito';}
 button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .button:hover, .added_to_cart:hover {
     color: #fff; }
 button.added:after, input[type="button"].added:after, input[type="reset"].added:after, input[type="submit"].added:after, .button.added:after, .added_to_cart.added:after {
@@ -6892,7 +6892,7 @@ dl.variation dd {
     padding: 35px;
     color: #fff;
     font-weight: bold;
-    font-family: 'Roboto';
+    font-family:'nunito';
 }
 
 .bg_yellow h3{
@@ -7283,7 +7283,7 @@ ul.products > li.product.last:after {
     color: #ffffff;
 }
 .header-v1 {
-    padding-bottom: 0; font-family: 'Roboto';height: 83px; }
+    padding-bottom: 0; font-family:'nunito';height: 83px; }
 .phonep1{
     float: right;
     margin-right: 50px;
@@ -14645,7 +14645,7 @@ a.remove:before {
 
 .vmcarousel-centered-infitine h5{
     text-align: center;
-    font-family: 'Roboto';
+    font-family:'nunito';
 }
 
 .vmcarousel-centered-infitine .vmc_active h5{
