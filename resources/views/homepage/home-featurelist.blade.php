@@ -15,6 +15,10 @@
 			</div>
 
 			<div class="item">
+				<img src="assets/images/chickenburger.jpg" alt="Chicago">
+			</div>
+
+			<div class="item">
 				<img src="assets/images/banner.png" alt="Chicago">
 			</div>
 
