@@ -4048,6 +4048,11 @@ embed, iframe, object, video {
 /**
  * Handheld footer bar
  */
+
+ .img-lg{
+    margin-left: -18px;
+    height: 43px;
+ }
 .pizzaro-handheld-footer-bar {
     position: fixed;
     bottom: 0;
@@ -4055,7 +4060,7 @@ embed, iframe, object, video {
     right: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
-    z-index: 9999; }
+    z-index: 9999;height: 70px; }
 .pizzaro-handheld-footer-bar:before, .pizzaro-handheld-footer-bar:after {
     content: "";
     display: table; }
@@ -16322,6 +16327,37 @@ p.order-again .button:after {
 
     .form-control{
       font-size: 9px;
+    }
+
+    .site-content .home-v1-slider {
+          margin-top: -6px;
+          width: 100vw;
+          position: relative;
+          margin-left: -50vw;
+          left: 50%;
+          text-transform: uppercase;
+          color: #fff;
+          font-family: 'Yanone Kaffeesatz', sans-serif;
+      }
+
+      .button-red {
+        border-radius: 0px;
+        background: rgba(223, 26, 34, 1);
+        position: absolute;
+        z-index: 11;
+        bottom: 0px;
+        right: 0;
+        font-size: 12px;
+        padding: 3px 16px;
+    }
+
+    .footer-num {
+        font-size: 1.2pc;
+        color: #eb0000;
+    }
+
+    .site-content .home-v1-slider .owl-carousel .item {
+        height: 8em !important;
     }
 }
 
