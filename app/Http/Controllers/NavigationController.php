@@ -187,6 +187,19 @@ class NavigationController extends Controller
         $resGroup = $client->get('http://eportal.mycomsys.com/posapi_json/api/group?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
         $resMenu = $client->get('http://eportal.mycomsys.com/posapi_json/api/menu?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
 
+        $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+
+        $cityBody = json_decode($response->getBody(), true);
+        $cityData = $cityBody['Data'];
+        $cities = $cityBody['Data']['Cities'];
+
         $menuBody = json_decode($resMenu->getBody(), true);
         $groupBody = json_decode($resGroup->getBody(), true);
         //dd( $body['operations'][0]['CreatedDate'] );
@@ -210,7 +223,7 @@ class NavigationController extends Controller
 //        }
         //echo json_encode($selectedMenu);
 
-        return view('order-online', ['products' => $selectedMenu, 'categories' => $categories, 'deals' => $deals, 'location' => $locations]);
+        return view('order-online', ['products' => $selectedMenu, 'categories' => $categories, 'deals' => $deals, 'location' => $cities]);
     }
 
     public function storeDetail($id)
