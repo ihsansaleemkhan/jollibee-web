@@ -14,9 +14,22 @@ class NavigationController extends Controller
    {
        $CategoryMaster = new \App\CategoryMaster();
        $categories = $CategoryMaster->getCategories();
-       $locations = DB::table('store_locator_master')->get();
+       //$locations = DB::table('store_locator_master')->get();
+       $client = new Client();
+       $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+       $response = $client->post($url, [
+           'headers' => ['Content-Type' => 'application/json'],
+           'body' => json_encode([
+               'Channelid' => 'W',
+               'Accesskey' => 'Web123'
+           ])
+       ]);
 
-       return view('home', ['categories' => $categories,'location' => $locations]);
+       $cityBody = json_decode($response->getBody(), true);
+       $cityData = $cityBody['Data'];
+       $cities = $cityBody['Data']['Cities'];
+
+       return view('home', ['categories' => $categories,'location' => $cities]);
    }
 
     public function orderOnline()
@@ -34,36 +47,31 @@ class NavigationController extends Controller
         $resMenu = $client->get('http://eportal.mycomsys.com/posapi_json/api/menu?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
 
 
-        $resMenu = $client->get('http://eportal.mycomsys.com/posapi_json/api/menu?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
-//        $r = $client->request('PUT', 'http://httpbin.org/put', [
-//            'json' => ['foo' => 'bar']
-//        ]);
+        //$resMenu = $client->get('http://eportal.mycomsys.com/posapi_json/api/menu?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
 
-//        $response = $client->post('url', [
-//            GuzzleHttp\RequestOptions::JSON => ['foo' => 'bar']
-//        ]);
-        $url = 'http://109.123.82.217/cc_api_uat/api/getcities';
-        $paramData = array();
-        $paramData["Channelid"]="W";
-        $paramData["Accesskey"]="Web123";
-        //$myObj->name = "John";
-        //$paramData->Channelid = "W";
-        //$paramData->Accesskey = "Web123";
+        $url = "http://109.123.82.217/cc_api_uat/api/getcities";
 
-        //echo (json_encode($paramData));
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
 
+        $cityBody = json_decode($response->getBody(), true);
+        $cityData = $cityBody['Data'];
+        $cities = $cityBody['Data']['Cities'];
 
-        $headers = [
-            'Content-type' => 'application/json'
-        ];
-        $jsonParam = (json_encode($paramData));
-        $response = $client->post($url, $headers, $jsonParam);
         //echo $res->getStatusCode(); // 200
         //$resData =  $resMenu->getBody();
         //echo $resData['operations'];
         //$data = $res->json();
+
+        //echo($response->getBody());
         //dd(json_decode($response->getBody(), true));
-        //dd(json_decode($response->getBody(), true));
+
+
 
         //$groupArray = json_decode($resGroup->getBody()->getContents(), true); // :'(
         //$menuArray = json_decode($resMenu->getBody()->getContents(), true); // :'(
@@ -74,15 +82,17 @@ class NavigationController extends Controller
         //$menu = $menuArray['operations'];
         //echo $ddaata;
         //$adata = json_decode($menu->getContents(), true);
-        //dd($menuArray); 
-$menuBody = json_decode($resMenu->getBody(), true);
-$groupBody = json_decode($resGroup->getBody(), true);
-//dd( $body['operations'][0]['CreatedDate'] );
-$categories = $groupBody['operations'];
-$products = $menuBody['operations'];
-// foreach( $operation as $opt ) {
-//  echo $opt['CreatedDate'];
-// }
+        //dd($menuArray);
+
+        $menuBody = json_decode($resMenu->getBody(), true);
+        $groupBody = json_decode($resGroup->getBody(), true);
+        //dd( $menuBody['operations']);
+        $categories = $groupBody['operations'];
+        $products = $menuBody['operations'];
+        // foreach( $operation as $opt ) {
+        //  echo $opt['CreatedDate'];
+        // }
+
         //echo gettype($data);
         //json_decode($resData->content(), true);
         //$dddata = collect(json_decode($resData->get('json')))->collapse();
@@ -95,12 +105,7 @@ $products = $menuBody['operations'];
         // }
         //echo $dddata;
 
-
-
-
-
-
-        return view('order-online', ['products' => $products, 'categories' => $categories, 'deals' => $deals, 'location' => $locations]);
+        return view('order-online', ['products' => $products, 'categories' => $categories, 'deals' => $deals, 'location' => $cities]);
     }
 
    public function singleProduct($id)
@@ -108,23 +113,65 @@ $products = $menuBody['operations'];
        $ProductMaster = new \App\ProductMaster();
        $product = $ProductMaster->getProduct($id);
        $sizes = $ProductMaster->getSize($id);
-       $locations = DB::table('store_locator_master')->get();
+       //$locations = DB::table('store_locator_master')->get();
        //dd($sizes);
        //dd($product);
-       return view('single-product', ['product' => $product,'sizes' => $sizes,'location' => $locations]);
+       $client = new Client();
+       $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+       $response = $client->post($url, [
+           'headers' => ['Content-Type' => 'application/json'],
+           'body' => json_encode([
+               'Channelid' => 'W',
+               'Accesskey' => 'Web123'
+           ])
+       ]);
+
+       $cityBody = json_decode($response->getBody(), true);
+       $cityData = $cityBody['Data'];
+       $cities = $cityBody['Data']['Cities'];
+
+       return view('single-product', ['product' => $product,'sizes' => $sizes,'location' => $cities]);
    }
 
    public function toStoreLocator()
    {
        $stores = DB::table('store_locator_master')->get();
-       $locations = DB::table('store_locator_master')->get();
-       return view('store-locator', ['stores' => $stores,'location' => $locations]);
+       //$locations = DB::table('store_locator_master')->get();
+       $client = new Client();
+       $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+       $response = $client->post($url, [
+           'headers' => ['Content-Type' => 'application/json'],
+           'body' => json_encode([
+               'Channelid' => 'W',
+               'Accesskey' => 'Web123'
+           ])
+       ]);
+
+       $cityBody = json_decode($response->getBody(), true);
+       $cityData = $cityBody['Data'];
+       $cities = $cityBody['Data']['Cities'];
+
+       return view('store-locator', ['stores' => $stores,'location' => $cities]);
    }
 
    public function toContact()
    {
-       $locations = DB::table('store_locator_master')->get();
-       return view('contact',['location' => $locations]);
+       //$locations = DB::table('store_locator_master')->get();
+       $client = new Client();
+       $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+       $response = $client->post($url, [
+           'headers' => ['Content-Type' => 'application/json'],
+           'body' => json_encode([
+               'Channelid' => 'W',
+               'Accesskey' => 'Web123'
+           ])
+       ]);
+
+       $cityBody = json_decode($response->getBody(), true);
+       $cityData = $cityBody['Data'];
+       $cities = $cityBody['Data']['Cities'];
+
+       return view('contact',['location' => $cities]);
    }
 
     public function cat($id)
@@ -168,27 +215,80 @@ $products = $menuBody['operations'];
 
     public function storeDetail($id)
     {
-        $locations = DB::table('store_locator_master')->get();
+        //$locations = DB::table('store_locator_master')->get();
+        $client = new Client();
+        $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+
+        $cityBody = json_decode($response->getBody(), true);
+        $cityData = $cityBody['Data'];
+        $cities = $cityBody['Data']['Cities'];
+
         $store_loc = DB::table('store_locator_master')->where('storeID',$id)->value('address');
-        return view('store-details',['location' => $locations,'store_loc'=>$store_loc]);
+        return view('store-details',['location' => $cities,'store_loc'=>$store_loc]);
     }
 
     public function toNews()
     {
-        $locations = DB::table('store_locator_master')->get();
-        return view('news',['location' => $locations]);
+        //$locations = DB::table('store_locator_master')->get();
+        $client = new Client();
+        $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+
+        $cityBody = json_decode($response->getBody(), true);
+        $cityData = $cityBody['Data'];
+        $cities = $cityBody['Data']['Cities'];
+
+        return view('news',['location' => $cities]);
     }
 
     public function toStroy()
     {
-        $locations = DB::table('store_locator_master')->get();
-        return view('story',['location' => $locations]);
+        $client = new Client();
+        $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+
+        $cityBody = json_decode($response->getBody(), true);
+        $cityData = $cityBody['Data'];
+        $cities = $cityBody['Data']['Cities'];
+        return view('story',['location' => $cities]);
     }
 
     public function toReward()
     {
-        $locations = DB::table('store_locator_master')->get();
-        return view('reward',['location' => $locations]);
+        $client = new Client();
+        $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+
+        $cityBody = json_decode($response->getBody(), true);
+        $cityData = $cityBody['Data'];
+        $cities = $cityBody['Data']['Cities'];
+
+        return view('reward',['location' => $cities]);
     }
 
     public function getArea($id)

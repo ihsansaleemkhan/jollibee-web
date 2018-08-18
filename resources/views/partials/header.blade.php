@@ -29,7 +29,7 @@
                             <select id="city" name="city" class="col-sm-5 form-control">
                                 <option>City</option>
                                 @foreach($location as $l)
-                                <option value="{{$l->storeID}}">{{$l->storeName}}</option>
+                                <option value="{{$l['city_id']}}">{{$l['city_name']}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Carbon;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Client;
 
 class CheckoutController extends Controller
 {
@@ -27,19 +28,33 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+        $client = new Client();
+        $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+
+        $cityBody = json_decode($response->getBody(), true);
+        $cityData = $cityBody['Data'];
+        $cities = $cityBody['Data']['Cities'];
+
         if (Auth::user()) {
             $userInfo = DB::table('users') ->where('id', Auth::user()->id)->get();
             $validator = JsValidator::make($this->validationRules);
 
-            $locations = DB::table('store_locator_master')->get();
-            return view('populate-checkout', ['validator' => $validator, 'user' => $userInfo,'location' => $locations]);
+
+            return view('populate-checkout', ['validator' => $validator, 'user' => $userInfo,'location' => $cities]);
         }
         else
         {
 
             $validator = JsValidator::make($this->validationRules);
             $locations = DB::table('store_locator_master')->get();
-            return view('checkout', ['validator' => $validator,'location' => $locations,]);
+            return view('checkout', ['validator' => $validator,'location' => $cities,]);
 
         }
 
@@ -84,7 +99,19 @@ class CheckoutController extends Controller
              $account_password = str_random(8)->make_bcrypt;
          }*/
 
-        $locations = DB::table('store_locator_master')->get();
+        $client = new Client();
+        $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+
+        $cityBody = json_decode($response->getBody(), true);
+        $cityData = $cityBody['Data'];
+        $cities = $cityBody['Data']['Cities'];
 
             if (Auth::user())
             {
@@ -99,7 +126,7 @@ class CheckoutController extends Controller
                 $data['date'] = $date;
                 $data['payment_method'] = $payment_method;
 
-                return view('order-received',['data' => $data,'location' => $locations,]);
+                return view('order-received',['data' => $data,'location' => $cities,]);
             }
             else
             {
@@ -125,7 +152,7 @@ class CheckoutController extends Controller
 
 
 
-                return view('order-received',['data' => $data,'location' => $locations]);
+                return view('order-received',['data' => $data,'location' => $cities]);
             }
 
         }

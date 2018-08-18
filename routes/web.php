@@ -10,14 +10,28 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use GuzzleHttp\Client;
+
 
 Route::get('/', function () {
     $CategoryMaster = new \App\CategoryMaster();
     $categories = $CategoryMaster->getCategories();
 
-    $locations = DB::table('store_locator_master')->get();
+    $client = new Client();
+    $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+    $response = $client->post($url, [
+        'headers' => ['Content-Type' => 'application/json'],
+        'body' => json_encode([
+            'Channelid' => 'W',
+            'Accesskey' => 'Web123'
+        ])
+    ]);
 
-    return view('home', ['categories' => $categories,'location' => $locations]);
+    $cityBody = json_decode($response->getBody(), true);
+    $cityData = $cityBody['Data'];
+    $cities = $cityBody['Data']['Cities'];
+
+    return view('home', ['categories' => $categories,'location' => $cities]);
 });
 
 Route::get('/home', 'NavigationController@index')->name('home');

@@ -38,10 +38,10 @@
 							<div class="hover-area">
 								<form class="cart" method="POST" enctype="multipart/form-data" action="{{route('cart.store')}}">
 									{{csrf_field()}}
-									<input type="hidden" class="form-control" value="{{$p->productID}}" id="productID" name="productID">
-									<input type="hidden" class="form-control" value="{{$p->name}}" id="name" name="name">
-									<input type="hidden" class="form-control" value="{{$p->sale_price}}" id="sale_price" name="sale_price">
-									<input type="hidden" class="form-control" value="{{$p->image}}" id="image" name="image">
+									<input type="hidden" class="form-control" value="{{$p['MenuId']}}" id="productID" name="productID">
+									<input type="hidden" class="form-control" value="{{$p['LargeDes']}}" id="name" name="name">
+									<input type="hidden" class="form-control" value="{{$p['Price1']}}" id="sale_price" name="sale_price">
+									<input type="hidden" class="form-control" value="{{$p['FullImagePath']}}" id="image" name="image">
 				                <button type="submit" data-toggle="modal" data-target="#selectSizeModal" rel="nofollow" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</button>
 								</form>
 				            </div>
