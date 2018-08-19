@@ -29,11 +29,11 @@
 
 					<div class="col-sm-4 fd_item" style="height: 300px;">
 						<div class="row">
-                            <a {{--href="{{ route('single-product',$p->productID) }}"--}}><img src="images/products/{{$p->image}}" class="img-responsive"></a>
+                            <a {{--href="{{ route('single-product',$p->productID) }}"--}}><img src="{{$p['FullImagePath']}}" class="img-responsive"></a>
 						</div>
 						<div class="row">
-                            <a{{-- href="{{ route('single-product',$p->productID) }}"--}}><p>{{$p->name}}</p></a>
-							<span class="price">AED {{$p->sale_price}}</span>
+                            <a{{-- href="{{ route('single-product',$p->productID) }}"--}}><p></p></a>
+									<span class="price">AED {{$p['Price1']}}</span>
 							<br/>
 							<div class="hover-area">
 								<form class="cart" method="POST" enctype="multipart/form-data" action="{{route('cart.store')}}">

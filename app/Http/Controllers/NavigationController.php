@@ -22,17 +22,84 @@ class NavigationController extends Controller
     public function orderOnline()
     {
         $ProductMaster = new \App\ProductMaster();
-        $products = $ProductMaster->getProducts();
+        //$products = $ProductMaster->getProducts();
         $deals = $ProductMaster->getDeals();
 
         $CategoryMaster = new \App\CategoryMaster();
-        $categories = $CategoryMaster->getCategories();
+        //$categories = $CategoryMaster->getCategories();
         $locations = DB::table('store_locator_master')->get();
        //dd($categories);
-       // $client = new Client();
-      //  $res = $client->get('http://eportal.mycomsys.com/posapi_json/api/group?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
+        $client = new Client();
+        $resGroup = $client->get('http://eportal.mycomsys.com/posapi_json/api/group?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
+        $resMenu = $client->get('http://eportal.mycomsys.com/posapi_json/api/menu?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
+
+
+        $resMenu = $client->get('http://eportal.mycomsys.com/posapi_json/api/menu?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
+//        $r = $client->request('PUT', 'http://httpbin.org/put', [
+//            'json' => ['foo' => 'bar']
+//        ]);
+
+//        $response = $client->post('url', [
+//            GuzzleHttp\RequestOptions::JSON => ['foo' => 'bar']
+//        ]);
+        $url = 'http://109.123.82.217/cc_api_uat/api/getcities';
+        $paramData = array();
+        $paramData["Channelid"]="W";
+        $paramData["Accesskey"]="Web123";
+        //$myObj->name = "John";
+        //$paramData->Channelid = "W";
+        //$paramData->Accesskey = "Web123";
+
+        //echo (json_encode($paramData));
+
+
+        $headers = [
+            'Content-type' => 'application/json'
+        ];
+        $jsonParam = (json_encode($paramData));
+        $response = $client->post($url, $headers, $jsonParam);
         //echo $res->getStatusCode(); // 200
-       //  echo $res->getBody();
+        //$resData =  $resMenu->getBody();
+        //echo $resData['operations'];
+        //$data = $res->json();
+        //dd(json_decode($response->getBody(), true));
+        //dd(json_decode($response->getBody(), true));
+
+        //$groupArray = json_decode($resGroup->getBody()->getContents(), true); // :'(
+        //$menuArray = json_decode($resMenu->getBody()->getContents(), true); // :'(
+		//$menuArray = json_decode($resMenu->getBody, true) -> getContents();
+					
+        //var_dump($array['operations']);
+        //$group = $groupArray['operations'];
+        //$menu = $menuArray['operations'];
+        //echo $ddaata;
+        //$adata = json_decode($menu->getContents(), true);
+        //dd($menuArray); 
+$menuBody = json_decode($resMenu->getBody(), true);
+$groupBody = json_decode($resGroup->getBody(), true);
+//dd( $body['operations'][0]['CreatedDate'] );
+$categories = $groupBody['operations'];
+$products = $menuBody['operations'];
+// foreach( $operation as $opt ) {
+//  echo $opt['CreatedDate'];
+// }
+        //echo gettype($data);
+        //json_decode($resData->content(), true);
+        //$dddata = collect(json_decode($resData->get('json')))->collapse();
+//        $contents = (string) $res->getBody();
+        // foreach ($menu as $p) {
+        //     //echo $p;
+
+        //     //echo 'Arham';
+        //     dd($p->MenuDes);
+        // }
+        //echo $dddata;
+
+
+
+
+
+
         return view('order-online', ['products' => $products, 'categories' => $categories, 'deals' => $deals, 'location' => $locations]);
     }
 
@@ -63,14 +130,40 @@ class NavigationController extends Controller
     public function cat($id)
     {
         $ProductMaster = new \App\ProductMaster();
-        $products = $ProductMaster->getProductByCat($id);
+        //$products = $ProductMaster->getProductByCat($id);
         $deals = $ProductMaster->getDeals();
 
         $CategoryMaster = new \App\CategoryMaster();
-        $categories = $CategoryMaster->getCategories();
+        //$categories = $CategoryMaster->getCategories();
         $locations = DB::table('store_locator_master')->get();
+        $client = new Client();
+        $resGroup = $client->get('http://eportal.mycomsys.com/posapi_json/api/group?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
+        $resMenu = $client->get('http://eportal.mycomsys.com/posapi_json/api/menu?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
 
-        return view('order-online', ['products' => $products, 'categories' => $categories, 'deals' => $deals, 'location' => $locations]);
+        $menuBody = json_decode($resMenu->getBody(), true);
+        $groupBody = json_decode($resGroup->getBody(), true);
+        //dd( $body['operations'][0]['CreatedDate'] );
+        $categories = $groupBody['operations'];
+        $products = $menuBody['operations'];
+        $selectedMenu = array();
+        foreach($products as $pro) {
+            if($pro['GroupCode'] == $id) {
+                $selectedMenu[] = $pro;
+            }
+        }
+        //print_r($items);
+//        foreach ($products as $pro)
+//        {
+//            if($pro['GroupCode'] == $id)
+//            {
+//                $selectedMenu['results'][] = array(
+//                    $pro
+//                );
+//            }
+//        }
+        //echo json_encode($selectedMenu);
+
+        return view('order-online', ['products' => $selectedMenu, 'categories' => $categories, 'deals' => $deals, 'location' => $locations]);
     }
 
     public function storeDetail($id)
