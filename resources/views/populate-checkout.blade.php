@@ -31,6 +31,12 @@
                     <div class="woocommerce">
                             <form name="checkout" id="checkout" class="checkout woocommerce-checkout" method="POST" enctype="multipart/form-data" action="{{route('order-received')}}">
                                 {{csrf_field()}}
+
+                                <input type="text" class="input-text hidden" name="cart_content" id="cart_content"   autocomplete="family-name" value="{{Cart::content()}}"  />
+                                <input type="text" class="input-text hidden" name="sub_total" id="sub_total"   autocomplete="family-name" value="{{ Cart::subtotal() }}"  />
+                                <input type="text" class="input-text hidden" name="tax" id="tax"   autocomplete="family-name" value="{{ Cart::tax() }}"  />
+                                <input type="text" class="input-text hidden" name="total" id="total"   autocomplete="family-name" value="{{ Cart::total() }}"  />
+
                             <div class="col2-set" id="customer_details">
                                 <div class="col-1">
                                     <div class="woocommerce-billing-fields">

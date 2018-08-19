@@ -39,7 +39,7 @@
                         <ul class="woocommerce-thankyou-order-details order_details">
                             <li class="order">Order ID:<strong>{{$data['order_ref']}}</strong></li>
                             <li class="date">Date:<strong>{{$data['date']}}</strong></li>
-                            <li class="total">Total:<strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ Cart::total() }}</span></strong></li>
+                            <li class="total">Total:<strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{$data['total']}}</span></strong></li>
                             <li class="method">Payment Method:<strong>{{ $data['payment_method'] }}</strong></li>
                         </ul>
                         <div class="clear"></div>
@@ -52,30 +52,30 @@
                                 <th class="product-total">Total</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            @foreach(Cart::content() as $item)
+                    {{--        <tbody>
+                            @foreach($data['cart_content'] as $item)
                             <tr class="order_item">
                                 <td class="product-name">
-                                    <a href="">{{ $item->model->name }}</a> <strong class="product-quantity">× {{ $item->qty }}</strong>
-                                  {{--  <dl class="variation">
+                                    <a href="">{{ $item[0]->name }}</a> <strong class="product-quantity">× {{ $item[0]->qty }}</strong>
+                                  --}}{{--  <dl class="variation">
                                         <dt class="variation-PickSize362590"><span id="1">Pick Size</span> (<span class="woocommerce Price amount amount"><span class="woocommerce Price currencySymbol">$</span>25.90</span>):</dt>
                                         <dd class="variation-PickSize362590">
                                             <p>29  cm</p>
                                         </dd>
-                                    </dl>--}}
+                                    </dl>--}}{{--
                                 </td>
-                                <td class="product-total"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item->model->sale_price * $item->qty}}</span>  </td>
+                                <td class="product-total"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item[0]->sale_price * $item[0]->qty}}</span>  </td>
                             </tr>
                             @endforeach
-                            </tbody>
+                            </tbody>--}}
                             <tfoot>
                             <tr>
                                 <th scope="row">Subtotal:</th>
-                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span> {{ Cart::subtotal() }}</span></td>
+                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span> {{$data['sub_total']}}</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">TAX(5%):</th>
-                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span> {{ Cart::tax() }}</span></td>
+                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span> {{$data['tax']}}</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">Payment Method:</th>
@@ -83,7 +83,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">Total:</th>
-                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ Cart::total() }}</span></td>
+                                <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{$data['total']}}</span></td>
                             </tr>
                             </tfoot>
                         </table>

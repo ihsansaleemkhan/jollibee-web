@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Carbon;
 use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CheckoutController extends Controller
 {
@@ -63,6 +64,7 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+        Cart::destroy();
 
         $first_name = $request->input('first_name');
         $last_name = $request->input('last_name');
@@ -75,6 +77,14 @@ class CheckoutController extends Controller
         $order_comments = $request->input('order_comments');
         $payment_method = $request->input('payment_method');
         $full_name= $request->input('full_name');
+
+
+        $cart_content= $request->input('cart_content');
+        $sub_total = $request->input('sub_total');
+        $tax = $request->input('tax');
+        $total = $request->input('total');
+
+
 
         $mytime = Carbon\Carbon::now();
         $date = $mytime->toDateString();
@@ -98,6 +108,11 @@ class CheckoutController extends Controller
                 $data['order_ref'] = $order_ref;
                 $data['date'] = $date;
                 $data['payment_method'] = $payment_method;
+
+                $data['cart_content'] = $cart_content;
+                $data['sub_total'] = $sub_total;
+                $data['tax'] = $sub_total;
+                $data['total'] = $total;
 
                 return view('order-received',['data' => $data,'location' => $locations,]);
             }
@@ -123,6 +138,10 @@ class CheckoutController extends Controller
                 $data['date'] = $date;
                 $data['payment_method'] = $payment_method;
 
+                $data['cart_content'] = $cart_content;
+                $data['sub_total'] = $sub_total;
+                $data['tax'] = $sub_total;
+                $data['total'] = $total;
 
 
                 return view('order-received',['data' => $data,'location' => $locations]);
