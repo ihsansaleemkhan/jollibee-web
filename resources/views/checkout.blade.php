@@ -163,11 +163,11 @@
                                    @foreach(Cart::content() as $item)
                                     <tr class="cart_item">
                                         <td class="product-name">
-                                            {{ $item->model->name }}&nbsp;<strong class="product-quantity">&times; {{ $item->qty }}</strong>
+                                            {{ $item->name }}&nbsp;<strong class="product-quantity">&times; {{ $item->qty }}</strong>
                                             <dl class="variation">
                                                 <dt class="variation-Baseprice">Base price:</dt>
                                                 <dd class="variation-Baseprice">
-                                                    <p><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED</span> {{ $item->model->sale_price }}</span></p>
+                                                    <p><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED</span> {{ $item->price }}</span></p>
                                                 </dd>
                                             {{--    <dt class="variation-PickSizespanclasswoocommerce-Price-amountamountspanclasswoocommerce-Price-currencySymbol36span2590span">Pick Size ( <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#036;</span>25.90</span> ):
                                                 </dt>
@@ -178,7 +178,7 @@
                                         </td>
                                         <td class="product-total">
                                                 <span class="woocommerce-Price-amount amount">
-                                                <span class="woocommerce-Price-currencySymbol">AED</span> {{ $item->model->sale_price * $item->qty}}</span>
+                                                <span class="woocommerce-Price-currencySymbol">AED</span> {{ $item->price * $item->qty}}</span>
                                         </td>
                                     </tr>
                                     @endforeach

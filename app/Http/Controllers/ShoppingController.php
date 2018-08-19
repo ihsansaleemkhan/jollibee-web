@@ -5,13 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use GuzzleHttp\Client;
+
 class ShoppingController extends Controller
 {
    public function index()
    {
-       $locations = DB::table('store_locator_master')->get();
+       $client = new Client();
+       $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+       $response = $client->post($url, [
+           'headers' => ['Content-Type' => 'application/json'],
+           'body' => json_encode([
+               'Channelid' => 'W',
+               'Accesskey' => 'Web123'
+           ])
+       ]);
+
+       $cityBody = json_decode($response->getBody(), true);
+       $cityData = $cityBody['Data'];
+       $cities = $cityBody['Data']['Cities'];
        //dd(Cart::content());
-       return view('cart',['location' => $locations]);
+       return view('cart',['location' => $cities]);
    }
 
    public function store(Request $request)
@@ -19,6 +33,7 @@ class ShoppingController extends Controller
        Cart::add($request->productID, $request->name,1, $request->sale_price)
            ->associate('App\ProductMaster');
 
+       //dd(Cart::content());
        return back()->with('success', ''.$request->name.' was added to your cart');
    }
 
@@ -28,7 +43,7 @@ class ShoppingController extends Controller
 
      return back()->with('success', 'Item has been removed! ');
 
-    }
+   }
 
 
    public function toCheckout(Request $request)
@@ -42,8 +57,21 @@ class ShoppingController extends Controller
        $data['name'] = $name;
        $data['sale_price'] = $sale_price;
        $data['image'] = $image;
-       $locations = DB::table('store_locator_master')->get();
 
-       return view('checkout',['location' => $locations,'data'=>$data]);
+       $client = new Client();
+       $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+       $response = $client->post($url, [
+           'headers' => ['Content-Type' => 'application/json'],
+           'body' => json_encode([
+               'Channelid' => 'W',
+               'Accesskey' => 'Web123'
+           ])
+       ]);
+
+       $cityBody = json_decode($response->getBody(), true);
+       $cityData = $cityBody['Data'];
+       $cities = $cityBody['Data']['Cities'];
+
+       return view('checkout',['location' => $cities,'data'=>$data]);
    }
 }

@@ -26,15 +26,18 @@
                     <div class="row" id="bd1">
                         <div class="form-group col-sm-6">
                             <label class="col-sm-7">Select Location</label>
-                            <select id="city" name="city" class="col-sm-5 form-control">
-                                <option>City</option>
+                            <select id="city" name="city" class="col-sm-5 form-control" onChange="getCat1(this.value);">
+                                <option hidden>City</option>
                                 @foreach($location as $l)
-                                <option value="{{$l->storeID}}">{{$l->storeName}}</option>
+                                <option value="{{$l['city_id']}}" >{{$l['city_name']}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" id="area" placeholder="Area">
+                            <select id="area" name="area" class="col-sm-10 form-control" style="width: 90% !important;">
+                                <option hidden> Area</option>
+
+                            </select>
                         </div>
                     </div>
                 </form>
@@ -124,17 +127,33 @@
     </div>
 </div>
 
+<script>
+    function getCat1(id){
+        var city_id=id;
 
-<script type="text/javascript">
-    $('#city').change(function(){
-        alert('test');
-        var areaID = $(this).val();
         $.ajax({
-            type:"GET",
-            url:"{{url('get-area')}}?id="+areaID,
-            success:function(res){
-                res.append($('input#area').val());
+            type: "GET",
+            url: "{{ route('get-area') }}",
+            cache: false,
+            data: { city_id: city_id},
+            success: function(val){
+                try{
+                    var $cityArea = $("#area");
+                    $cityArea.empty();
+                    $.each(val, function(index, value) {
+                        $cityArea.append('<option value="' + index +'">' + value['zoneDesc'] + '</option>');
+                    });
+
+                }catch(e) {
+                    alert('Exception while request..');
+                }
+
+            },
+            error: function(){
+                alert('Error while request..');
             }
         });
-    });
+    }
 </script>
+
+

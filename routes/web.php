@@ -10,14 +10,30 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use GuzzleHttp\Client;
+
 
 Route::get('/', function () {
     $CategoryMaster = new \App\CategoryMaster();
     $categories = $CategoryMaster->getCategories();
 
-    $locations = DB::table('store_locator_master')->get();
+    $client = new Client();
+    $url = "http://109.123.82.217/cc_api_uat/api/getcities";
+    $response = $client->post($url, [
+        'headers' => ['Content-Type' => 'application/json'],
+        'body' => json_encode([
+            'Channelid' => 'W',
+            'Accesskey' => 'Web123'
+        ])
+    ]);
 
-    return view('home', ['categories' => $categories,'location' => $locations]);
+    $cityBody = json_decode($response->getBody(), true);
+    $cityData = $cityBody['Data'];
+    $cities = $cityBody['Data']['Cities'];
+
+    $areas = [];
+
+    return view('home', ['categories' => $categories,'location' => $cities, 'areas' => $areas]);
 });
 
 Route::get('/home', 'NavigationController@index')->name('home');
@@ -25,6 +41,7 @@ Route::get('/order-online', 'NavigationController@orderOnline')->name('order-onl
 Route::get('/single-product{id}', 'NavigationController@singleProduct')->name('single-product');
 Route::get('/cart', 'ShoppingController@index')->name('cart');
 
+//Route::post('/get-area', 'NavigationController@getArea')->name('get-area');
 
 Route::post('shopping-cart', 'ShoppingController@toCart');
 Route::post('/cart', 'ShoppingController@store')->name('cart.store');
@@ -59,4 +76,4 @@ Route::get('/news', 'NavigationController@toNews')->name('news');
 Route::get('/story', 'NavigationController@toStroy')->name('story');
 Route::get('/reward', 'NavigationController@toReward')->name('reward');
 
-Route::get('/get-area{id}', 'NavigationController@getArea')->name('get-area');
+Route::get('/get-area', 'NavigationController@getArea')->name('get-area');

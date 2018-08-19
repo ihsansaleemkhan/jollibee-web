@@ -32,8 +32,8 @@
                                     <input type="number" id="cart-bxqun" value="{{ $item->qty }}" title="Qty" class="input-text qty text"/>
                                 </div>
                             </td>
-                            <td>{{ $item->model->name }}</td>
-                            <td>{{ $item->model->sale_price * $item->qty  }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->price * $item->qty  }}</td>
                             <td>
                                 <a data-method="delete" style="cursor:pointer;" onclick="$(this).find('form').submit();"><i class="fa fa-minus-circle mins"></i>
                                     <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST" name="delete_item" style="display:none">
@@ -41,11 +41,7 @@
                                    {{ csrf_field() }}
                                     </form>
                                 </a>
-                             {{--   <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
-                                    {{csrf_field() }}
-                                    {{ method_field('DELETE') }}--}}
-                            {{--    <a href="{{ route('cart.destroy', $item->rowId) }}" data-method="delete" name="delete_item"><i class="fa fa-minus-circle mins"></i></a>--}}
-                           {{--     </form>--}}
+
                             </td>
                         </tr>
                        @endforeach
