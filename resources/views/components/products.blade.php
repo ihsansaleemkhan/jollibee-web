@@ -33,7 +33,8 @@
 						</div>
 						<div class="row">
                             <a{{-- href="{{ route('single-product',$p->productID) }}"--}}><p></p></a>
-									<span class="price">AED {{$p['Price1']}}</span>
+							<p>{{$p['MenuDes']}}</p>
+							<span class="price">AED {{$p['Price1']}}</span>
 							<br/>
 							<div class="hover-area">
 								<form class="cart" method="POST" enctype="multipart/form-data" action="{{route('cart.store')}}">

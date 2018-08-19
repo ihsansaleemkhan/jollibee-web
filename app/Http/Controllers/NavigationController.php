@@ -35,19 +35,12 @@ class NavigationController extends Controller
     public function orderOnline()
     {
         $ProductMaster = new \App\ProductMaster();
-        //$products = $ProductMaster->getProducts();
         $deals = $ProductMaster->getDeals();
 
-        $CategoryMaster = new \App\CategoryMaster();
-        //$categories = $CategoryMaster->getCategories();
-        $locations = DB::table('store_locator_master')->get();
-       //dd($categories);
         $client = new Client();
         $resGroup = $client->get('http://eportal.mycomsys.com/posapi_json/api/group?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
         $resMenu = $client->get('http://eportal.mycomsys.com/posapi_json/api/menu?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
 
-
-        //$resMenu = $client->get('http://eportal.mycomsys.com/posapi_json/api/menu?cid=70288&lcode=001&from=1-1-2000&to=1-1-2100');
 
         $url = "http://109.123.82.217/cc_api_uat/api/getcities";
 
@@ -63,47 +56,13 @@ class NavigationController extends Controller
         $cityData = $cityBody['Data'];
         $cities = $cityBody['Data']['Cities'];
 
-        //echo $res->getStatusCode(); // 200
-        //$resData =  $resMenu->getBody();
-        //echo $resData['operations'];
-        //$data = $res->json();
-
-        //echo($response->getBody());
-        //dd(json_decode($response->getBody(), true));
-
-
-
-        //$groupArray = json_decode($resGroup->getBody()->getContents(), true); // :'(
-        //$menuArray = json_decode($resMenu->getBody()->getContents(), true); // :'(
-		//$menuArray = json_decode($resMenu->getBody, true) -> getContents();
-					
-        //var_dump($array['operations']);
-        //$group = $groupArray['operations'];
-        //$menu = $menuArray['operations'];
-        //echo $ddaata;
-        //$adata = json_decode($menu->getContents(), true);
-        //dd($menuArray);
 
         $menuBody = json_decode($resMenu->getBody(), true);
         $groupBody = json_decode($resGroup->getBody(), true);
-        //dd( $menuBody['operations']);
         $categories = $groupBody['operations'];
         $products = $menuBody['operations'];
-        // foreach( $operation as $opt ) {
-        //  echo $opt['CreatedDate'];
-        // }
 
-        //echo gettype($data);
-        //json_decode($resData->content(), true);
-        //$dddata = collect(json_decode($resData->get('json')))->collapse();
-//        $contents = (string) $res->getBody();
-        // foreach ($menu as $p) {
-        //     //echo $p;
-
-        //     //echo 'Arham';
-        //     dd($p->MenuDes);
-        // }
-        //echo $dddata;
+        //self::cat("1");
 
         return view('order-online', ['products' => $products, 'categories' => $categories, 'deals' => $deals, 'location' => $cities]);
     }
@@ -304,9 +263,33 @@ class NavigationController extends Controller
         return view('reward',['location' => $cities]);
     }
 
-    public function getArea($id)
+    public function getArea(Request $request)
     {
-        $area = DB::table('store_locator_master')->where('storeID',$id)->value('address');
-        return response()->json($area);
+        $city_id = $request->input('city_id');
+
+        $client = new Client();
+        $url = "http://109.123.82.217/cc_api_uat/api/getzones";
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+
+        $zoneBody = json_decode($response->getBody(), true);
+        $zoneData = $zoneBody['Data'];
+        $zones = $zoneBody['Data']['Zones'];
+
+        $areas = array();
+
+        foreach ($zones as $zone) {
+            if($zone['city_id'] == $city_id) {
+                $areas[] = $zone;
+            }
+        }
+
+        return $areas;
+
     }
 }

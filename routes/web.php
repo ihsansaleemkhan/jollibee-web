@@ -31,7 +31,9 @@ Route::get('/', function () {
     $cityData = $cityBody['Data'];
     $cities = $cityBody['Data']['Cities'];
 
-    return view('home', ['categories' => $categories,'location' => $cities]);
+    $areas = [];
+
+    return view('home', ['categories' => $categories,'location' => $cities, 'areas' => $areas]);
 });
 
 Route::get('/home', 'NavigationController@index')->name('home');
@@ -39,6 +41,7 @@ Route::get('/order-online', 'NavigationController@orderOnline')->name('order-onl
 Route::get('/single-product{id}', 'NavigationController@singleProduct')->name('single-product');
 Route::get('/cart', 'ShoppingController@index')->name('cart');
 
+//Route::post('/get-area', 'NavigationController@getArea')->name('get-area');
 
 Route::post('shopping-cart', 'ShoppingController@toCart');
 Route::post('/cart', 'ShoppingController@store')->name('cart.store');
@@ -73,4 +76,4 @@ Route::get('/news', 'NavigationController@toNews')->name('news');
 Route::get('/story', 'NavigationController@toStroy')->name('story');
 Route::get('/reward', 'NavigationController@toReward')->name('reward');
 
-Route::get('/get-area{id}', 'NavigationController@getArea')->name('get-area');
+Route::get('/get-area', 'NavigationController@getArea')->name('get-area');
