@@ -33,6 +33,7 @@ class ShoppingController extends Controller
        Cart::add($request->productID, $request->name,1, $request->sale_price)
            ->associate('App\ProductMaster');
 
+       //dd(Cart::content());
        return back()->with('success', ''.$request->name.' was added to your cart');
    }
 
@@ -42,7 +43,7 @@ class ShoppingController extends Controller
 
      return back()->with('success', 'Item has been removed! ');
 
-    }
+   }
 
 
    public function toCheckout(Request $request)
