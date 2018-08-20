@@ -103,4 +103,10 @@ class NavigationController extends Controller
         $area = DB::table('store_locator_master')->where('storeID',$id)->value('address');
         return response()->json($area);
     }
+
+    public function toOrderHistory()
+    {
+        $locations = DB::table('store_locator_master')->get();
+        return view('order-history',['location' => $locations]);
+    }
 }

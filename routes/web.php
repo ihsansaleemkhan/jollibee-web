@@ -58,5 +58,6 @@ Route::get('/store-detail{id}', 'NavigationController@storeDetail')->name('store
 Route::get('/news', 'NavigationController@toNews')->name('news');
 Route::get('/story', 'NavigationController@toStroy')->name('story');
 Route::get('/reward', 'NavigationController@toReward')->name('reward');
+Route::get('/order-history', 'NavigationController@toOrderHistory')->name('order-history');
 
 Route::get('/get-area{id}', 'NavigationController@getArea')->name('get-area');
