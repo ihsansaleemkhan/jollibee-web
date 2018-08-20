@@ -15,7 +15,7 @@
                     </div>
                     <div id="post-8" class="post-8 page type-page status-publish hentry">
                         <div class="col-sm-1"></div>
-                        <div class="entry-content col-sm-10 history">
+                        <div class="entry-content col-sm-10 order-history">
                             <table class="table table-hover table-striped">
                                 <thead>
                                 <tr>
