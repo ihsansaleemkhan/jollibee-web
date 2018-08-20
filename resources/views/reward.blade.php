@@ -22,16 +22,13 @@
 							<br/>
 						</div>
 						<div class="col-lg-6 col-sm-12">
-							<table>
-								<tr>
-									<td>
-										<label>Points Convertor</label>
-									</td>
-									<td>
-										<input type="text" name="first-name" placeholder="1500 Points" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input-text"/>
-									</td>
-								</tr>
-							</table>
+							<div class="col-lg-6 col-xs-12">
+								<label>Points Convertor</label>
+							</div>
+							<div class="col-lg-6 col-xs-12">
+								<input type="text" name="first-name" placeholder="1500 Points" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input-text"/>
+							</div>
+						
 							
 						</div>
 						<div class="col-lg-1 col-sm-12">

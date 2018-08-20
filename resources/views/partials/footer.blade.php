@@ -3,10 +3,10 @@
         <div class="col-sm-4 col-xs-12">
             <h3>Subscribe for latest Updates </h3>
         </div>
-        <div class="col-sm-3 col-xs-7">
+        <div class="col-sm-3 col-xs-12">
             <input type="text" placeholder="Enter Mobile Number" class="form-control">
         </div>
-        <div class="col-sm-2 col-xs-5">
+        <div class="col-sm-2 col-xs-12">
             <button class="button_signup">Sign up</button>
         </div>
         <div class="col-sm-3 col-xs-12">
@@ -54,10 +54,10 @@
             </div>
             <div class="col-sm-3 col-xs-12">
                 <h4 class="down">Download Our App</h4>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-6">
                     <a href="#"><img src="assets/images/p1.png" class="img-lg"></a>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-6">
                     <a href="#"><img src="assets/images/p2.png" class="img-lg"></a>
                 </div>
             </div>
