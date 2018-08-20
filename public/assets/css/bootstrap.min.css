@@ -7,3 +7,7 @@
 .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: #e71c2342 !important;
 }
+
+#wpsl-stores .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #eee !important;
+}
