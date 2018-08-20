@@ -59,5 +59,8 @@ Route::get('/news', 'NavigationController@toNews')->name('news');
 Route::get('/story', 'NavigationController@toStroy')->name('story');
 Route::get('/reward', 'NavigationController@toReward')->name('reward');
 Route::get('/order-history', 'NavigationController@toOrderHistory')->name('order-history');
+Route::get('/favourites', 'NavigationController@toFavourite')->name('favourites');
+Route::get('/my-addresses', 'NavigationController@toMyAddress')->name('my-addresses');
+Route::get('/my-profile', 'NavigationController@toMyProfile')->name('my-profile');
 
 Route::get('/get-area{id}', 'NavigationController@getArea')->name('get-area');

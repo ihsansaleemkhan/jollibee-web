@@ -109,4 +109,22 @@ class NavigationController extends Controller
         $locations = DB::table('store_locator_master')->get();
         return view('order-history',['location' => $locations]);
     }
+
+    public function toFavourite()
+    {
+        $locations = DB::table('store_locator_master')->get();
+        return view('favourites',['location' => $locations]);
+    }
+
+    public function toMyAddress()
+    {
+        $locations = DB::table('store_locator_master')->get();
+        return view('my-addresses',['location' => $locations]);
+    }
+
+    public function toMyProfile()
+    {
+        $locations = DB::table('store_locator_master')->get();
+        return view('my-profile',['location' => $locations]);
+    }
 }

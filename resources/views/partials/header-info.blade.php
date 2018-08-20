@@ -23,6 +23,15 @@
                         <a href="{{ route('order-history') }}">Order History</a>
                     </li>
                     <li>
+                        <a href="{{ route('favourites')  }}">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('my-addresses') }}">My Addresses</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('my-profile') }}">My Profile</a>
+                    </li>
+                    <li>
                         <a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

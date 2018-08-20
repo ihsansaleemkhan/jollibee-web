@@ -1,8 +1,8 @@
-<title>Order History | jollibee</title>
+<title>My Addresses | jollibee</title>
 @include('partials.app')
 <body class="page-template-template-contactpage">
 <div id="page" class="hfeed site">
-@include('partials.header')
+    @include('partials.header')
 
     <div id="content" class="site-content" tabindex="-1" >
         <div class="col-full">
@@ -11,7 +11,7 @@
             <div id="primary" class="content-area" style="margin-top:10px;">
                 <main id="main" class="site-main" >
                     <div class="pizzaro-order-steps">
-                        <h1>Order History</h1>
+                        <h1>My Addresses</h1>
                     </div>
                     <div id="post-8" class="post-8 page type-page status-publish hentry">
                         <div class="col-sm-1"></div>
@@ -19,11 +19,10 @@
                             <table class="table table-hover table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Order ID</th>
-                                    <th>Date</th>
+                                    <th>#ID</th>
+                                    <th>Address Name</th>
                                     <th>Address</th>
-                                    <th>Items</th>
-                                    <th>Amount</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -32,17 +31,14 @@
                                     <td>data</td>
                                     <td>data</td>
                                     <td>data</td>
-                                    <td>data</td>
                                 </tr>
                                 <tr>
                                     <td>data</td>
                                     <td>data</td>
                                     <td>data</td>
                                     <td>data</td>
-                                    <td>data</td>
                                 </tr>
                                 <tr>
-                                    <td>data</td>
                                     <td>data</td>
                                     <td>data</td>
                                     <td>data</td>
