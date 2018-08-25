@@ -77,3 +77,4 @@ Route::get('/story', 'NavigationController@toStroy')->name('story');
 Route::get('/reward', 'NavigationController@toReward')->name('reward');
 
 Route::get('/get-area', 'NavigationController@getArea')->name('get-area');
+Route::get('/get-store', 'NavigationController@getStore')->name('get-store');

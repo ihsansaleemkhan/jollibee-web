@@ -56,7 +56,7 @@
                             @foreach(Cart::content() as $item)
                             <tr class="order_item">
                                 <td class="product-name">
-                                    <a href="">{{ $item->model->name }}</a> <strong class="product-quantity">× {{ $item->qty }}</strong>
+                                    <a href="">{{ $item->name }}</a> <strong class="product-quantity">× {{ $item->qty }}</strong>
                                   {{--  <dl class="variation">
                                         <dt class="variation-PickSize362590"><span id="1">Pick Size</span> (<span class="woocommerce Price amount amount"><span class="woocommerce Price currencySymbol">$</span>25.90</span>):</dt>
                                         <dd class="variation-PickSize362590">
@@ -64,7 +64,7 @@
                                         </dd>
                                     </dl>--}}
                                 </td>
-                                <td class="product-total"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item->model->sale_price * $item->qty}}</span>  </td>
+                                <td class="product-total"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">AED </span>{{ $item->price * $item->qty}}</span>  </td>
                             </tr>
                             @endforeach
                             </tbody>

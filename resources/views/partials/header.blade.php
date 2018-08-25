@@ -26,7 +26,7 @@
                     <div class="row" id="bd1">
                         <div class="form-group col-sm-6">
                             <label class="col-sm-7">Select Location</label>
-                            <select id="city" name="city" class="col-sm-5 form-control" onChange="getCat1(this.value);">
+                            <select id="city" name="city" class="col-sm-5 form-control" onChange="loadZone(this.value);">
                                 <option hidden>City</option>
                                 @foreach($location as $l)
                                 <option value="{{$l['city_id']}}" >{{$l['city_name']}}</option>
@@ -34,7 +34,7 @@
                             </select>
                         </div>
                         <div class="form-group col-sm-6">
-                            <select id="area" name="area" class="col-sm-10 form-control" style="width: 90% !important;">
+                            <select id="area" name="area" class="col-sm-10 form-control" oninput="loadStore(this.value);" style="width: 90% !important;">
                                 <option hidden> Area</option>
 
                             </select>
@@ -128,7 +128,7 @@
 </div>
 
 <script>
-    function getCat1(id){
+    function loadZone(id){
         var city_id=id;
 
         $.ajax({
@@ -141,12 +141,34 @@
                     var $cityArea = $("#area");
                     $cityArea.empty();
                     $.each(val, function(index, value) {
-                        $cityArea.append('<option value="' + index +'">' + value['zoneDesc'] + '</option>');
+                        $cityArea.append('<option >Area</option>');
+                        $cityArea.append('<option value="' + value['zone_id'] +'">' + value['zoneDesc'] + '</option>');
                     });
 
                 }catch(e) {
                     alert('Exception while request..');
                 }
+
+            },
+            error: function(){
+                alert('Error while request..');
+            }
+        });
+    };
+
+
+    function loadStore(id){
+        var zone_id=id;
+
+        $.ajax({
+            type: "GET",
+            url: "{{ route('get-store') }}",
+            cache: false,
+            data: {
+                zone_id: zone_id
+            },
+            success: function(val){
+                console.log("Data came success --- ", val);
 
             },
             error: function(){

@@ -7,6 +7,7 @@ use DB;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
+
 class NavigationController extends Controller
 {
 
@@ -32,7 +33,7 @@ class NavigationController extends Controller
        return view('home', ['categories' => $categories,'location' => $cities]);
    }
 
-    public function orderOnline()
+    public function orderOnline(Request $request)
     {
         $ProductMaster = new \App\ProductMaster();
         $deals = $ProductMaster->getDeals();
@@ -291,5 +292,78 @@ class NavigationController extends Controller
 
         return $areas;
 
+    }
+
+    public function getStore(Request $request)
+    {
+        $zone_id = $request->input('zone_id');
+        //return $zone;
+        //dd($request);
+        //$city_id = $request->input('city_id');
+
+        $client = new Client();
+
+        $zoneUrl = "http://109.123.82.217/cc_api_uat/api/getzones";
+        $cityUrl = "http://109.123.82.217/cc_api_uat/api/getcities";
+        $storeUrl = "http://109.123.82.217/cc_api_uat/api/getstores";
+
+
+        $zoneResponse = $client->post($zoneUrl, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+        $zoneBody = json_decode($zoneResponse->getBody(), true);
+        $zones = $zoneBody['Data']['Zones'];
+
+        $cityResponse = $client->post($cityUrl, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+        $cityBody = json_decode($cityResponse->getBody(), true);
+        $cities = $cityBody['Data']['Cities'];
+
+        $storeResponse = $client->post($storeUrl, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'body' => json_encode([
+                'Channelid' => 'W',
+                'Accesskey' => 'Web123'
+            ])
+        ]);
+        $storeBody = json_decode($storeResponse->getBody(), true);
+        $stores = $storeBody['Data']['Stores'];
+
+        $areas = array();
+        $selectedZone = [];
+
+        foreach ($zones as $zone) {
+            if($zone['zone_id'] == $zone_id) {
+                $selectedZone = $zone;
+            }
+        }
+
+        $city_id = $selectedZone['city_id'];
+        $store_id = $selectedZone['store_id'];
+        $zoneDesc = $selectedZone['zoneDesc'];
+        $cityName = '';
+
+        foreach ($cities as $city) {
+            if($city['city_id'] == $city_id) {
+                $request->session()->put('selectedCity', $city);
+            }
+        }
+        foreach ($stores as $store) {
+            if($store['Store_id'] == $store_id) {
+                $request->session()->put('selectedStore', $store);
+            }
+        }
+        $request->session()->put('selectedZone', $selectedZone);
+
+        return "Success";
     }
 }

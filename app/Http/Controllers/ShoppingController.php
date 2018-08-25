@@ -33,7 +33,6 @@ class ShoppingController extends Controller
        Cart::add($request->productID, $request->name,1, $request->sale_price)
            ->associate('App\ProductMaster');
 
-       //dd(Cart::content());
        return back()->with('success', ''.$request->name.' was added to your cart');
    }
 

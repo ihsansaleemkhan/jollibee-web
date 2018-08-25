@@ -1,5 +1,12 @@
 <title>checkout | jollibee</title>
 @include('partials.app')
+<script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+        alert(msg);
+    }
+</script>
 <body class="woocommerce-checkout">
 <div id="page" class="hfeed site">
     @include('partials.header')
@@ -10,7 +17,22 @@
             <span class="delimiter"><i class="po po-arrow-right-slider"></i></span>Checkout
         </nav>
     </div>
-    <!-- .woocommerce-breadcrumb -->
+
+    {{--@if (Session::has('alert'))--}}
+        {{--<div class="alert alert-success">--}}
+            {{--{{ Session::get('alert') }}--}}
+        {{--</div>--}}
+    {{--@endif--}}
+
+    {{--@if(session()->has('alert'))--}}
+        {{--<script>--}}
+            {{--alert({{ session()->get('alert') }});--}}
+        {{--</script>--}}
+    {{--@endif--}}
+
+
+
+<!-- .woocommerce-breadcrumb -->
     <div id="primary" class="content-area">
         <main id="main" class="site-main" >
             <div class="pizzaro-order-steps">
@@ -29,15 +51,20 @@
             <div id="post-9" class="post-9 page type-page status-publish hentry">
                 <div class="entry-content">
                     <div class="woocommerce">
-                            <form name="checkout" id="checkout" class="checkout woocommerce-checkout" method="POST" enctype="multipart/form-data" action="{{route('order-received')}}">
+                        <form name="checkout" id="checkout" class="checkout woocommerce-checkout" method="POST" enctype="multipart/form-data" action="{{route('order-received')}}">
                                 {{csrf_field()}}
+                                <input type="text" class="input-text hidden" name="cart_content" id="cart_content"   autocomplete="family-name" value="{{Cart::content()}}"  />
+                                <input type="text" class="input-text hidden" name="sub_total" id="sub_total"   autocomplete="family-name" value="{{ Cart::subtotal() }}"  />
+                                <input type="text" class="input-text hidden" name="tax" id="tax"   autocomplete="family-name" value="{{ Cart::tax() }}"  />
+                                <input type="text" class="input-text hidden" name="total" id="total"   autocomplete="family-name" value="{{ Cart::total() }}"  />
+
                             <div class="col2-set" id="customer_details">
                                 <div class="col-1">
                                     <div class="woocommerce-billing-fields">
                                         <h3>Customer Details</h3>
                                         <p class="form-row form-row form-row-first validate-required" id="billing_first_name_field">
                                             <label for="billing_first_name" class="">First Name </label>
-                                            <input type="text" class="input-text " name="first_name" id="first_name"   autocomplete="given-name" value=""  />
+                                            <input type="text" class="input-text " name="first_name" id="first_name" autocomplete="given-name" value=""  />
                                             @if ($errors->has('first_name'))
                                                 <span class="help-block">
                                                 <strong>{{ $errors->first('first_name') }}</strong>
@@ -306,3 +333,4 @@
 
 <!-- Laravel Javascript Validation -->
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js', '#checkout')}}"></script>
+
