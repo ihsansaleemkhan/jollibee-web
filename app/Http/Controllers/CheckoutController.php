@@ -116,7 +116,7 @@ class CheckoutController extends Controller
             "Requesttype" => "N",
             "remarks" => "TestAPI"
         ];
-
+//test
         $customer_json[] = [
             "Customer_id" => "101",
             "cust_firstName" => $first_name,
