@@ -106,7 +106,7 @@ class CheckoutController extends Controller
         $customer_json = array();
 ///https://stackoverflow.com/questions/28524290/how-to-generate-unique-random-value-for-each-user-in-laravel-and-add-it-to-datab#
 
-        $Ref_order_id = mt_rand(10000000, 99999999);
+        $Ref_order_id = mt_rand(100000000, 999999999);
 
         $orderrequest [] = [
             "Requestid" => "201806250013",
@@ -282,7 +282,6 @@ class CheckoutController extends Controller
                 $data['date'] = $date;
                 $data['payment_method'] = $payment_method;
 
-                //Cart::clear();
                 return view('order-received',['data' => $data,'location' => $cities,]);
             }
             else
@@ -308,7 +307,6 @@ class CheckoutController extends Controller
                     $data['date'] = $date;
                     $data['payment_method'] = $payment_method;
 
-                    //Cart::clear();
                     return view('order-received',['data' => $data,'location' => $cities]);
                 }
             }

@@ -45,7 +45,8 @@
 									<input type="hidden" class="form-control" value="{{$p['FullImagePath']}}" id="image" name="image">
 									{{--<input type="hidden" class="form-control" value="{{$p['LN']}}" id="ln" name="ln">--}}
 									{{--<input type="hidden" class="form-control" value="{{$p['LargeDes']}}" id="largeName" name="largeName">--}}
-				                <button type="submit" data-toggle="modal" data-target="#selectSizeModal" rel="nofollow" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</button>
+				                {{--<button type="submit" data-toggle="modal" data-target="#selectSizeModal" rel="nofollow" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</button>--}}
+				                <button type="submit" rel="nofollow" data-quantity="1" data-product_id="51" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</button>
 								</form>
 				            </div>
 						</div>

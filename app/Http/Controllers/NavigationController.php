@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
-
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class NavigationController extends Controller
 {
@@ -266,6 +266,7 @@ class NavigationController extends Controller
 
     public function getArea(Request $request)
     {
+        Cart::destroy();
         $city_id = $request->input('city_id');
 
         $client = new Client();
@@ -291,16 +292,11 @@ class NavigationController extends Controller
         }
 
         return $areas;
-
     }
 
     public function getStore(Request $request)
     {
         $zone_id = $request->input('zone_id');
-        //return $zone;
-        //dd($request);
-        //$city_id = $request->input('city_id');
-
         $client = new Client();
 
         $zoneUrl = "http://109.123.82.217/cc_api_uat/api/getzones";
