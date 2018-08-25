@@ -5,7 +5,7 @@
             <span id="city-phone-number-label" class="phone-number">600 587000</span>
         </div>
         <div class="phonep2">
-            <a data-toggle="modal" data-target="#location" {{--href="{{route('order-online')}}"--}}>Order Online</a>
+            <a data-toggle="modal" data-target="#location" style="cursor: pointer;" {{--href="{{route('order-online')}}"--}}>Order Online</a>
         </div>
     </div>
 
