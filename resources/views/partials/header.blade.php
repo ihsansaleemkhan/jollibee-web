@@ -140,8 +140,8 @@
                 try{
                     var $cityArea = $("#area");
                     $cityArea.empty();
+                    $cityArea.append('<option >Area</option>');
                     $.each(val, function(index, value) {
-                        $cityArea.append('<option >Area</option>');
                         $cityArea.append('<option value="' + value['zone_id'] +'">' + value['zoneDesc'] + '</option>');
                     });
 
