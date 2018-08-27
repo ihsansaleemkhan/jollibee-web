@@ -1,4 +1,4 @@
-<title>My Addresses | jollibee</title>
+<title>My Profile | jollibee</title>
 @include('partials.app')
 <body class="page-template-template-contactpage">
 <div id="page" class="hfeed site">
@@ -21,8 +21,10 @@
                             </div>
                             </div>
 
-                            <div style="padding: 50px;padding-top: -20px">
-                            <h3>My Profile</h3>
+                            <form class="cart" method="POST" enctype="multipart/form-data" action="">
+                                    {{csrf_field()}}
+                            <div class="cart-content" style="padding: 50px;padding-top: -20px">
+                            <h3>My Profile</h3><br>
                             <div class="col-lg-6 col-sm-12">
                                 <div class="form-group">
                                 <input type="text" name="full_name" placeholder="Full Name" value="" class="form-control"/>
@@ -42,7 +44,11 @@
                                 <input type="password" name="updated_password" value="" placeholder="Updated Password" class="form-control"/>
                                 </div>
                             </div>
+                                <div class="col-sm-6 form-group center">
+                                    <button type="submit" class="button_signup">Update</button>
+                                </div>
                             </div>
+                            </form>
 <br><br><br>
                             <div  style="padding: 50px;">
                             <h3>My Payments</h3>

@@ -31,7 +31,7 @@
                 <div class="col-sm-3 col-xs-12">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="{{route('contact-us')}}">Contact Us</a></li>
+                        <li><a href="{{route('contact-us')}}">Talk to Us</a></li>
                         <li><a href="">Careers</a></li>
 
                     </ul>

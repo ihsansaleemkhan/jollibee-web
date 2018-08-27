@@ -2,15 +2,15 @@
 
     <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
         <div class="item slider-1" style="background-image: url(assets/images/slider/001.jpg);background-size: contain;background-repeat: no-repeat;">
-           {{-- <button data-toggle="modal" data-target="#exampleModalCenter"  class="button-red">ORDER NOW</button>--}}
+            <button data-toggle="modal" data-target="#location"  class="button-red">ORDER ONLINE</button>
         </div>
 
         <div class="item slider-1" style="background-image: url(assets/images/slider/002.jpg);background-size: contain;background-repeat: no-repeat;">
-      {{--      <button data-toggle="modal" data-target="#exampleModalCenter"  class="button-red">ORDER NOW</button>--}}
+            <button data-toggle="modal" data-target="#location"  class="button-red">ORDER ONLINE</button>
         </div>
 
         <div class="item slider-1" style="background-image: url(assets/images/slider/003.jpg);background-size: contain;background-repeat: no-repeat;">
-           {{-- <button data-toggle="modal" data-target="#exampleModalCenter"  class="button-red">ORDER NOW</button>--}}
+            <button data-toggle="modal" data-target="#location"  class="button-red">ORDER ONLINE</button>
         </div>
 
 

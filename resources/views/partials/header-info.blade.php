@@ -4,9 +4,9 @@
             <span class="intro-text">Call and Order in</span>
             <span id="city-phone-number-label" class="phone-number">600 587000</span>
         </div>
-        <div class="phonep2">
-            <a data-toggle="modal" data-target="#location" {{--href="{{route('order-online')}}"--}}>Order Online</a>
-        </div>
+     {{--   <div class="phonep2">
+            <a data-toggle="modal" data-target="#location" --}}{{--href="{{route('order-online')}}"--}}{{-->Order Online</a>
+        </div>--}}
     </div>
 
     <ul class="site-header-cart-v2 menu">
