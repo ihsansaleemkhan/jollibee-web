@@ -16410,6 +16410,10 @@ p.order-again .button:after {
   .top-footer{
     text-align: center;
   }
+
+  .sociallin{
+    display: inline-block;
+  }
 }
 
 @media (min-width: 501px) and (max-width: 770px){
